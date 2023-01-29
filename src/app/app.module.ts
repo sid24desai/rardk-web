@@ -9,9 +9,15 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubCardComponent } from './components/github-card/github-card.component';
 import { MastodonCardComponent } from './components/mastodon-card/mastodon-card.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
-  declarations: [AppComponent, GithubCardComponent, MastodonCardComponent],
+  declarations: [
+    AppComponent,
+    GithubCardComponent,
+    MastodonCardComponent,
+    SafeHtmlPipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

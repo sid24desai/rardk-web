@@ -1,24 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { login } from 'masto';
+import { MastodonStatus } from 'src/app/models/mastodon-status';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MastodonService {
-  configUrl = 'assets/config.json';
   constructor(private http: HttpClient) {}
 
   async getMastodonFeed() {
-    const masto = await login({
-      url: environment.mastodonUrl,
-      accessToken: environment.mastodonAccessToken,
-    });
-
-    await masto.v1.statuses.create({
-      status: 'Testing',
-      visibility: 'public',
-    });
+    return this.http.get<MastodonStatus[]>(
+      `${environment.mastodonBaseUrl}/api/v1/accounts/${environment.mastodonId}/statuses/?limit=10&exclude_replies=true&exclude_reblogs=true`
+    );
   }
 }

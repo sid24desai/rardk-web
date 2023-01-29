@@ -1,7 +1,19 @@
-mat-card {
+.content-container-card {
   margin: 0 auto;
 }
 .content-container-card {
   width: 80%;
   text-align: center;
+  margin-top: 10px;
+}
+.avatar {
+  border-radius: 47%;
+  height: 120px;
+}
+.external-feed-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

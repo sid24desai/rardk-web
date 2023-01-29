@@ -1,0 +1,52 @@
+.status-avatar img {
+  border-radius: 47%;
+  height: 50px;
+}
+.mastodon-status-container {
+  padding: 5px;
+  height: 500px;
+  width: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #282c37;
+  color: white;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 5%;
+}
+
+.mastodon-status {
+  border-top: thin solid grey;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.mastodon-status:hover {
+  cursor: pointer;
+  background-color: #404653;
+}
+.mastodon-status:active {
+  cursor: pointer;
+  background-color: #404653;
+}
+
+.mastodon-status-container a {
+  color: #8c8dff;
+  text-decoration: none;
+}
+.mastodon-status-container a:visited {
+  color: #8c8dff;
+}
+.mastodon-status-container a:hover {
+  color: #8c8dff;
+  text-decoration: underline;
+}
+.mastodon-status-container a:active {
+  color: #8c8dff;
+  text-decoration: underline;
+}
+
+.status-media-attachment img {
+  max-height: 240px;
+  //   wi dth: 100%;
+}
