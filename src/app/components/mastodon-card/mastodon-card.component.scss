@@ -10,8 +10,7 @@
   overflow-x: hidden;
   background-color: #282c37;
   color: white;
-  margin: 0 auto;
-  margin-top: 10px;
+  margin-left: auto;
   border-radius: 5%;
 }
 
@@ -19,6 +18,8 @@
   border-top: thin solid grey;
   padding-top: 5px;
   padding-bottom: 5px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
 }
 
 .mastodon-status:hover {
@@ -48,5 +49,5 @@
 
 .status-media-attachment img {
   max-height: 240px;
-  //   wi dth: 100%;
+  max-width: 100%;
 }
