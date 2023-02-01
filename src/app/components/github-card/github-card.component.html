@@ -1,1 +1,12 @@
-<p>github-card works!</p>
+<!-- <h1>My Recent Commits</h1>
+<p *ngFor="let event of githubEvents">
+  <a [href]="event.payload.commits[0].url">{{
+    event.payload.commits[0].message
+  }}</a>
+  on {{ event.repo.name }}
+</p> -->
+<h1>Recently-Updated GitHub Repositories</h1>
+<p *ngFor="let repo of githubRepositoryItems">
+  <a [href]="repo.html_url">{{ repo.full_name }}</a
+  >&nbsp;<span *ngIf="repo.fork">(fork)</span>
+</p>
