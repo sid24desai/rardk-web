@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubCardComponent } from './components/github-card/github-card.component';
 import { MastodonCardComponent } from './components/mastodon-card/mastodon-card.component';
@@ -25,6 +26,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

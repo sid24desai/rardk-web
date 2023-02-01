@@ -2,6 +2,17 @@
   border-radius: 47%;
   height: 50px;
 }
+
+.mastodon-header-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+// .mastodon-statuses {
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// }
+
 .mastodon-status-container {
   padding: 5px;
   height: 500px;
@@ -20,6 +31,8 @@
   padding-bottom: 5px;
   transition-property: background-color;
   transition-duration: 0.2s;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .mastodon-status:hover {
