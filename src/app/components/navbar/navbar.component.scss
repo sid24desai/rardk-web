@@ -1,0 +1,11 @@
+$navbar-margin: 10px;
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-top: $navbar-margin;
+  margin-bottom: $navbar-margin;
+}
+.navbar-card {
+  max-width: 90%;
+}

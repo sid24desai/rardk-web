@@ -1,40 +1,7 @@
 <div class="page-container">
-  <mat-card class="content-container-card">
-    <mat-card-content>
-      <h1>rardk64</h1>
-      <div class="avatar-container">
-        <img class="avatar" src="/assets/rarvatar.png" />
-      </div>
-      <button mat-raised-button color="primary" (click)="openLinkTree()">
-        Find My Stuff Here
-      </button>
-      <br />
-      <br />
-      <div>Come back soon for more!</div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="content-container-card">
-    <mat-card-content>
-      <app-github-card></app-github-card>
-    </mat-card-content>
-  </mat-card>
-  <div class="external-feed-container">
-    <div class="flex-item-mastodon">
-      <app-mastodon-card></app-mastodon-card>
-    </div>
-    <div class="flex-item-twitter">
-      <a
-        class="twitter-timeline"
-        data-width="400"
-        data-height="500"
-        data-theme="dark"
-        href="https://twitter.com/rardk64?ref_src=twsrc%5Etfw"
-        >Tweets by rardk64</a
-      >
-    </div>
+  <app-header></app-header>
+  <app-navbar></app-navbar>
+  <div class="body-container">
+    <router-outlet></router-outlet>
   </div>
-
-  <br />
-  <br />
-  <br />
 </div>

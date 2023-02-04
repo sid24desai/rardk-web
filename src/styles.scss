@@ -7,3 +7,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: rgb(60, 134, 231);
 }
+
+::selection {
+  background-color: rgb(146, 30, 146);
+  color: #ffffff;
+}

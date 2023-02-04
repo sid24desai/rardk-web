@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubCardComponent } from './components/github-card/github-card.component';
 import { MastodonCardComponent } from './components/mastodon-card/mastodon-card.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { NowComponent } from './components/now/now.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HtmlDirective } from './directives/html.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,11 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     GithubCardComponent,
     MastodonCardComponent,
     SafeHtmlPipe,
+    NowComponent,
+    HomeComponent,
+    NavbarComponent,
+    HeaderComponent,
+    HtmlDirective,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +36,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
     HttpClientModule,
     MatDividerModule,
   ],

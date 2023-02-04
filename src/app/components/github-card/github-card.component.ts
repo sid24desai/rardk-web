@@ -13,35 +13,34 @@ export class GithubCardComponent implements OnInit {
   constructor(private githubService: GithubService) {}
 
   public githubRepositoryItems: GithubRepository[];
-  public githubEvents: GithubEvent[];
-  private numberOfRepositoriesToTake = 5;
-  private numberOfCommitsToTake = 10;
+  public githubRepoEvents: Map<string, GithubEvent[]>;
+  // private numberOfRepositoriesToTake = 5;
+  private numberOfCommitsToTake = 30;
 
   ngOnInit() {
-    this.populateGithubRepositoryItems();
-    // this.populateGithubEvents();
+    // this.populateGithubRepositoryItems();
+    this.populateGithubEvents();
   }
 
-  public async populateGithubRepositoryItems() {
-    (await this.githubService.getGithubRepositoryItems()).subscribe(
-      (repos: GithubRepository[]) => {
-        return (this.githubRepositoryItems = repos
-          .filter((g) => !g.archived)
-          .sort((g1, g2) => (g2.updated_at > g1.updated_at ? 1 : -1)));
-        //.slice(0, this.numberOfRepositoriesToTake));
-      }
-    );
-  }
+  // public async populateGithubRepositoryItems() {
+  //   (await this.githubService.getGithubRepositoryItems()).subscribe(
+  //     (repos: GithubRepository[]) => {
+  //       this.githubRepositoryItems = repos
+  //         .filter((g) => !g.archived)
+  //         .sort((g1, g2) => (g2.updated_at > g1.updated_at ? 1 : -1))
+  //         .slice(0, this.numberOfRepositoriesToTake);
+  //     }
+  //   );
+  // }
 
   public async populateGithubEvents() {
     (await this.githubService.getGithubEvents()).subscribe(
       (events: GithubEvent[]) => {
-        return (this.githubEvents = events
+        var pushEvents = events
           .filter((g) => {
-            if (!g.payload.commits || g.payload.commits.length === 0) {
+            if (!g.payload.commits || g.payload.commits.length !== 1) {
               return false;
             }
-            console.log(g.payload.commits);
             if (!g.payload.commits[0].url || g.payload.commits[0].url == '') {
               return false;
             }
@@ -56,9 +55,33 @@ export class GithubCardComponent implements OnInit {
             );
             return g;
           })
-          .sort((g1, g2) => (g2.created_at > g1.created_at ? 1 : -1)));
-        //.slice(0, this.numberOfCommitsToTake));
+          .sort((g1, g2) => (g2.created_at > g1.created_at ? 1 : -1));
+
+        let groupedEvents = this.groupEventsByRepo(pushEvents);
+        groupedEvents.forEach(
+          (e) =>
+            (e = e.sort((e1, e2) => {
+              return e2.created_at > e1.created_at ? 1 : -1;
+            }))
+        );
+        this.githubRepoEvents = groupedEvents;
       }
     );
+  }
+
+  private groupEventsByRepo(events: GithubEvent[]): Map<string, GithubEvent[]> {
+    let repositoriesWithEvents: Map<string, GithubEvent[]> = new Map<
+      string,
+      GithubEvent[]
+    >();
+    events.forEach((event) => {
+      if (!repositoriesWithEvents.has(event.repo.name)) {
+        repositoriesWithEvents.set(event.repo.name, []);
+      }
+      let eventsForRepo = repositoriesWithEvents.get(event.repo.name);
+      eventsForRepo?.push(event);
+      repositoriesWithEvents.set(event.repo.name, eventsForRepo!);
+    });
+    return repositoriesWithEvents;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MastodonStatus } from 'src/app/models/mastodon-status';
 import { MastodonService } from './mastodon.service';
 
@@ -19,16 +19,10 @@ export class MastodonCardComponent implements OnInit {
     (await this.mastodonService.getMastodonFeed()).subscribe(
       (result: MastodonStatus[]) =>
         (this.mastodonStatuses = result.map((s) => {
-          s.content = s.content; //this.strip(s.content);
+          s.content = s.content;
           return s;
         }))
     );
-  }
-
-  public strip(html: string) {
-    // found at https://stackoverflow.com/a/47140708/386869
-    let doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
   }
 
   public openMastodonStatus($event: MouseEvent, status: MastodonStatus) {

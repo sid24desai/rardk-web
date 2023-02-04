@@ -1,5 +1,6 @@
 .status-avatar img {
-  border-radius: 47%;
+  // border-radius: 47%;
+  border-radius: 17%;
   height: 50px;
 }
 
@@ -7,11 +8,6 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-
-// .mastodon-statuses {
-//   overflow-y: auto;
-//   overflow-x: hidden;
-// }
 
 .mastodon-status-container {
   padding: 5px;
@@ -21,7 +17,7 @@
   overflow-x: hidden;
   background-color: #282c37;
   color: white;
-  margin-left: auto;
+  // margin-left: auto;
   border-radius: 5%;
 }
 

@@ -12,7 +12,7 @@
       (mouseup)="openMastodonStatus($event, status)"
     >
       <span class="status-avatar"><img [src]="status.account.avatar" /></span>
-      <p class="status-content" [innerHTML]="status.content | safeHtml">
+      <p class="status-content" [html]="status.content">
         {{ status.content }}
       </p>
       <p
