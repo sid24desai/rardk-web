@@ -17,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HtmlDirective } from './directives/html.directive';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { SocialLinksComponent } from './components/social-links/social-links.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { HtmlDirective } from './directives/html.directive';
     NavbarComponent,
     HeaderComponent,
     HtmlDirective,
+    CollectionsComponent,
+    SocialLinksComponent,
   ],
   imports: [
     BrowserModule,

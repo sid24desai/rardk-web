@@ -25,14 +25,6 @@
         >
           <img *ngIf="media.type == 'image'" [src]="media.url" />
           <img *ngIf="media.type == 'video'" [src]="media.preview_url" />
-          <!-- <video
-            *ngIf="media.type == 'video'"
-            width="240"
-            height="120"
-            controls
-          >
-            <source [src]="media.url" />
-          </video> -->
         </span>
       </p>
       <span class="status-date">{{ status.created_at | date : "long" }}</span>
