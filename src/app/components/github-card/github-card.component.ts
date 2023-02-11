@@ -12,7 +12,6 @@ import { GithubService } from './github.service';
 export class GithubCardComponent implements OnInit {
   constructor(private githubService: GithubService) {}
 
-  public githubRepositoryItems: GithubRepository[];
   public githubRepoEvents: Map<string, GithubEvent[]>;
   // private numberOfRepositoriesToTake = 5;
   private numberOfCommitsToTake = 30;
@@ -20,18 +19,8 @@ export class GithubCardComponent implements OnInit {
   ngOnInit() {
     // this.populateGithubRepositoryItems();
     this.populateGithubEvents();
+    console.log(this.githubRepoEvents);
   }
-
-  // public async populateGithubRepositoryItems() {
-  //   (await this.githubService.getGithubRepositoryItems()).subscribe(
-  //     (repos: GithubRepository[]) => {
-  //       this.githubRepositoryItems = repos
-  //         .filter((g) => !g.archived)
-  //         .sort((g1, g2) => (g2.updated_at > g1.updated_at ? 1 : -1))
-  //         .slice(0, this.numberOfRepositoriesToTake);
-  //     }
-  //   );
-  // }
 
   public async populateGithubEvents() {
     (await this.githubService.getGithubEvents()).subscribe(
