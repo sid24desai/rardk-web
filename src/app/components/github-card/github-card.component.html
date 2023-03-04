@@ -1,15 +1,10 @@
 <h1>GitHub</h1>
-<h2>My Recent Commits</h2>
-<div
-  class="github-commits"
-  *ngFor="let repoEvent of githubRepoEvents | keyvalue"
->
-  <hr />
-  <h3>{{ repoEvent.key }}</h3>
+<h2>Recently-Updated Projects</h2>
+<div *ngFor="let repo of githubRepositories">
   <ul>
-    <li *ngFor="let event of repoEvent.value">
-      {{ event.payload.commits[0].message }} on
-      {{ event.created_at | date : "YYYY-MM-dd HH:mm:ss" }}
+    <li class="repo-name">
+      <a [href]="repo.html_url">{{ repo.name }}</a
+      >{{ repo.description ? " - " + repo.description : "" }}
     </li>
   </ul>
 </div>

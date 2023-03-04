@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GithubEvent } from 'src/app/models/github/github-event';
-import { GithubRepository } from 'src/app/models/github/github-repository';
+import { Observable } from 'rxjs';
+import { GithubSearchResult } from 'src/app/models/github/github-search-result';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,15 +10,9 @@ import { environment } from 'src/environments/environment';
 export class GithubService {
   constructor(private http: HttpClient) {}
 
-  async getGithubRepositoryItems() {
-    return this.http.get<GithubRepository[]>(
-      `${environment.githubUrl}users/${environment.githubUsername}/repos`
-    );
-  }
-
-  async getGithubEvents() {
-    return this.http.get<GithubEvent[]>(
-      `${environment.githubUrl}users/${environment.githubUsername}/events`
+  getGithubRecentlyUpdatedRepositories(): Observable<GithubSearchResult> {
+    return this.http.get<GithubSearchResult>(
+      `${environment.githubUrl}search/repositories?q=user:${environment.githubUsername}&sort=updated&order=desc`
     );
   }
 }

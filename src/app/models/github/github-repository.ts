@@ -5,11 +5,11 @@ export class GithubRepository {
   node_id: string;
   name: string;
   full_name: string;
-  private: false;
+  private: boolean;
   owner: GithubRepositoryOwner;
   html_url: string;
   description: string;
-  fork: false;
+  fork: boolean;
   url: string;
   forks_url: string;
   keys_url: string;
