@@ -14,9 +14,11 @@ export class GithubCardComponent implements OnInit {
 
   public githubRepositories: GithubRepository[];
   private numberOfRepositoriesToTake = 5;
+  public isLoading: boolean;
 
   ngOnInit() {
     this.populateGithubSearchResults();
+    this.isLoading = true;
   }
 
   public async populateGithubSearchResults() {
@@ -24,10 +26,10 @@ export class GithubCardComponent implements OnInit {
       .getGithubRecentlyUpdatedRepositories()
       .pipe(take(1))
       .subscribe((result: GithubSearchResult) => {
-        this.githubRepositories = result.items.slice(
-          0,
-          this.numberOfRepositoriesToTake
-        );
+        this.githubRepositories = result.items
+          .filter((r) => !r.archived)
+          .slice(0, this.numberOfRepositoriesToTake);
+        this.isLoading = false;
       });
   }
 }

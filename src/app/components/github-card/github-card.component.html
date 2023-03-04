@@ -1,8 +1,11 @@
 <h1>GitHub</h1>
 <h2>Recently-Updated Projects</h2>
-<div *ngFor="let repo of githubRepositories">
-  <ul>
-    <li class="repo-name">
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!isLoading">
+  <ul class="repo-list">
+    <li class="repo-name" *ngFor="let repo of githubRepositories">
       <a [href]="repo.html_url">{{ repo.name }}</a
       >{{ repo.description ? " - " + repo.description : "" }}
     </li>
