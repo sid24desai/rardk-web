@@ -2,7 +2,7 @@ export class LetterboxdItem {
   title: string;
   summary: string;
   url: string;
-  memberRating: string;
+  rating: string;
   isRewatch: boolean;
   watchedDate: string;
   imageUrl: string;

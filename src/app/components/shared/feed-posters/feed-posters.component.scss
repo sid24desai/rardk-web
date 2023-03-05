@@ -1,0 +1,48 @@
+.feed-item {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .feed-item-list {
+    line-height: 40px;
+  }
+  
+  .feed-item-posters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .feed-item-poster {
+    display: inline-block;
+    flex-grow: 1;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .feed-item-poster-img {
+    width: 150px;
+    transition: box-shadow 0.2s;
+    margin-bottom: 3px;
+  }
+  
+  .feed-item-poster-img:hover {
+    box-shadow: 4px 4px #000000;
+  }
+  
+  .feed-item-rating {
+    text-decoration: none;
+  }
+  
+  .feed-item-rating:hover {
+    text-decoration: underline;
+  }
+  
+  @media (min-width: 320px) and (max-width: 380px) {
+    .feed-item-poster {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  
