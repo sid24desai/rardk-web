@@ -11,7 +11,6 @@ import { LetterboxdService } from './letterboxd.service';
 })
 export class LetterboxdCardComponent {
   public isLoading: boolean;
-  public letterboxdItems: LetterboxdItem[];
   public feedItems: FeedItem[];
   private numberOfMoviesToList = 5;
 
@@ -24,18 +23,17 @@ export class LetterboxdCardComponent {
 
   public async populateLetterboxdItems() {
     this.letterboxdService
-      .getLetterboxdFeed()
+      .getLetterboxdFeed(this.numberOfMoviesToList)
       .pipe(take(1))
       .subscribe((result: LetterboxdItem[]) => {
-        this.letterboxdItems = result.slice(0, this.numberOfMoviesToList);
-        this.feedItems = this.letterboxdItems.map((m) => {
+        this.feedItems = result.map((m) => {
           return {
             title: m.title,
             summary: m.summary,
             date: m.watchedDate,
             imageUrl: m.imageUrl,
             isRepeat: m.isRewatch,
-            rating: m.rating,
+            rating: m.rating * 2,
             url: m.url,
           } as FeedItem;
         });

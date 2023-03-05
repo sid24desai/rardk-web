@@ -1,9 +1,7 @@
-export class LetterboxdItem {
+export class BackloggdItem {
   title: string;
   summary: string;
   url: string;
   rating: number;
-  isRewatch: boolean;
-  watchedDate: string;
   imageUrl: string;
 }

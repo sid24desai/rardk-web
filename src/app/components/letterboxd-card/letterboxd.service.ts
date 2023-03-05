@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class LetterboxdService {
   constructor(private http: HttpClient) {}
 
-  getLetterboxdFeed(): Observable<LetterboxdItem[]> {
-    return this.http.get<LetterboxdItem[]>(`${environment.nowApiUrl}letterboxd`);
+  getLetterboxdFeed(limit: number): Observable<LetterboxdItem[]> {
+    return this.http.get<LetterboxdItem[]>(`${environment.nowApiUrl}letterboxd?limit=${limit}`);
   }
 }

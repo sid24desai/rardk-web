@@ -18,6 +18,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { SocialLinksComponent } from './components/social-links/social-links.component';
 import { LetterboxdCardComponent } from './components/letterboxd-card/letterboxd-card.component';
 import { FeedPostersComponent } from './components/shared/feed-posters/feed-posters.component';
+import { BackloggdCardComponent } from './components/backloggd-card/backloggd-card.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FeedPostersComponent } from './components/shared/feed-posters/feed-post
     SocialLinksComponent,
     LetterboxdCardComponent,
     FeedPostersComponent,
+    BackloggdCardComponent,
   ],
   imports: [
     BrowserModule,
