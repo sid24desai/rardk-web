@@ -38,3 +38,10 @@
 .movie-rating:hover {
   text-decoration: underline;
 }
+
+@media (min-width: 320px) and (max-width: 380px) {
+  .movie-poster {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

@@ -5,6 +5,9 @@ $highlight-purple: rgb(146, 30, 146);
 $card-horizontal-padding: 34px;
 $card-vertical-padding: 15px;
 
+$card-horizontal-padding-mobile: 45px;
+$card-vertical-padding-mobile: 15px;
+
 $font-color: #ffffff;
 $opposite-font-color: #000000;
 
@@ -45,7 +48,7 @@ body {
   box-shadow: 2px 2px #000000;
   width: 60%;
   max-width: 950px;
-  min-width: 400px;
+  min-width: 370px;
 }
 
 .content-container-card a {
@@ -53,4 +56,12 @@ body {
 }
 .content-container-card a:visited {
   color: $opposite-font-color;
+}
+
+@media (min-width: 320px) and (max-width: 380px) {
+  .content-container-card {
+    padding-left: 6px;
+    padding-right: 0px;
+    font-size: 16px;
+  }
 }
