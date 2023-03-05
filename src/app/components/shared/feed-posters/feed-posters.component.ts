@@ -11,5 +11,4 @@ export class FeedPostersComponent {
   @Input() ratingMax: number;
   @Input() isLoading: boolean;
   @Input() feedItems: FeedItem[];
-  @Input() numberOfItemsToShow: number;
 }

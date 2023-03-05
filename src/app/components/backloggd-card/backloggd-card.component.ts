@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { take } from 'rxjs';
 import { BackloggdItem } from 'src/app/models/backloggd-item';
 import { FeedItem } from 'src/app/models/feed-item';
 import { BackloggdService } from './backloggd.service';
@@ -21,9 +22,9 @@ export class BackloggdCardComponent {
   }
 
   public async populateBackloggdItems() {
-    var subscription = this.backloggdService
+    this.backloggdService
       .getBackloggdFeed(this.numberOfGamesToList)
-      //.pipe(take(1))
+      .pipe(take(1))
       .subscribe((result: BackloggdItem[]) => {
         this.feedItems = result.map((m) => {
           return {
@@ -35,7 +36,6 @@ export class BackloggdCardComponent {
           } as FeedItem;
         });
         this.isLoading = false;
-        subscription.unsubscribe();
       });
   }
 }

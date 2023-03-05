@@ -33,7 +33,7 @@ export class LetterboxdCardComponent {
             date: m.watchedDate,
             imageUrl: m.imageUrl,
             isRepeat: m.isRewatch,
-            rating: m.rating * 2,
+            rating: m.rating * 2, //letterboxd sends this value out of 5, so multiply it to make it out of 10
             url: m.url,
           } as FeedItem;
         });
