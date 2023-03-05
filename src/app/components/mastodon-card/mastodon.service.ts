@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MastodonStatus } from 'src/app/models/mastodon-status';
+import { MastodonStatus } from 'src/app/models/mastodon/mastodon-status';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

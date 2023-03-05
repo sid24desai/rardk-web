@@ -1,4 +1,4 @@
-import { MastodonAccountMetadataField } from './mastodon-account-metadata-field';
+import { MastodonAccountMetadataField } from '../mastodon/mastodon-account-metadata-field';
 
 describe('MastodonAccountMetadataField', () => {
   it('should create an instance', () => {

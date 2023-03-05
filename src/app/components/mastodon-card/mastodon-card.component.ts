@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MastodonStatus } from 'src/app/models/mastodon-status';
+import { MastodonStatus } from 'src/app/models/mastodon/mastodon-status';
 import { MastodonService } from './mastodon.service';
 
 @Component({
