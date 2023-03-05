@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SocialLinksComponent } from './social-links.component';
+import { SocialLinksComponent } from './link-buttons.component';
 
 describe('SocialLinksComponent', () => {
   let component: SocialLinksComponent;

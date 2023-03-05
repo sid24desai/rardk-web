@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-social-links',
+  selector: 'app-link-buttons',
   templateUrl: './social-links.component.html',
   styleUrls: ['./social-links.component.scss']
 })
