@@ -6,7 +6,7 @@
 <div *ngIf="!isLoading">
   <ul class="repo-list">
     <li class="repo-name" *ngFor="let repo of githubRepositories">
-      <a [href]="repo.html_url">{{ repo.name }}</a
+      <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a
       >{{ repo.description ? " - " + repo.description : "" }}
     </li>
   </ul>

@@ -1,0 +1,30 @@
+.movie-item {
+  font-size: 18px;
+  font-weight: 400;
+}
+.movie-list {
+  line-height: 40px;
+}
+
+.movie-posters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-poster {
+  display: inline-block;
+  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.movie-poster-img {
+  width: 150px;
+}
+
+.movie-rating {
+  text-decoration: none;
+}

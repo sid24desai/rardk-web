@@ -20,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HtmlDirective } from './directives/html.directive';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { SocialLinksComponent } from './components/social-links/social-links.component';
+import { LetterboxdCardComponent } from './components/letterboxd-card/letterboxd-card.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SocialLinksComponent } from './components/social-links/social-links.com
     HtmlDirective,
     CollectionsComponent,
     SocialLinksComponent,
+    LetterboxdCardComponent,
   ],
   imports: [
     BrowserModule,

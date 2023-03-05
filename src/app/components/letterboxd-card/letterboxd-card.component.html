@@ -1,0 +1,14 @@
+<h1>Recent Movies</h1>
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="movie-posters-wrapper" *ngIf="!isLoading">
+  <div class="movie-poster" *ngFor="let movie of letterboxdItems">
+    <a [href]="movie.url" target="_blank"
+      ><img [alt]="movie.title" class="movie-poster-img" [src]="movie.imageUrl"
+    /></a>
+    <div>
+      <a class="movie-rating" [href]="movie.url" target="_blank">{{ movie.memberRating }} / 5.0</a>
+    </div>
+  </div>
+</div>

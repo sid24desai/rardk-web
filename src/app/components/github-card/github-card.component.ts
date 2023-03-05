@@ -17,8 +17,8 @@ export class GithubCardComponent implements OnInit {
   public isLoading: boolean;
 
   ngOnInit() {
-    this.populateGithubSearchResults();
     this.isLoading = true;
+    this.populateGithubSearchResults();
   }
 
   public async populateGithubSearchResults() {
