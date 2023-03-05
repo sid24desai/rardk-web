@@ -5,10 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubCardComponent } from './components/github-card/github-card.component';
 import { MastodonCardComponent } from './components/mastodon-card/mastodon-card.component';
@@ -41,12 +37,8 @@ import { LetterboxdCardComponent } from './components/letterboxd-card/letterboxd
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCardModule,
     MatProgressSpinnerModule,
-    MatIconModule,
     HttpClientModule,
-    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
