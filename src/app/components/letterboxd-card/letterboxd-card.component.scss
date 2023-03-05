@@ -23,8 +23,18 @@
 
 .movie-poster-img {
   width: 150px;
+  transition: box-shadow 0.2s;
+  margin-bottom: 3px;
+}
+
+.movie-poster-img:hover {
+  box-shadow: 4px 4px #000000;
 }
 
 .movie-rating {
   text-decoration: none;
+}
+
+.movie-rating:hover {
+  text-decoration: underline;
 }

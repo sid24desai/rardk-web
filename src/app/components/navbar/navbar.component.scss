@@ -3,33 +3,37 @@ $navbar-margin: 15px;
 .navbar {
   justify-content: center;
   margin-top: $navbar-margin;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: center;
+  display: flex;
 }
 .navbar-card {
-  margin: 0 auto;
+  display: flex;
 }
-.button {
+.navbar-button {
+  display: inline-block;
   color: #000000;
   border-style: solid;
-  border-width: 1px 1px 1px 1px;
-  text-decoration: none;
-  padding: 10px;
+  border-width: 0px;
+  // border-radius: 7px;
   border-color: #000000;
-  border-radius: 6px;
+  text-decoration: none;
+  padding: 8px;
   margin-left: 4px;
   margin-right: 4px;
-  // box-shadow: 5px 5px rgba(255, 255, 255, 0.5);
-  transition: box-shadow 0.1s;
+  // transition: box-shadow 0.1s;
+  // box-shadow: 2px 2px #ffffff;
   background-color: #ffffff;
+  max-width: 100px;
+  min-width: 80px;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.button:hover {
-  // box-shadow: 6px 6px rgba(255, 255, 255, 0.5);
+.navbar-button:hover {
   color: #000000;
 }
 
-.button:active {
-  // box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 2px 2px 4px 3px rgba(0, 0, 0, 0.5);
+.navbar-button:active {
+  box-shadow: inset 2px 3px 2px 2px rgba(0, 0, 0, 0.5);
 }
