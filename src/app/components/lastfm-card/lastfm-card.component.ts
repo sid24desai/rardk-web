@@ -47,12 +47,10 @@ export class LastfmCardComponent {
       .getTopArtists(this.numberOfArtistsToShow)
       .pipe(take(1))
       .subscribe((result: LastfmArtist[]) => {
-        this.topArtistFeedItems = result.map((album) => {
-          var imageUrl = (album as any).image.pop()['#text'];
+        this.topArtistFeedItems = result.map((artist) => {
           return {
-            title: album.name,
-            imageUrl: imageUrl,
-            url: album.url,
+            title: artist.name,
+            url: artist.url,
           } as FeedItem;
         });
         this.isLoading = false;
