@@ -19,6 +19,7 @@ import { SocialLinksComponent } from './components/social-links/social-links.com
 import { LetterboxdCardComponent } from './components/letterboxd-card/letterboxd-card.component';
 import { FeedPostersComponent } from './components/shared/feed-posters/feed-posters.component';
 import { BackloggdCardComponent } from './components/backloggd-card/backloggd-card.component';
+import { LastfmCardComponent } from './components/lastfm-card/lastfm-card.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BackloggdCardComponent } from './components/backloggd-card/backloggd-ca
     LetterboxdCardComponent,
     FeedPostersComponent,
     BackloggdCardComponent,
+    LastfmCardComponent,
   ],
   imports: [
     BrowserModule,

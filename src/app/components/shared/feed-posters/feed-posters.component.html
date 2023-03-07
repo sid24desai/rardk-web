@@ -10,7 +10,7 @@
         class="feed-item-poster-img"
         [src]="feedItem.imageUrl"
     /></a>
-    <div>
+    <div *ngIf="feedItem.rating">
       <a class="feed-item-rating" [href]="feedItem.url" target="_blank"
         >{{ feedItem.rating }} / {{ ratingMax }}</a
       >
