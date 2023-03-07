@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FeedItem } from 'src/app/models/feed-item';
 
 @Component({
@@ -6,9 +6,18 @@ import { FeedItem } from 'src/app/models/feed-item';
   templateUrl: './feed-posters.component.html',
   styleUrls: ['./feed-posters.component.scss'],
 })
-export class FeedPostersComponent {
+export class FeedPostersComponent implements OnInit {
   @Input() sectionTitle: string;
   @Input() ratingMax: number;
   @Input() isLoading: boolean;
   @Input() feedItems: FeedItem[];
+  @Input() displayType: string;
+
+  public isList: boolean;
+  public isPoster: boolean;
+
+  ngOnInit() {
+    this.isList = this.displayType.toLowerCase() === 'list';
+    this.isPoster = this.displayType.toLowerCase() === 'poster';
+  }
 }

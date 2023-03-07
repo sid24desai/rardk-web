@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { take } from 'rxjs';
 import { FeedItem } from 'src/app/models/feed-item';
 import { LastfmAlbum } from 'src/app/models/lastfm/lastfm-album';
+import { LastfmArtist } from 'src/app/models/lastfm/lastfm-artist';
 import { LastfmService } from '../lastfm.service';
 
 @Component({
@@ -11,22 +12,42 @@ import { LastfmService } from '../lastfm.service';
 })
 export class LastfmCardComponent {
   public isLoading: boolean;
-  public feedItems: FeedItem[];
+  public topAlbumFeedItems: FeedItem[];
+  public topArtistFeedItems: FeedItem[];
   private numberOfAlbumsToShow = 5;
+  private numberOfArtistsToShow = 5;
 
   constructor(private lastfmService: LastfmService) {}
 
   ngOnInit() {
     this.isLoading = true;
-    this.populateWeeklyAlbumChart();
+    this.populateTopAlbums();
+    this.populateTopArtists();
   }
 
-  public async populateWeeklyAlbumChart() {
+  public async populateTopAlbums() {
     this.lastfmService
       .getTopAlbums(this.numberOfAlbumsToShow)
       .pipe(take(1))
       .subscribe((result: LastfmAlbum[]) => {
-        this.feedItems = result.map((album) => {
+        this.topAlbumFeedItems = result.map((album) => {
+          var imageUrl = (album as any).image.pop()['#text'];
+          return {
+            title: album.name,
+            imageUrl: imageUrl,
+            url: album.url,
+          } as FeedItem;
+        });
+        this.isLoading = false;
+      });
+  }
+
+  public async populateTopArtists() {
+    this.lastfmService
+      .getTopArtists(this.numberOfArtistsToShow)
+      .pipe(take(1))
+      .subscribe((result: LastfmArtist[]) => {
+        this.topArtistFeedItems = result.map((album) => {
           var imageUrl = (album as any).image.pop()['#text'];
           return {
             title: album.name,

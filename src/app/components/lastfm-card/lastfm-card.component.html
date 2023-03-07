@@ -1,6 +1,14 @@
 <app-feed-posters
-  [sectionTitle]="'My Weekly Albums Chart'"
+  [sectionTitle]="'Top Albums'"
   [ratingMax]="10"
   [isLoading]="isLoading"
-  [feedItems]="feedItems"
+  [feedItems]="topAlbumFeedItems"
+  [displayType]="'poster'"
+></app-feed-posters>
+<app-feed-posters
+  [sectionTitle]="'Top Artists'"
+  [ratingMax]="10"
+  [isLoading]="isLoading"
+  [feedItems]="topArtistFeedItems"
+  [displayType]="'list'"
 ></app-feed-posters>

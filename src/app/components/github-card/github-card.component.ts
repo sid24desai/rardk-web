@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
-import { GithubRepository } from 'src/app/models/github/github-repository';
+import { FeedItem } from 'src/app/models/feed-item';
 import { GithubSearchResult } from 'src/app/models/github/github-search-result';
 import { GithubService } from './github.service';
 
@@ -12,7 +12,7 @@ import { GithubService } from './github.service';
 export class GithubCardComponent implements OnInit {
   constructor(private githubService: GithubService) {}
 
-  public githubRepositories: GithubRepository[];
+  public feedItems: FeedItem[];
   private numberOfRepositoriesToTake = 5;
   public isLoading: boolean;
 
@@ -26,9 +26,16 @@ export class GithubCardComponent implements OnInit {
       .getGithubRecentlyUpdatedRepositories()
       .pipe(take(1))
       .subscribe((result: GithubSearchResult) => {
-        this.githubRepositories = result.items
+        var repos = result.items
           .filter((r) => !r.archived)
           .slice(0, this.numberOfRepositoriesToTake);
+        this.feedItems = repos.map((r) => {
+          return {
+            title: r.name,
+            url: r.html_url,
+            summary: r.description,
+          } as FeedItem;
+        });
         this.isLoading = false;
       });
   }
