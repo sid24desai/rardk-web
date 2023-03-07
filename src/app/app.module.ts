@@ -20,6 +20,7 @@ import { LetterboxdCardComponent } from './components/letterboxd-card/letterboxd
 import { FeedPostersComponent } from './components/shared/feed-posters/feed-posters.component';
 import { BackloggdCardComponent } from './components/backloggd-card/backloggd-card.component';
 import { LastfmCardComponent } from './components/lastfm-card/lastfm-card.component';
+import { SerializdCardComponent } from './components/serializd-card/serializd-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LastfmCardComponent } from './components/lastfm-card/lastfm-card.compon
     FeedPostersComponent,
     BackloggdCardComponent,
     LastfmCardComponent,
+    SerializdCardComponent,
   ],
   imports: [
     BrowserModule,
