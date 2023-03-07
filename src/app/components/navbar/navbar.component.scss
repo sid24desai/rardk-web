@@ -15,20 +15,16 @@ $navbar-margin: 15px;
   color: #000000;
   border-style: solid;
   border-width: 0px;
-  // border-radius: 7px;
-  border-radius: 400px;
+  border-radius: 15px;
   border-color: #000000;
   text-decoration: none;
   padding: 8px;
   margin: 4px;
-  // transition: box-shadow 0.1s;
-  // box-shadow: 2px 2px #ffffff;
   background-color: #ffffff;
-  width: 80px;
-  // max-width: 100px;
-  // min-width: 80px;
+  width: 100px;
   cursor: pointer;
   font-weight: 500;
+  font-size: 15px;
 }
 
 .navbar-button:hover {
