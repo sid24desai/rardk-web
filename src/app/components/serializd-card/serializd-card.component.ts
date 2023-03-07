@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { take } from 'rxjs';
 import { FeedItem } from 'src/app/models/feed-item';
 import { SerializdCurrentlyWatchingItem } from 'src/app/models/serializd-currently-watching-item';
-import { environment } from 'src/environments/environment';
 import { SerializdService } from './serializd.service';
 
 @Component({
@@ -28,10 +27,7 @@ export class SerializdCardComponent {
       .pipe(take(1))
       .subscribe((result: SerializdCurrentlyWatchingItem[]) => {
         this.feedItems = result
-          //.slice(0, this.numberOfShowsToDisplay)
           .map((m) => {
-            // var showUrl = `${environment.serializdShowBaseUrl}${m.showId}/`;
-            // var imageUrl = `${environment.serializdShowImageBaseUrl}${m.bannerImage}`;
             return {
               title: m.bannerImage,
               date: m.dateAdded,
