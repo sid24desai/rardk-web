@@ -15,7 +15,7 @@ $navbar-margin: 15px;
   color: #000000;
   border-style: solid;
   border-width: 0px;
-  border-radius: 15px;
+  border-radius: 10px;
   border-color: #000000;
   text-decoration: none;
   padding: 8px;
@@ -29,6 +29,7 @@ $navbar-margin: 15px;
 
 .navbar-button:hover {
   color: #000000;
+  background-color: #dbd8d8;
 }
 
 .navbar-button:active {
