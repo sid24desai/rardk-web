@@ -22,6 +22,7 @@ import { BackloggdCardComponent } from './components/backloggd-card/backloggd-ca
 import { LastfmCardComponent } from './components/lastfm-card/lastfm-card.component';
 import { SerializdCardComponent } from './components/serializd-card/serializd-card.component';
 import { GoodreadsCardComponent } from './components/goodreads-card/goodreads-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { GoodreadsCardComponent } from './components/goodreads-card/goodreads-ca
     LastfmCardComponent,
     SerializdCardComponent,
     GoodreadsCardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
