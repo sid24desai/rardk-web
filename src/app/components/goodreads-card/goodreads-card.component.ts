@@ -11,27 +11,46 @@ import { take } from 'rxjs';
 })
 export class GoodreadsCardComponent {
   public isLoading: boolean;
-  public feedItems: FeedItem[];
+  public finishedBooksFeedItems: FeedItem[];
+  public currentlyReadingBooksFeedItems: FeedItem[];
   private numberOfBooksToList = 5;
 
   constructor(private goodreadsService: GoodreadsService) {}
 
   ngOnInit() {
     this.isLoading = true;
-    this.populateGoodreadsItems();
+    this.populateFinishedBooksItems();
+    this.populateCurrentlyReadingBooksItems();
   }
 
-  public async populateGoodreadsItems() {
+  public async populateFinishedBooksItems() {
     this.goodreadsService
-      .getGoodreadsFeed(this.numberOfBooksToList)
+      .getGoodreadsFinishedBooksFeed(this.numberOfBooksToList)
       .pipe(take(1))
       .subscribe((result: GoodreadsItem[]) => {
-        this.feedItems = result.map((m) => {
+        this.finishedBooksFeedItems = result.map((m) => {
           return {
             title: m.title,
             summary: m.summary,
             imageUrl: m.imageUrl,
             rating: m.rating * 2, //goodreads sends this value out of 5, so multiply it to make it out of 10
+            url: m.url,
+          } as FeedItem;
+        });
+        this.isLoading = false;
+      });
+  }
+
+  public async populateCurrentlyReadingBooksItems() {
+    this.goodreadsService
+      .getGoodreadsCurrentlyReadingBooksFeed(this.numberOfBooksToList)
+      .pipe(take(1))
+      .subscribe((result: GoodreadsItem[]) => {
+        this.currentlyReadingBooksFeedItems = result.map((m) => {
+          return {
+            title: m.title,
+            summary: m.summary,
+            imageUrl: m.imageUrl,
             url: m.url,
           } as FeedItem;
         });

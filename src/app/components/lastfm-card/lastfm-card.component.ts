@@ -3,7 +3,7 @@ import { take } from 'rxjs';
 import { FeedItem } from 'src/app/models/feed-item';
 import { LastfmAlbum } from 'src/app/models/lastfm/lastfm-album';
 import { LastfmArtist } from 'src/app/models/lastfm/lastfm-artist';
-import { LastfmService } from '../lastfm.service';
+import { LastfmService } from './lastfm.service';
 
 @Component({
   selector: 'app-lastfm-card',

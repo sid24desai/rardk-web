@@ -10,9 +10,17 @@ import { environment } from 'src/environments/environment';
 export class GoodreadsService {
   constructor(private http: HttpClient) {}
 
-  getGoodreadsFeed(limit: number): Observable<GoodreadsItem[]> {
+  getGoodreadsFinishedBooksFeed(limit: number): Observable<GoodreadsItem[]> {
     return this.http.get<GoodreadsItem[]>(
-      `${environment.nowApiUrl}goodreads?limit=${limit}`
+      `${environment.nowApiUrl}goodreads/finished?limit=${limit}`
+    );
+  }
+
+  getGoodreadsCurrentlyReadingBooksFeed(
+    limit: number
+  ): Observable<GoodreadsItem[]> {
+    return this.http.get<GoodreadsItem[]>(
+      `${environment.nowApiUrl}goodreads/currently-reading?limit=${limit}`
     );
   }
 }

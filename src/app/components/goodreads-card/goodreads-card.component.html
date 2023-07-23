@@ -2,6 +2,13 @@
   [sectionTitle]="'Books Read'"
   [ratingMax]="10"
   [isLoading]="isLoading"
-  [feedItems]="feedItems"
+  [feedItems]="finishedBooksFeedItems"
+  [displayType]="'poster'"
+></app-feed-posters>
+<app-feed-posters
+  [sectionTitle]="'Currently Reading'"
+  [ratingMax]="10"
+  [isLoading]="isLoading"
+  [feedItems]="currentlyReadingBooksFeedItems"
   [displayType]="'poster'"
 ></app-feed-posters>
