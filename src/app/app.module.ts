@@ -21,6 +21,7 @@ import { FeedPostersComponent } from './components/shared/feed-posters/feed-post
 import { BackloggdCardComponent } from './components/backloggd-card/backloggd-card.component';
 import { LastfmCardComponent } from './components/lastfm-card/lastfm-card.component';
 import { SerializdCardComponent } from './components/serializd-card/serializd-card.component';
+import { GoodreadsCardComponent } from './components/goodreads-card/goodreads-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SerializdCardComponent } from './components/serializd-card/serializd-ca
     BackloggdCardComponent,
     LastfmCardComponent,
     SerializdCardComponent,
+    GoodreadsCardComponent,
   ],
   imports: [
     BrowserModule,
