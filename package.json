@@ -6,6 +6,7 @@
     "start": "ng serve",
     "start-port": "ng serve --port 52340",
     "build": "ng build",
+    "build-for-deploy": "ng build --prod --base-href home",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
