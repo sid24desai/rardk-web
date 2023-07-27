@@ -1,4 +1,4 @@
-name: Build
+name: 🛠️ Build Angular App
 on:
   push:
     branches:
@@ -32,7 +32,8 @@ jobs:
           npm ci
           npm run build
   deploy:
-    name: 🚀 Deploy
+    name: 🚀 Deploy via FTP
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get Latest Code
@@ -44,7 +45,4 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           local-dir: "./dist/"
-          server-dir: "public_html/test"
-
-
-      
+          server-dir: "public_html/test/"
