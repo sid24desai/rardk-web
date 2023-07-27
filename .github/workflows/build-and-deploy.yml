@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: "🛠️ Build Angular App"
+    name: "🛠️ Build Angular Application"
     runs-on: ubuntu-latest
 
     steps:
