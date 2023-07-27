@@ -28,7 +28,7 @@ jobs:
       - name: npm ci and npm run build
         run: |
           npm ci
-          npm run build-for-deploy
+          npm run build
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -51,4 +51,4 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           local-dir: "./dist/rardk-web/"
-          server-dir: "public_html/home/"
+          server-dir: "public_html/"
