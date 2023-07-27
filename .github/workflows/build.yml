@@ -32,13 +32,21 @@ jobs:
         run: |
           npm ci
           npm run build
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: angular-build
+          path: "./dist/"
   deploy:
     name: 🚀 Deploy via FTP
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get Latest Code
-        uses: actions/checkout@v3
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: angular-build
+          path: "./dist/"
       - name: ⬆️ Upload Files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
