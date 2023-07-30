@@ -24,6 +24,8 @@ import { SerializdCardComponent } from './components/serializd-card/serializd-ca
 import { GoodreadsCardComponent } from './components/goodreads-card/goodreads-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SeeMoreLinkComponent } from './components/shared/see-more-link/see-more-link.component';
+import { LegoSetsComponent } from './components/lego-sets/lego-sets.component';
+import { CheckOrXComponent } from './components/shared/check-or-x/check-or-x.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { SeeMoreLinkComponent } from './components/shared/see-more-link/see-more
     GoodreadsCardComponent,
     FooterComponent,
     SeeMoreLinkComponent,
+    LegoSetsComponent,
+    CheckOrXComponent,
   ],
   imports: [
     BrowserModule,

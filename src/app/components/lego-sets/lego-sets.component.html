@@ -1,0 +1,47 @@
+<div class="content-container">
+  <div class="content-container-card">
+    <h1>Lego Sets</h1>
+    <h2>Sets I Want</h2>
+    <section class="wanted-section">
+      <table class="set-table">
+        <th>Set Name</th>
+        <th>Series</th>
+        <th>Owned</th>
+
+        <tr *ngFor="let set of wantedSets">
+          <td>
+            <a [href]="set.url" target="_blank" title="Open on LEGO.com">{{
+              set.name
+            }}</a>
+          </td>
+
+          <td>{{ set.series }}</td>
+
+          <td>
+            <app-check-or-x [flag]="set.owned"></app-check-or-x>
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section class="owned-section">
+      <h2>Sets I Own</h2>
+      <table class="set-table">
+        <th>Set Name</th>
+        <th>Series</th>
+        <th>Built</th>
+
+        <tr *ngFor="let set of ownedSets">
+          <td>
+            <a [href]="set.url" target="_blank" title="Open on LEGO.com">{{
+              set.name
+            }}</a>
+          </td>
+          <td>{{ set.series }}</td>
+          <td>
+            <app-check-or-x [flag]="set.built"></app-check-or-x>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </div>
+</div>
