@@ -13,8 +13,9 @@ export class GithubCardComponent implements OnInit {
   constructor(private githubService: GithubService) {}
 
   public feedItems: FeedItem[];
-  private numberOfRepositoriesToTake = 5;
   public isLoading: boolean;
+  private numberOfRepositoriesToTake = 5;
+  private filteredRepositoryNames = ['lego-sets-list'];
 
   ngOnInit() {
     this.isLoading = true;
@@ -28,6 +29,7 @@ export class GithubCardComponent implements OnInit {
       .subscribe((result: GithubSearchResult) => {
         var repos = result.items
           .filter((r) => !r.archived)
+          .filter((r) => !this.filteredRepositoryNames.includes(r.name))
           .slice(0, this.numberOfRepositoriesToTake);
         this.feedItems = repos.map((r) => {
           return {
