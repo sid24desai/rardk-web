@@ -15,7 +15,7 @@ $navbar-margin: 15px;
   color: #000000;
   border-style: solid;
   border-width: 0px;
-  border-radius: 10px;
+  border-radius: 13px;
   border-color: #000000;
   text-decoration: none;
   padding: 10px;
@@ -23,8 +23,9 @@ $navbar-margin: 15px;
   background-color: #ffffff;
   width: 110px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 17px;
+  // text-transform: uppercase;
 }
 
 .navbar-button:hover {

@@ -1,3 +1,7 @@
+.feed-section-title {
+  text-align: center;
+}
+
 .feed-item {
   font-size: 18px;
   font-weight: 400;
@@ -30,6 +34,14 @@
 
 .feed-item-poster-img:hover {
   box-shadow: 5px 5px #000000;
+  transition: 0.1s linear;
+}
+
+.feed-item-poster-img:active {
+  box-shadow: 1px 1px #000000;
+  opacity: 0;
+  transition: 0.2s linear;
+  transform: scale(2) rotate(10deg);
 }
 
 .feed-item-rating {

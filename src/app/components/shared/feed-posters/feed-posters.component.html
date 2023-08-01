@@ -1,4 +1,11 @@
-<h2>{{ sectionTitle }}</h2>
+<h2 class="feed-section-title">
+  {{ sectionTitle }}
+  <app-see-more-link
+    *ngIf="profileUrl && profileName"
+    [url]="profileUrl!"
+    [name]="profileName!"
+  ></app-see-more-link>
+</h2>
 <div *ngIf="isLoading">
   <mat-spinner></mat-spinner>
 </div>

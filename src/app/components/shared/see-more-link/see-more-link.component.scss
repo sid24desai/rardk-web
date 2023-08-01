@@ -1,8 +1,19 @@
-.see-more {
-  margin-top: 20px;
-  text-align: center;
+a {
+  font-size: 20px;
+  text-decoration: none;
 }
 
-a {
-  text-decoration: none;
+.see-more-link {
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+}
+
+.see-more-link:hover {
+  transform: rotate(360deg);
+}
+
+.see-more-link:active {
+  opacity: 0;
+  transition: 0.1s linear;
+  transform: scale(3) rotate(10deg);
 }

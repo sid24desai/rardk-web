@@ -11,7 +11,7 @@
 .links-container li {
   margin: 0px auto;
   text-align: center;
-  background-color: #f08633;
+  background-color: #ffffff;
   border-radius: 30px;
   height: 60px;
   line-height: 60px;
@@ -24,13 +24,15 @@
 
 .links-container a {
   text-decoration: none;
-  color: #ffffff;
+  color: #000000;
   font-size: 22px;
   display: block;
-  // width: 100%;
   max-width: 700px;
 }
 .links-container a:hover {
-  background-color: #e9a470;
+  background-color: #dddddd;
   border-radius: 30px;
+}
+.links-container a:active {
+  box-shadow: inset 2px 3px 2px 2px rgba(0, 0, 0, 0.5);
 }
