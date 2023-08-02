@@ -34,7 +34,8 @@ export class SerializdCardComponent {
               imageUrl: m.bannerImage,
               url: m.showUrl,
             } as FeedItem;
-          });
+          })
+          .sort((s1, s2) => (s1.date < s2.date ? 1 : -1));
         this.isLoading = false;
       });
   }
