@@ -37,12 +37,12 @@
   transition: 0.1s linear;
 }
 
-.feed-item-poster-img:active {
-  box-shadow: 1px 1px #000000;
-  opacity: 0;
-  transition: 0.2s linear;
-  transform: scale(2) rotate(10deg);
-}
+// .feed-item-poster-img:active {
+//   box-shadow: 1px 1px #000000;
+//   opacity: 0;
+//   transition: 0.2s linear;
+//   transform: scale(2) rotate(10deg);
+// }
 
 .feed-item-rating {
   text-decoration: none;
