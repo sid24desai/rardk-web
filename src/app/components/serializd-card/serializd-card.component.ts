@@ -12,7 +12,7 @@ import { SerializdService } from './serializd.service';
 export class SerializdCardComponent {
   public isLoading: boolean;
   public feedItems: FeedItem[];
-  private numberOfShowsToDisplay = 5;
+  private numberOfShowsToDisplay = 10;
 
   constructor(private serializdService: SerializdService) {}
 
