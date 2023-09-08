@@ -15,7 +15,10 @@ export class GithubCardComponent implements OnInit {
   public feedItems: FeedItem[];
   public isLoading: boolean;
   private numberOfRepositoriesToTake = 5;
-  private filteredRepositoryNames = ['lego-sets-list'];
+  private filteredRepositoryNames = [
+    'lego-sets-list',
+    'repost-sites-ignore-list',
+  ];
 
   ngOnInit() {
     this.isLoading = true;
