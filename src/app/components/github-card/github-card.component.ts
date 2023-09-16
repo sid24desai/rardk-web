@@ -18,6 +18,7 @@ export class GithubCardComponent implements OnInit {
   private filteredRepositoryNames = [
     'lego-sets-list',
     'repost-sites-ignore-list',
+    'justwatch-country-config',
   ];
 
   ngOnInit() {
