@@ -19,6 +19,7 @@ export class GithubCardComponent implements OnInit {
     'lego-sets-list',
     'repost-sites-ignore-list',
     'justwatch-country-config',
+    'replybot-default-replies',
   ];
 
   ngOnInit() {
