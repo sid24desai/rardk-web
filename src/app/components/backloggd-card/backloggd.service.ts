@@ -11,6 +11,10 @@ export class BackloggdService {
   constructor(private http: HttpClient) {}
 
   getBackloggdFeed(limit: number): Observable<BackloggdItem[]> {
-    return this.http.get<BackloggdItem[]>(`${environment.nowApiUrl}backloggd?limit=${limit}`);
+    return this.http.get<BackloggdItem[]>(`${environment.nowApiUrl}backloggd/reviews?limit=${limit}`);
+  }
+
+  getBackloggdCurrentGames(limit: number): Observable<BackloggdItem[]> {
+    return this.http.get<BackloggdItem[]>(`${environment.nowApiUrl}backloggd/current?limit=${limit}`);
   }
 }

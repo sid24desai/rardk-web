@@ -11,27 +11,45 @@ import { BackloggdService } from './backloggd.service';
 })
 export class BackloggdCardComponent {
   public isLoading: boolean;
-  public feedItems: FeedItem[];
+  public reviewsFeedItems: FeedItem[];
+  public currentGamesFeedItems: FeedItem[];
   private numberOfGamesToList = 5;
 
   constructor(private backloggdService: BackloggdService) {}
 
   ngOnInit() {
     this.isLoading = true;
-    this.populateBackloggdItems();
+    this.populateBackloggdFeedItems();
+    this.populateBackloggdCurrentGamesFeedItems();
   }
 
-  public async populateBackloggdItems() {
+  public async populateBackloggdFeedItems() {
     this.backloggdService
       .getBackloggdFeed(this.numberOfGamesToList)
       .pipe(take(1))
       .subscribe((result: BackloggdItem[]) => {
-        this.feedItems = result.map((m) => {
+        this.reviewsFeedItems = result.map((m) => {
           return {
             title: m.title,
             summary: m.summary,
             imageUrl: m.imageUrl,
             rating: m.rating,
+            url: m.url,
+          } as FeedItem;
+        });
+        this.isLoading = false;
+      });
+  }
+
+  public async populateBackloggdCurrentGamesFeedItems() {
+    this.backloggdService
+      .getBackloggdCurrentGames(this.numberOfGamesToList)
+      .pipe(take(1))
+      .subscribe((result: BackloggdItem[]) => {
+        this.currentGamesFeedItems = result.map((m) => {
+          return {
+            title: m.title,
+            imageUrl: m.imageUrl,
             url: m.url,
           } as FeedItem;
         });
