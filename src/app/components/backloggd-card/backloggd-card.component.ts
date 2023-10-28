@@ -13,7 +13,8 @@ export class BackloggdCardComponent {
   public isLoading: boolean;
   public reviewsFeedItems: FeedItem[];
   public currentGamesFeedItems: FeedItem[];
-  private numberOfGamesToList = 5;
+  private numberOfCurrentGamesToList = 5;
+  private numberOfFinishedGamesToList = 10;
 
   constructor(private backloggdService: BackloggdService) {}
 
@@ -25,7 +26,7 @@ export class BackloggdCardComponent {
 
   public async populateBackloggdFeedItems() {
     this.backloggdService
-      .getBackloggdFeed(this.numberOfGamesToList)
+      .getBackloggdFeed(this.numberOfFinishedGamesToList)
       .pipe(take(1))
       .subscribe((result: BackloggdItem[]) => {
         this.reviewsFeedItems = result.map((m) => {
@@ -43,7 +44,7 @@ export class BackloggdCardComponent {
 
   public async populateBackloggdCurrentGamesFeedItems() {
     this.backloggdService
-      .getBackloggdCurrentGames(this.numberOfGamesToList)
+      .getBackloggdCurrentGames(this.numberOfCurrentGamesToList)
       .pipe(take(1))
       .subscribe((result: BackloggdItem[]) => {
         this.currentGamesFeedItems = result.map((m) => {
