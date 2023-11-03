@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { take } from 'rxjs';
 import { LegoSet } from 'src/app/models/lego-set';
 import { LegoSetsService } from './lego-sets.service';
@@ -28,7 +27,6 @@ export class LegoSetsComponent {
         this.wantedSets = sets
           .sort((a, b) => (a.name > b.name ? 1 : -1))
           .filter((l) => !l.owned);
-        console.log(this.wantedSets);
       });
   }
 }
