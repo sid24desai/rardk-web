@@ -1,17 +1,17 @@
 <app-feed-posters
-  sectionTitle="Recently-Finished Books"
+  sectionTitle="Currently Reading"
   [ratingMax]="10"
-  [isLoading]="isLoading"
-  [feedItems]="finishedBooksFeedItems"
+  [isLoading]="isCurrentlyReadingLoading"
+  [feedItems]="currentlyReadingBooksFeedItems"
   displayType="poster"
   profileUrl="https://www.goodreads.com/user/show/167818625-robert-rar"
   profileName="Goodreads"
 ></app-feed-posters>
 <app-feed-posters
-  sectionTitle="Currently Reading"
+  sectionTitle="Recently-Finished Books"
   [ratingMax]="10"
-  [isLoading]="isLoading"
-  [feedItems]="currentlyReadingBooksFeedItems"
+  [isLoading]="isFinishedBooksLoading"
+  [feedItems]="finishedBooksFeedItems"
   displayType="poster"
   profileUrl="https://www.goodreads.com/user/show/167818625-robert-rar"
   profileName="Goodreads"

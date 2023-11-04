@@ -1,7 +1,7 @@
 <app-feed-posters
   sectionTitle="Top Albums"
   [ratingMax]="10"
-  [isLoading]="isLoading"
+  [isLoading]="isTopAlbumsLoading"
   [feedItems]="topAlbumFeedItems"
   displayType="poster"
   profileUrl="https://www.last.fm/user/rardk64"
@@ -10,7 +10,7 @@
 <app-feed-posters
   sectionTitle="Top Artists"
   [ratingMax]="10"
-  [isLoading]="isLoading"
+  [isLoading]="isTopArtistsLoading"
   [feedItems]="topArtistFeedItems"
   displayType="list"
   profileUrl="https://www.last.fm/user/rardk64"

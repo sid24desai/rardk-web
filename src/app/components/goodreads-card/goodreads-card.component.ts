@@ -10,7 +10,8 @@ import { take } from 'rxjs';
   styleUrls: ['./goodreads-card.component.scss'],
 })
 export class GoodreadsCardComponent {
-  public isLoading: boolean;
+  public isFinishedBooksLoading: boolean;
+  public isCurrentlyReadingLoading: boolean;
   public finishedBooksFeedItems: FeedItem[];
   public currentlyReadingBooksFeedItems: FeedItem[];
   private numberOfBooksToList = 5;
@@ -18,7 +19,8 @@ export class GoodreadsCardComponent {
   constructor(private goodreadsService: GoodreadsService) {}
 
   ngOnInit() {
-    this.isLoading = true;
+    this.isFinishedBooksLoading = true;
+    this.isCurrentlyReadingLoading = true;
     this.populateFinishedBooksItems();
     this.populateCurrentlyReadingBooksItems();
   }
@@ -37,7 +39,7 @@ export class GoodreadsCardComponent {
             url: m.url,
           } as FeedItem;
         });
-        this.isLoading = false;
+        this.isFinishedBooksLoading = false;
       });
   }
 
@@ -54,7 +56,7 @@ export class GoodreadsCardComponent {
             url: m.url,
           } as FeedItem;
         });
-        this.isLoading = false;
+        this.isCurrentlyReadingLoading = false;
       });
   }
 }
