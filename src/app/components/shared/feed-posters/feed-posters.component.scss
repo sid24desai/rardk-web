@@ -59,6 +59,19 @@
   line-height: 40px;
 }
 
+.no-content-text-container {
+  display: flex;
+}
+
+.no-content-text {
+  display: inline-block;
+  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+}
+
 @media (min-width: 320px) and (max-width: 380px) {
   .feed-item-poster {
     padding-left: 0px;
