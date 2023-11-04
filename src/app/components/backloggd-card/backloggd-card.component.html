@@ -1,17 +1,16 @@
 <app-feed-posters
   sectionTitle="Currently Playing"
   [ratingMax]="10"
-  [isLoading]="isLoading"
+  [isLoading]="isCurrentGamesFeedLoading"
   [feedItems]="currentGamesFeedItems"
   displayType="poster"
   profileUrl="https://www.backloggd.com/u/rardk64/games/added:desc/type:playing/"
   profileName="Backloggd"
 ></app-feed-posters>
-
 <app-feed-posters
   sectionTitle="Recently-Finished Games"
   [ratingMax]="10"
-  [isLoading]="isLoading"
+  [isLoading]="isReviewsFeedLoading"
   [feedItems]="reviewsFeedItems"
   displayType="poster"
   profileUrl="https://www.backloggd.com/u/rardk64/"

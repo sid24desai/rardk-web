@@ -10,7 +10,8 @@ import { BackloggdService } from './backloggd.service';
   styleUrls: ['./backloggd-card.component.scss'],
 })
 export class BackloggdCardComponent {
-  public isLoading: boolean;
+  public isCurrentGamesFeedLoading: boolean;
+  public isReviewsFeedLoading: boolean;
   public reviewsFeedItems: FeedItem[];
   public currentGamesFeedItems: FeedItem[];
   private numberOfCurrentGamesToList = 5;
@@ -19,7 +20,8 @@ export class BackloggdCardComponent {
   constructor(private backloggdService: BackloggdService) {}
 
   ngOnInit() {
-    this.isLoading = true;
+    this.isCurrentGamesFeedLoading = true;
+    this.isReviewsFeedLoading = true;
     this.populateBackloggdFeedItems();
     this.populateBackloggdCurrentGamesFeedItems();
   }
@@ -38,7 +40,7 @@ export class BackloggdCardComponent {
             url: m.url,
           } as FeedItem;
         });
-        this.isLoading = false;
+        this.isReviewsFeedLoading = false;
       });
   }
 
@@ -54,7 +56,7 @@ export class BackloggdCardComponent {
             url: m.url,
           } as FeedItem;
         });
-        this.isLoading = false;
+        this.isCurrentGamesFeedLoading = false;
       });
   }
 }

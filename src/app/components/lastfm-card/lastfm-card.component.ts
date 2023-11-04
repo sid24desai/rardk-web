@@ -11,7 +11,8 @@ import { LastfmService } from './lastfm.service';
   styleUrls: ['./lastfm-card.component.scss'],
 })
 export class LastfmCardComponent {
-  public isLoading: boolean;
+  public isTopAlbumsLoading: boolean;
+  public isTopArtistsLoading: boolean;
   public topAlbumFeedItems: FeedItem[];
   public topArtistFeedItems: FeedItem[];
   private numberOfAlbumsToShow = 5;
@@ -20,7 +21,8 @@ export class LastfmCardComponent {
   constructor(private lastfmService: LastfmService) {}
 
   ngOnInit() {
-    this.isLoading = true;
+    this.isTopAlbumsLoading = true;
+    this.isTopArtistsLoading = true;
     this.populateTopAlbums();
     this.populateTopArtists();
   }
@@ -38,7 +40,7 @@ export class LastfmCardComponent {
             url: album.url,
           } as FeedItem;
         });
-        this.isLoading = false;
+        this.isTopAlbumsLoading = false;
       });
   }
 
@@ -53,7 +55,7 @@ export class LastfmCardComponent {
             url: artist.url,
           } as FeedItem;
         });
-        this.isLoading = false;
+        this.isTopArtistsLoading = false;
       });
   }
 }
