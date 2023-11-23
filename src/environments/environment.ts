@@ -5,4 +5,5 @@ export const environment = {
   githubUrl: 'https://api.github.com/',
   nowApiUrl: 'https://rardk64.com/api/now/',
   githubUsername: 'rarDevelopment',
+  isSocialEnabled: false,
 };
