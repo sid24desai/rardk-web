@@ -38,6 +38,11 @@ img {
   text-align: center;
 }
 
-.spinner-container {
+.spinner-container,
+.error-message {
   margin-top: 20px;
+}
+
+.error-message {
+  color: red;
 }

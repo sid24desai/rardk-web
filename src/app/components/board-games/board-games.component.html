@@ -22,7 +22,12 @@
         If it's not loading, try refreshing the page...
       </div>
     </ng-container>
-    <ng-container *ngIf="!isLoadingWishlist && !isLoadingOwnedList">
+    <div class="error-message" *ngIf="showErrorMessage">
+      There was an error. Please refresh the page, that should do the trick!
+    </div>
+    <ng-container
+      *ngIf="!isLoadingWishlist && !isLoadingOwnedList && !showErrorMessage"
+    >
       <section class="wanted-section">
         <h2>Board Games I Want</h2>
         <table class="set-table">
