@@ -17,6 +17,7 @@ export class BoardGamesComponent implements OnInit {
   public isLoadingWishlist: boolean;
   public isLoadingOwnedList: boolean;
   public showLoadingDisclaimer: boolean;
+  public showErrorMessage: boolean;
 
   ngOnInit() {
     this.isLoadingWishlist = true;
@@ -32,17 +33,24 @@ export class BoardGamesComponent implements OnInit {
     this.boardGamesService
       .getWishlistGames()
       .pipe(take(1))
-      .subscribe((boardGames: BoardGame[]) => {
-        this.wishlistGames = boardGames
-          .sort((i) => i.priority)
-          .map((g) => {
-            let formattedGame = g;
-            if (formattedGame.comment && formattedGame.comment.length > 0) {
-              formattedGame.comment = micromark(formattedGame.comment);
-            }
-            return formattedGame;
-          });
-        this.isLoadingWishlist = false;
+      .subscribe({
+        next: (boardGames: BoardGame[]) => {
+          this.wishlistGames = boardGames
+            .sort((i) => i.priority)
+            .map((g) => {
+              let formattedGame = g;
+              if (formattedGame.comment && formattedGame.comment.length > 0) {
+                formattedGame.comment = micromark(formattedGame.comment);
+              }
+              return formattedGame;
+            });
+          this.isLoadingWishlist = false;
+        },
+        error: (error) => {
+          console.error('Error loading wishlist', error);
+          this.isLoadingWishlist = false;
+          this.showErrorMessage = true;
+        },
       });
   }
 
@@ -50,15 +58,22 @@ export class BoardGamesComponent implements OnInit {
     this.boardGamesService
       .getOwnedGames()
       .pipe(take(1))
-      .subscribe((boardGames: BoardGame[]) => {
-        this.ownedGames = boardGames.map((g) => {
-          let formattedGame = g;
-          if (formattedGame.comment && formattedGame.comment.length > 0) {
-            formattedGame.comment = micromark(formattedGame.comment);
-          }
-          return formattedGame;
-        });
-        this.isLoadingOwnedList = false;
+      .subscribe({
+        next: (boardGames: BoardGame[]) => {
+          this.ownedGames = boardGames.map((g) => {
+            let formattedGame = g;
+            if (formattedGame.comment && formattedGame.comment.length > 0) {
+              formattedGame.comment = micromark(formattedGame.comment);
+            }
+            return formattedGame;
+          });
+          this.isLoadingOwnedList = false;
+        },
+        error: (error) => {
+          console.error('Error loading owned list', error);
+          this.isLoadingOwnedList = false;
+          this.showErrorMessage = true;
+        },
       });
   }
 }
