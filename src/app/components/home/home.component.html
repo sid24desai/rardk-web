@@ -10,9 +10,11 @@
     <div class="home-paragraph">
       Check out the stuff at the top! You can look at the
       <a routerLink="/now">now page</a> for what I'm up to lately, the
-      <a routerLink="collections">collect page</a> for what I'm collecting, and
-      see where else you can find me on the
-      <a routerLink="socials">social page</a>.
+      <a routerLink="collections">collect page</a> for what I'm collecting<span
+        *ngIf="isSocialEnabled"
+        >, and see where else you can find me on the
+        <a routerLink="socials">social page</a></span
+      >.
     </div>
   </div>
 </div>
