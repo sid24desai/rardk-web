@@ -1,0 +1,55 @@
+<div class="content-container">
+  <div class="content-container-card">
+    <h1 class="card-title">Board Games Collection</h1>
+    <div class="page-description">
+      This data is pulled from my collection on
+      <a href="https://boardgamegeek.com/collection/user/rardk" target="_blank"
+        >BoardGameGeek</a
+      >.
+    </div>
+    <ng-container *ngIf="isLoadingWishlist || isLoadingOwnedList">
+      <div class="spinner-container">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div class="loading-disclaimer" *ngIf="showLoadingDisclaimer">
+        If it's not loading, try refreshing the page...
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!isLoadingWishlist && !isLoadingOwnedList">
+      <section class="wanted-section">
+        <h2>Board Games I Want</h2>
+        <table class="set-table">
+          <th></th>
+          <th>Priority</th>
+          <th>Name</th>
+          <th>Notes</th>
+
+          <tr *ngFor="let boardGame of wishlistGames">
+            <td class="img-cell">
+              <img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}" />
+            </td>
+            <td>{{ boardGame.priority }}</td>
+            <td>{{ boardGame.name }} ({{ boardGame.yearPublished }})</td>
+            <td [innerHTML]="boardGame.comment"></td>
+          </tr>
+        </table>
+      </section>
+      <section class="owned-section">
+        <h2>Board Games I Own</h2>
+        <table class="set-table">
+          <th></th>
+          <th>Name</th>
+          <th>Notes</th>
+
+          <tr *ngFor="let boardGame of ownedGames">
+            <td class="img-cell">
+              <img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}" />
+            </td>
+            <td>{{ boardGame.name }} ({{ boardGame.yearPublished }})</td>
+            <td [innerHTML]="boardGame.comment"></td>
+          </tr>
+        </table>
+      </section>
+    </ng-container>
+  </div>
+</div>

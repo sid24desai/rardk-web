@@ -26,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SeeMoreLinkComponent } from './components/shared/see-more-link/see-more-link.component';
 import { LegoSetsComponent } from './components/lego-sets/lego-sets.component';
 import { CheckOrXComponent } from './components/shared/check-or-x/check-or-x.component';
+import { BoardGamesComponent } from './components/board-games/board-games.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CheckOrXComponent } from './components/shared/check-or-x/check-or-x.com
     SeeMoreLinkComponent,
     LegoSetsComponent,
     CheckOrXComponent,
+    BoardGamesComponent,
   ],
   imports: [
     BrowserModule,
