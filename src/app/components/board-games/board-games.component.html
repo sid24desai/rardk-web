@@ -37,7 +37,7 @@
 
           <tr *ngFor="let boardGame of wishlistGames">
             <td class="img-cell">
-              <a [href]="boardGame.url"
+              <a [href]="boardGame.url" target="_blank"
                 ><img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}"
               /></a>
             </td>
@@ -56,7 +56,7 @@
 
           <tr *ngFor="let boardGame of ownedGames">
             <td class="img-cell">
-              <a [href]="boardGame.url"
+              <a [href]="boardGame.url" target="_blank"
                 ><img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}"
               /></a>
             </td>
