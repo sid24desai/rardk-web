@@ -56,7 +56,9 @@
 
           <tr *ngFor="let boardGame of ownedGames">
             <td class="img-cell">
-              <img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}" />
+              <a [href]="boardGame.url"
+                ><img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}"
+              /></a>
             </td>
             <td>{{ boardGame.name }} ({{ boardGame.yearPublished }})</td>
             <td>{{ boardGame.rating }}</td>
