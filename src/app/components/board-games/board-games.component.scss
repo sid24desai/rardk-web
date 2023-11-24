@@ -31,7 +31,8 @@
 }
 
 img {
-  max-width: 150px;
+  max-width: 100px;
+  cursor: pointer;
 }
 
 .img-cell {
@@ -39,7 +40,8 @@ img {
 }
 
 .spinner-container,
-.error-message {
+.error-message,
+hr {
   margin-top: 20px;
 }
 
