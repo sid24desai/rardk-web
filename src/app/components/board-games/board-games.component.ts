@@ -37,19 +37,14 @@ export class BoardGamesComponent implements OnInit {
         next: (boardGames: BoardGame[]) => {
           this.wishlistGames = boardGames
             .sort((i) => i.priority)
-            .map((g) => {
-              let formattedGame = g;
-              if (formattedGame.comment && formattedGame.comment.length > 0) {
-                formattedGame.comment = micromark(formattedGame.comment);
-              }
-              return formattedGame;
-            });
+            .map((g) => this.formatGameProperties(g, true));
           this.isLoadingWishlist = false;
         },
         error: (error) => {
           console.error('Error loading wishlist', error);
-          this.isLoadingWishlist = false;
-          this.showErrorMessage = true;
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         },
       });
   }
@@ -60,20 +55,34 @@ export class BoardGamesComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (boardGames: BoardGame[]) => {
-          this.ownedGames = boardGames.map((g) => {
-            let formattedGame = g;
-            if (formattedGame.comment && formattedGame.comment.length > 0) {
-              formattedGame.comment = micromark(formattedGame.comment);
-            }
-            return formattedGame;
-          });
+          this.ownedGames = boardGames.map((g) =>
+            this.formatGameProperties(g, false)
+          );
           this.isLoadingOwnedList = false;
         },
         error: (error) => {
           console.error('Error loading owned list', error);
-          this.isLoadingOwnedList = false;
-          this.showErrorMessage = true;
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         },
       });
+  }
+
+  private formatGameProperties(g: BoardGame, showPriority: boolean) {
+    let formattedGame = g;
+    if (showPriority) {
+      formattedGame.comment = `Priority: ${
+        formattedGame.priority
+      }\n\n${micromark(formattedGame.comment)}`;
+    } else {
+      if (formattedGame.comment && formattedGame.comment.length > 0) {
+        formattedGame.comment = micromark(formattedGame.comment);
+      }
+    }
+    if (formattedGame.rating && formattedGame.rating.toLowerCase() !== 'n/a') {
+      formattedGame.rating = `${formattedGame.rating} / 10`;
+    }
+    return formattedGame;
   }
 }

@@ -32,33 +32,34 @@
         <h2>Board Games I Want</h2>
         <table class="set-table">
           <th></th>
-          <th>Priority</th>
           <th>Name</th>
           <th>Notes</th>
 
           <tr *ngFor="let boardGame of wishlistGames">
             <td class="img-cell">
-              <img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}" />
+              <a [href]="boardGame.url"
+                ><img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}"
+              /></a>
             </td>
-            <td>{{ boardGame.priority }}</td>
             <td>{{ boardGame.name }} ({{ boardGame.yearPublished }})</td>
             <td [innerHTML]="boardGame.comment"></td>
           </tr>
         </table>
       </section>
+      <hr />
       <section class="owned-section">
         <h2>Board Games I Own</h2>
         <table class="set-table">
           <th></th>
           <th>Name</th>
-          <th>Notes</th>
+          <th>My Rating</th>
 
           <tr *ngFor="let boardGame of ownedGames">
             <td class="img-cell">
               <img [src]="boardGame.thumbnail" alt="{{ boardGame.name }}" />
             </td>
             <td>{{ boardGame.name }} ({{ boardGame.yearPublished }})</td>
-            <td [innerHTML]="boardGame.comment"></td>
+            <td>{{ boardGame.rating }}</td>
           </tr>
         </table>
       </section>

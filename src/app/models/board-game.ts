@@ -6,4 +6,5 @@ export class BoardGame {
   public priority: number;
   public yearPublished: number;
   public comment: string;
+  public rating: string;
 }
