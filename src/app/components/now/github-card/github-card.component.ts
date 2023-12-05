@@ -14,6 +14,7 @@ export class GithubCardComponent implements OnInit {
 
   public feedItems: FeedItem[];
   public isLoading: boolean;
+  public isRepositoriesError: boolean = false;
   private numberOfRepositoriesToTake = 5;
   private filteredRepositoryNames = [
     'lego-sets-list',
@@ -31,19 +32,25 @@ export class GithubCardComponent implements OnInit {
     this.githubService
       .getGithubRecentlyUpdatedRepositories()
       .pipe(take(1))
-      .subscribe((result: GithubSearchResult) => {
-        var repos = result.items
-          .filter((r) => !r.archived)
-          .filter((r) => !this.filteredRepositoryNames.includes(r.name))
-          .slice(0, this.numberOfRepositoriesToTake);
-        this.feedItems = repos.map((r) => {
-          return {
-            title: r.name,
-            url: r.html_url,
-            summary: r.description,
-          } as FeedItem;
-        });
-        this.isLoading = false;
+      .subscribe({
+        next: (result: GithubSearchResult) => {
+          var repos = result.items
+            .filter((r) => !r.archived)
+            .filter((r) => !this.filteredRepositoryNames.includes(r.name))
+            .slice(0, this.numberOfRepositoriesToTake);
+          this.feedItems = repos.map((r) => {
+            return {
+              title: r.name,
+              url: r.html_url,
+              summary: r.description,
+            } as FeedItem;
+          });
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isRepositoriesError = true;
+        },
       });
   }
 }

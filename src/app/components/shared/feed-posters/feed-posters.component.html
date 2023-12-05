@@ -6,10 +6,10 @@
     [name]="profileName!"
   ></app-see-more-link>
 </h2>
-<ng-container *ngIf="isLoading">
+<ng-container *ngIf="isLoading && !isError">
   <mat-spinner></mat-spinner>
 </ng-container>
-<ng-container *ngIf="!isLoading">
+<ng-container *ngIf="!isLoading && !isError">
   <ng-container *ngIf="feedItems && feedItems.length > 0; else no_content">
     <div class="feed-item-posters-wrapper" *ngIf="isPoster">
       <div class="feed-item-poster" *ngFor="let feedItem of feedItems">
@@ -40,4 +40,11 @@
       <div class="no-content-text">None</div>
     </div>
   </ng-template>
+</ng-container>
+<ng-container *ngIf="isError">
+  <div class="error-wrapper">
+    <div class="error-text">
+      There was an error loading this data. Please try again later.
+    </div>
+  </div>
 </ng-container>

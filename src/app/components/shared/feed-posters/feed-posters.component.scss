@@ -33,7 +33,7 @@
 }
 
 .feed-item-poster-img:hover {
-  box-shadow: 5px 5px #000000;
+  box-shadow: 6px 6px #000000;
   transition: 0.1s linear;
 }
 
@@ -70,6 +70,20 @@
   text-align: center;
   padding-bottom: 10px;
   margin-bottom: 8px;
+}
+
+.error-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.error-text {
+  display: inline-block;
+  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 12px;
+  color: rgb(189, 2, 2);
 }
 
 @media (min-width: 320px) and (max-width: 380px) {
