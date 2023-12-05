@@ -13,6 +13,7 @@ export class SerializdCardComponent {
   public isLoading: boolean;
   public feedItems: FeedItem[];
   private numberOfShowsToDisplay = 10;
+  public isCurrentTvError: boolean;
 
   constructor(private serializdService: SerializdService) {}
 
@@ -25,18 +26,24 @@ export class SerializdCardComponent {
     this.serializdService
       .getSerializdCurrentlyWatchingItems(this.numberOfShowsToDisplay)
       .pipe(take(1))
-      .subscribe((result: SerializdCurrentlyWatchingItem[]) => {
-        this.feedItems = result
-          .map((m) => {
-            return {
-              title: m.bannerImage,
-              date: m.dateAdded,
-              imageUrl: m.bannerImage,
-              url: m.showUrl,
-            } as FeedItem;
-          })
-          .sort((s1, s2) => (s1.date < s2.date ? 1 : -1));
-        this.isLoading = false;
+      .subscribe({
+        next: (result: SerializdCurrentlyWatchingItem[]) => {
+          this.feedItems = result
+            .map((m) => {
+              return {
+                title: m.bannerImage,
+                date: m.dateAdded,
+                imageUrl: m.bannerImage,
+                url: m.showUrl,
+              } as FeedItem;
+            })
+            .sort((s1, s2) => (s1.date < s2.date ? 1 : -1));
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isCurrentTvError = true;
+        },
       });
   }
 }

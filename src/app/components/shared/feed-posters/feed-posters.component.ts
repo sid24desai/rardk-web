@@ -14,6 +14,7 @@ export class FeedPostersComponent implements OnInit {
   @Input() displayType: string;
   @Input() profileUrl?: string;
   @Input() profileName?: string;
+  @Input() isError: boolean = false;
 
   public isList: boolean;
   public isPoster: boolean;

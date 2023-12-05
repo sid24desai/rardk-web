@@ -16,6 +16,8 @@ export class BackloggdCardComponent {
   public currentGamesFeedItems: FeedItem[];
   private numberOfCurrentGamesToList = 5;
   private numberOfFinishedGamesToList = 10;
+  isRecentlyFinishedGamesError: boolean;
+  isCurrentGamesError: boolean;
 
   constructor(private backloggdService: BackloggdService) {}
 
@@ -30,17 +32,23 @@ export class BackloggdCardComponent {
     this.backloggdService
       .getBackloggdFeed(this.numberOfFinishedGamesToList)
       .pipe(take(1))
-      .subscribe((result: BackloggdItem[]) => {
-        this.reviewsFeedItems = result.map((m) => {
-          return {
-            title: m.title,
-            summary: m.summary,
-            imageUrl: m.imageUrl,
-            rating: m.rating,
-            url: m.url,
-          } as FeedItem;
-        });
-        this.isReviewsFeedLoading = false;
+      .subscribe({
+        next: (result: BackloggdItem[]) => {
+          this.reviewsFeedItems = result.map((m) => {
+            return {
+              title: m.title,
+              summary: m.summary,
+              imageUrl: m.imageUrl,
+              rating: m.rating,
+              url: m.url,
+            } as FeedItem;
+          });
+          this.isReviewsFeedLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isRecentlyFinishedGamesError = true;
+        },
       });
   }
 
@@ -48,15 +56,22 @@ export class BackloggdCardComponent {
     this.backloggdService
       .getBackloggdCurrentGames(this.numberOfCurrentGamesToList)
       .pipe(take(1))
-      .subscribe((result: BackloggdItem[]) => {
-        this.currentGamesFeedItems = result.map((m) => {
-          return {
-            title: m.title,
-            imageUrl: m.imageUrl,
-            url: m.url,
-          } as FeedItem;
-        });
-        this.isCurrentGamesFeedLoading = false;
+      .subscribe({
+        next: (result: BackloggdItem[]) => {
+          this.currentGamesFeedItems = result.map((m) => {
+            return {
+              title: m.title,
+              imageUrl: m.imageUrl,
+              url: m.url,
+            } as FeedItem;
+          });
+          this.isCurrentGamesFeedLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isCurrentGamesError = true;
+          alert(this.isCurrentGamesError);
+        },
       });
   }
 }

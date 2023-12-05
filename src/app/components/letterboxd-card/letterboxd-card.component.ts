@@ -13,6 +13,7 @@ export class LetterboxdCardComponent {
   public isLoading: boolean;
   public feedItems: FeedItem[];
   private numberOfMoviesToList = 5;
+  isRecentMoviesError: boolean;
 
   constructor(private letterboxdService: LetterboxdService) {}
 
@@ -25,19 +26,25 @@ export class LetterboxdCardComponent {
     this.letterboxdService
       .getLetterboxdFeed(this.numberOfMoviesToList)
       .pipe(take(1))
-      .subscribe((result: LetterboxdItem[]) => {
-        this.feedItems = result.map((m) => {
-          return {
-            title: m.title,
-            summary: m.summary,
-            date: m.watchedDate,
-            imageUrl: m.imageUrl,
-            isRepeat: m.isRewatch,
-            rating: m.rating * 2, //letterboxd sends this value out of 5, so multiply it to make it out of 10
-            url: m.url,
-          } as FeedItem;
-        });
-        this.isLoading = false;
+      .subscribe({
+        next: (result: LetterboxdItem[]) => {
+          this.feedItems = result.map((m) => {
+            return {
+              title: m.title,
+              summary: m.summary,
+              date: m.watchedDate,
+              imageUrl: m.imageUrl,
+              isRepeat: m.isRewatch,
+              rating: m.rating * 2, //letterboxd sends this value out of 5, so multiply it to make it out of 10
+              url: m.url,
+            } as FeedItem;
+          });
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isRecentMoviesError = true;
+        },
       });
   }
 }

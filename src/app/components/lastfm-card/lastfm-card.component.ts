@@ -17,6 +17,8 @@ export class LastfmCardComponent {
   public topArtistFeedItems: FeedItem[];
   private numberOfAlbumsToShow = 5;
   private numberOfArtistsToShow = 5;
+  isTopAlbumsError: boolean;
+  isTopArtistsError: boolean;
 
   constructor(private lastfmService: LastfmService) {}
 
@@ -31,16 +33,22 @@ export class LastfmCardComponent {
     this.lastfmService
       .getTopAlbums(this.numberOfAlbumsToShow)
       .pipe(take(1))
-      .subscribe((result: LastfmAlbum[]) => {
-        this.topAlbumFeedItems = result.map((album) => {
-          var imageUrl = (album as any).image.pop()['#text'];
-          return {
-            title: album.name,
-            imageUrl: imageUrl,
-            url: album.url,
-          } as FeedItem;
-        });
-        this.isTopAlbumsLoading = false;
+      .subscribe({
+        next: (result: LastfmAlbum[]) => {
+          this.topAlbumFeedItems = result.map((album) => {
+            var imageUrl = (album as any).image.pop()['#text'];
+            return {
+              title: album.name,
+              imageUrl: imageUrl,
+              url: album.url,
+            } as FeedItem;
+          });
+          this.isTopAlbumsLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isTopAlbumsError = true;
+        },
       });
   }
 
@@ -48,14 +56,20 @@ export class LastfmCardComponent {
     this.lastfmService
       .getTopArtists(this.numberOfArtistsToShow)
       .pipe(take(1))
-      .subscribe((result: LastfmArtist[]) => {
-        this.topArtistFeedItems = result.map((artist) => {
-          return {
-            title: artist.name,
-            url: artist.url,
-          } as FeedItem;
-        });
-        this.isTopArtistsLoading = false;
+      .subscribe({
+        next: (result: LastfmArtist[]) => {
+          this.topArtistFeedItems = result.map((artist) => {
+            return {
+              title: artist.name,
+              url: artist.url,
+            } as FeedItem;
+          });
+          this.isTopArtistsLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isTopArtistsError = true;
+        },
       });
   }
 }
