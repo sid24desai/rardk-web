@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
-import { GithubCardComponent } from './components/github-card/github-card.component';
+import { GithubCardComponent } from './components/now/github-card/github-card.component';
 import { MastodonCardComponent } from './components/mastodon-card/mastodon-card.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { NowComponent } from './components/now/now.component';
@@ -16,17 +16,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { HtmlDirective } from './directives/html.directive';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { SocialLinksComponent } from './components/social-links/social-links.component';
-import { LetterboxdCardComponent } from './components/letterboxd-card/letterboxd-card.component';
+import { LetterboxdCardComponent } from './components/now/letterboxd-card/letterboxd-card.component';
 import { FeedPostersComponent } from './components/shared/feed-posters/feed-posters.component';
-import { BackloggdCardComponent } from './components/backloggd-card/backloggd-card.component';
-import { LastfmCardComponent } from './components/lastfm-card/lastfm-card.component';
-import { SerializdCardComponent } from './components/serializd-card/serializd-card.component';
-import { GoodreadsCardComponent } from './components/goodreads-card/goodreads-card.component';
+import { BackloggdCardComponent } from './components/now/backloggd-card/backloggd-card.component';
+import { LastfmCardComponent } from './components/now/lastfm-card/lastfm-card.component';
+import { SerializdCardComponent } from './components/now/serializd-card/serializd-card.component';
+import { GoodreadsCardComponent } from './components/now/goodreads-card/goodreads-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SeeMoreLinkComponent } from './components/shared/see-more-link/see-more-link.component';
-import { LegoSetsComponent } from './components/lego-sets/lego-sets.component';
+import { LegoSetsComponent } from './components/collections/lego-sets/lego-sets.component';
 import { CheckOrXComponent } from './components/shared/check-or-x/check-or-x.component';
-import { BoardGamesComponent } from './components/board-games/board-games.component';
+import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
 
 @NgModule({
   declarations: [

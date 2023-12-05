@@ -4,8 +4,8 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { HomeComponent } from './components/home/home.component';
 import { NowComponent } from './components/now/now.component';
 import { SocialLinksComponent } from './components/social-links/social-links.component';
-import { LegoSetsComponent } from './components/lego-sets/lego-sets.component';
-import { BoardGamesComponent } from './components/board-games/board-games.component';
+import { LegoSetsComponent } from './components/collections/lego-sets/lego-sets.component';
+import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
 
 const routes: Routes = [
   { path: 'board-games', component: BoardGamesComponent },
