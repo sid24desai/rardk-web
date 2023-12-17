@@ -87,3 +87,8 @@ button:active {
     width: 100%;
   }
 }
+
+/* center the material spinner */
+.mat-mdc-progress-spinner {
+  margin: 0 auto;
+}
