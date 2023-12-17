@@ -1,0 +1,28 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h2 {
+  font-size: 32px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.publish-date {
+  font-size: 12px;
+  text-align: center;
+}
+
+.blog-post-summary {
+  cursor: pointer;
+}
+.blog-post-summary:hover {
+  background-color: #dddddd !important;
+}
