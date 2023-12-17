@@ -16,8 +16,10 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.isLoading = true;
     this.blogService.getBlogPosts().subscribe({
-      next: (response: BlogPost[]) => {
-        this.blogPosts = response;
+      next: (blogPosts: BlogPost[]) => {
+        this.blogPosts = blogPosts.sort((p1, p2) =>
+          p1.publishDate > p2.publishDate ? 1 : -1
+        );
         this.isLoading = false;
       },
       error: (error) => {
@@ -25,5 +27,12 @@ export class BlogComponent implements OnInit {
         console.error(error);
       },
     });
+  }
+
+  openBlogPost($event: MouseEvent, postId: string) {
+    // found at https://stackoverflow.com/a/64279838/386869
+    if ($event.button <= 1) {
+      window.open('/blog/' + postId);
+    }
   }
 }
