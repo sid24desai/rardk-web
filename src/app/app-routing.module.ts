@@ -10,8 +10,8 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
 
 const routes: Routes = [
-  { path: 'blog-posts/:postId', component: BlogPostComponent },
-  { path: 'blog-posts', component: BlogComponent },
+  { path: 'blog/:postId', component: BlogPostComponent },
+  { path: 'blog', component: BlogComponent },
   { path: 'board-games', component: BoardGamesComponent },
   { path: 'lego', component: LegoSetsComponent },
   { path: 'now', component: NowComponent },

@@ -1,15 +1,21 @@
-<div class="content-container">
-  <div class="content-container-card" *ngIf="isLoading">
+<div class="content-container" *ngIf="isLoading">
+  <div class="content-container-card">
     <mat-spinner></mat-spinner>
   </div>
-  <div
-    class="content-container-card blog-post-summary"
-    *ngFor="let post of blogPosts"
-    [routerLink]="['/blog-posts/', post.postId]"
-  >
-    <h1 class="card-title">{{ post.title }}</h1>
-    <p class="publish-date">Published: {{ post.publishDate }}</p>
-    <p [html]="post.summary">{{ post.summary }}</p>
-    <a [routerLink]="['/blog-posts/', post.postId]">Read Post</a>
-  </div>
 </div>
+<ng-container *ngFor="let post of blogPosts">
+  <div class="content-container">
+    <div
+      class="content-container-card blog-post-summary"
+      (mouseup)="openBlogPost($event, post.postId)"
+    >
+      <h1 class="card-title">{{ post.title }}</h1>
+      <p class="publish-date">
+        Published: {{ post.publishDate | date : "medium" }}
+      </p>
+      <p [html]="post.summary">{{ post.summary }}</p>
+      <a [routerLink]="['/blog/', post.postId]">Read Post</a>
+    </div>
+  </div>
+  <br />
+</ng-container>
