@@ -34,7 +34,7 @@ export class BlogComponent implements OnInit {
     // found at https://stackoverflow.com/a/64279838/386869
     if ($event.button == 1) {
       window.open('/blog/' + postId);
-    } else {
+    } else if ($event.button < 1) {
       this.router.navigate(['blog', postId]);
     }
   }
