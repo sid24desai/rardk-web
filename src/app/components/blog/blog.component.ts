@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from './blog.service';
 import { BlogPost } from 'src/app/models/blog-post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -11,7 +12,7 @@ export class BlogComponent implements OnInit {
   public blogPosts: BlogPost[];
   isLoading: boolean;
 
-  constructor(private blogService: BlogService) {}
+  constructor(private blogService: BlogService, private router: Router) {}
 
   ngOnInit() {
     this.isLoading = true;
@@ -31,8 +32,10 @@ export class BlogComponent implements OnInit {
 
   openBlogPost($event: MouseEvent, postId: string) {
     // found at https://stackoverflow.com/a/64279838/386869
-    if ($event.button <= 1) {
+    if ($event.button == 1) {
       window.open('/blog/' + postId);
+    } else {
+      this.router.navigate(['blog', postId]);
     }
   }
 }

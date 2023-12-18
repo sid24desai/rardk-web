@@ -27,6 +27,25 @@ body {
   padding-bottom: 50px;
 }
 
+.page-description-container {
+  padding-bottom: 10px;
+}
+
+.page-description-content {
+  text-align: center;
+}
+
+.page-description-content a {
+  color: white;
+}
+.page-description-content a:visited {
+  color: white;
+}
+.page-description-content a:active {
+  color: white;
+}
+
+.page-description-container,
 .content-container {
   display: flex;
   flex-direction: row;
