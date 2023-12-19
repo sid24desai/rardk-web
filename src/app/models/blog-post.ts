@@ -5,4 +5,5 @@ export class BlogPost {
   public content: string[];
   public postId: string;
   public publishDate: string;
+  public categories: string[];
 }
