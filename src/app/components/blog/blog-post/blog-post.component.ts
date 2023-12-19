@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BlogPost } from 'src/app/models/blog-post';
 import { BlogService } from '../blog.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
@@ -16,7 +16,8 @@ export class BlogPostComponent {
 
   constructor(
     private blogService: BlogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -48,6 +49,10 @@ export class BlogPostComponent {
     const blogPost = blogPosts.find(
       (p) => p.postId === routeParams.get('postId')
     );
-    this.post = blogPost!;
+    if (!blogPost) {
+      this.router.navigate(['blog']);
+      return;
+    }
+    this.post = blogPost;
   }
 }
