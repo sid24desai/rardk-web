@@ -1,18 +1,29 @@
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 14px;
+}
+
+.webfeedsFeaturedVisual {
+  display: none !important;
+  /* hide featured image in the blog post itself */
+}
+
+h1 {
+  font-size: 34px;
+  padding-top: 10px;
 }
 
 h2 {
   font-size: 32px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 h3 {
   font-size: 24px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .blocks-gallery-grid {
