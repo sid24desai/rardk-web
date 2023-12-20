@@ -29,6 +29,8 @@ import { CheckOrXComponent } from './components/shared/check-or-x/check-or-x.com
 import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
+import { PageTitleComponent } from './components/shared/page-title/page-title.component';
+import { NavbarButtonComponent } from './components/shared/navbar-button/navbar-button.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { BlogPostComponent } from './components/blog/blog-post/blog-post.compone
     BoardGamesComponent,
     BlogComponent,
     BlogPostComponent,
+    PageTitleComponent,
+    NavbarButtonComponent,
   ],
   imports: [
     BrowserModule,

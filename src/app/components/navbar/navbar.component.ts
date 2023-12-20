@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -6,6 +6,12 @@ import { environment } from 'src/environments/environment';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   public isSocialEnabled: boolean = environment.isSocialEnabled;
+  ngOnInit(): void {
+    console.log(window.location.pathname);
+  }
+  public isCurrentPage() {
+    console.log(window.location.pathname);
+  }
 }
