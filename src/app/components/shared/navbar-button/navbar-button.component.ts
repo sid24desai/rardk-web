@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class NavbarButtonComponent {
   @Input() urlPath: string;
+
+  public isCurrentPage() {
+    return window.location.pathname === this.urlPath;
+  }
 }

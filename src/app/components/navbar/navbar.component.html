@@ -1,14 +1,14 @@
 <section class="navbar">
   <div class="navbar-card">
     <div class="navbar-container">
-      <app-navbar-button></app-navbar-button>
-      <a routerLink="/blog"><div class="navbar-button">📰 blog</div></a>
-      <a routerLink="/now"><div class="navbar-button">📆 now</div></a>
-      <a routerLink="/collections"
-        ><div class="navbar-button">🧩 collections</div></a
+      <app-navbar-button urlPath="/">🏠 home</app-navbar-button>
+      <app-navbar-button urlPath="/blog">📰 blog</app-navbar-button>
+      <app-navbar-button urlPath="/now">📆 now</app-navbar-button>
+      <app-navbar-button urlPath="/collections"
+        >🧩 collections</app-navbar-button
       >
-      <a routerLink="/socials" *ngIf="isSocialEnabled"
-        ><div class="navbar-button">🦋 social</div></a
+      <app-navbar-button urlPath="/socials" *ngIf="isSocialEnabled"
+        >🦋 social</app-navbar-button
       >
     </div>
   </div>

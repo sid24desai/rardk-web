@@ -11,39 +11,3 @@ $navbar-margin: 15px;
 .navbar-card {
   display: flex;
 }
-
-.navbar-button {
-  display: inline-block;
-  color: #000000;
-  border-style: solid;
-  border-width: 0px;
-  border-radius: 5px;
-  border-color: #000000;
-  text-decoration: none;
-  padding: 10px;
-  margin: 4px;
-  background-color: #ffffff;
-  width: 150px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 17px;
-}
-
-.navbar-button:hover {
-  color: #ffffff;
-  background-color: #008cff;
-}
-
-.navbar-button .selected {
-  background-color: none;
-  border: none;
-}
-
-// .navbar-button:hover {
-//   color: #000000;
-//   background-color: #dbd8d8;
-// }
-
-// .navbar-button:active {
-//   box-shadow: inset 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
-// }

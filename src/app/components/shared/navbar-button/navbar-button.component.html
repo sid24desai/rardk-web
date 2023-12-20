@@ -1,1 +1,4 @@
-<a [routerLink]="urlPath"><div class="navbar-button">🏠 home</div></a>
+<a [routerLink]="urlPath"
+  ><div class="navbar-button" [ngClass]="{ selected: isCurrentPage() }">
+    <ng-content></ng-content></div
+></a>
