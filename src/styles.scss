@@ -11,6 +11,8 @@ $card-vertical-padding-mobile: 15px;
 $font-color: #ffffff;
 $opposite-font-color: #000000;
 
+$accent-color: #f28834;
+
 html,
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -19,8 +21,9 @@ body {
 }
 
 ::selection {
-  background-color: #ffffff;
-  color: $font-color;
+  background-color: $font-color;
+  text-shadow: none;
+  color: $opposite-font-color;
 }
 
 .page-container {
@@ -72,6 +75,11 @@ body {
   width: 60%;
   max-width: 950px;
   min-width: 370px;
+}
+
+.content-container-card ::selection {
+  background-color: $opposite-font-color;
+  color: $font-color;
 }
 
 .content-container-card a {
