@@ -19,7 +19,6 @@ export class DateDisplayComponent implements OnInit {
           zone: 'America/New_York',
         }
       );
-      console.log(easternDate, this.dateToDisplay);
       this.formattedDate = easternDate.toLocaleString(DateTime.DATE_HUGE);
     }
   }
