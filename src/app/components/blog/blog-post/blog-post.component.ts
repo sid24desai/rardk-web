@@ -4,6 +4,7 @@ import { BlogService } from '../blog.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog-post',
@@ -17,7 +18,8 @@ export class BlogPostComponent {
   constructor(
     private blogService: BlogService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private meta: Meta
   ) {}
 
   ngOnInit() {
@@ -54,5 +56,11 @@ export class BlogPostComponent {
       return;
     }
     this.post = blogPost;
+    this.meta.updateTag({ property: 'og:title', content: this.post.title });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: '/assets/rarvatar.png',
+    });
+    this.meta.updateTag({ property: 'og:url', content: window.location.href });
   }
 }
