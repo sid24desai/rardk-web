@@ -62,5 +62,9 @@ export class BlogPostComponent {
       content: '/assets/rarvatar.png',
     });
     this.meta.updateTag({ property: 'og:url', content: window.location.href });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: this.post.summary,
+    });
   }
 }
