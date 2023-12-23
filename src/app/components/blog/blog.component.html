@@ -23,9 +23,7 @@
       (mouseup)="openBlogPost($event, post.postId)"
     >
       <h1 class="card-title">{{ post.title }}</h1>
-      <p class="publish-date">
-        Published: {{ post.publishDate | date : "medium" }}
-      </p>
+      <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
       <p [html]="post.summary">{{ post.summary }}</p>
       <a [routerLink]="['/blog/', post.postId]">Read Post</a>
     </div>

@@ -34,7 +34,7 @@ export class GithubCardComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (result: GithubSearchResult) => {
-          var repos = result.items
+          const repos = result.items
             .filter((r) => !r.archived)
             .filter((r) => !this.filteredRepositoryNames.includes(r.name))
             .slice(0, this.numberOfRepositoriesToTake);

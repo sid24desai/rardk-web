@@ -36,7 +36,7 @@ export class LastfmCardComponent {
       .subscribe({
         next: (result: LastfmAlbum[]) => {
           this.topAlbumFeedItems = result.map((album) => {
-            var imageUrl = (album as any).image.pop()['#text'];
+            const imageUrl = (album as any).image.pop()['#text'];
             return {
               title: album.name,
               imageUrl: imageUrl,
