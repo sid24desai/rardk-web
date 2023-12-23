@@ -5,7 +5,7 @@
     </ng-container>
     <ng-container *ngIf="post">
       <h1 class="card-title">{{ post.title }}</h1>
-      <p class="publish-date">Published: {{ post.publishDate | date : "long" }}</p>
+      <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
       <p [html]="post.content.toString()">{{ post.content }}</p>
       <p class="wordpress-link-text">
         <a [href]="post.url" target="_blank">Original Post on my WordPress</a>

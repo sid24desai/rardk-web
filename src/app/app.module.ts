@@ -31,6 +31,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { NavbarButtonComponent } from './components/shared/navbar-button/navbar-button.component';
+import { DateDisplayComponent } from './components/shared/date-display/date-display.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { NavbarButtonComponent } from './components/shared/navbar-button/navbar-
     BlogPostComponent,
     PageTitleComponent,
     NavbarButtonComponent,
+    DateDisplayComponent,
   ],
   imports: [
     BrowserModule,
