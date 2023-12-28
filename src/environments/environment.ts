@@ -6,5 +6,5 @@ export const environment = {
   nowApiUrl: 'https://rardk64.com/api/now/',
   blogApiUrl: 'https://rardk64.com/api/blog/',
   githubUsername: 'rarDevelopment',
-  isSocialEnabled: false,
+  isSocialEnabled: true,
 };
