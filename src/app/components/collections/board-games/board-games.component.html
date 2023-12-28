@@ -1,7 +1,7 @@
-<div class="content-container">
-  <div class="content-container-card">
-    <h1 class="card-title">Board Games Collection</h1>
-    <div class="page-description">
+<div class="page-description-container">
+  <div class="page-description-content">
+    <app-page-title>Board Games Collection</app-page-title>
+    <p>
       This data is pulled from my
       <a href="https://boardgamegeek.com/wishlist/rardk" target="_blank"
         >Wishlist</a
@@ -13,7 +13,11 @@
         >Owned Games</a
       >
       on BoardGameGeek.
-    </div>
+    </p>
+  </div>
+</div>
+<div class="content-container">
+  <div class="content-container-card">
     <ng-container *ngIf="isLoadingWishlist || isLoadingOwnedList">
       <div class="spinner-container">
         <mat-spinner></mat-spinner>
