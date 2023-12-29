@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubCardComponent } from './components/now/github-card/github-card.component';
 import { MastodonCardComponent } from './components/mastodon-card/mastodon-card.component';
@@ -32,6 +31,11 @@ import { BlogPostComponent } from './components/blog/blog-post/blog-post.compone
 import { PageTitleComponent } from './components/shared/page-title/page-title.component';
 import { NavbarButtonComponent } from './components/shared/navbar-button/navbar-button.component';
 import { DateDisplayComponent } from './components/shared/date-display/date-display.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -67,8 +71,12 @@ import { DateDisplayComponent } from './components/shared/date-display/date-disp
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
     HttpClientModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
