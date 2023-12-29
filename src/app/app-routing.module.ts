@@ -12,8 +12,14 @@ import { BlogPostComponent } from './components/blog/blog-post/blog-post.compone
 const routes: Routes = [
   { path: 'blog/:postId', component: BlogPostComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'board-games', component: BoardGamesComponent },
-  { path: 'lego', component: LegoSetsComponent },
+  {
+    path: 'board-games',
+    redirectTo: 'collections/board-games',
+    pathMatch: 'full',
+  },
+  { path: 'lego', redirectTo: 'collections/lego', pathMatch: 'full' },
+  { path: 'collections/board-games', component: BoardGamesComponent },
+  { path: 'collections/lego', component: LegoSetsComponent },
   { path: 'now', component: NowComponent },
   { path: 'collections', component: CollectionsComponent },
   { path: 'socials', component: SocialLinksComponent },
