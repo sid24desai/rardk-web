@@ -11,22 +11,52 @@ import { LegoSetsService } from './lego-sets.service';
 export class LegoSetsComponent {
   public ownedSets: LegoSet[];
   public wantedSets: LegoSet[];
+  public filteredOwnedSets: LegoSet[];
   public displayedOwnedColumns: string[] = ['name', 'series', 'built'];
   public displayedWantedColumns: string[] = ['name', 'series', 'owned'];
   public panelOpenState: boolean = false;
+  public filterOptionBuilt: string = 'BUILT';
+  public filterOptionUnbuilt: string = 'UNBUILT';
+  public filterOptionAll: string = 'ALL';
+  public filterOptionSelected: string = this.filterOptionAll;
+  public ownedSeriesOptions: string[];
+  public filterOptionNoSeries = 'NONE';
+  public seriesOptionSelected: string = this.filterOptionNoSeries;
 
   constructor(private legoSetsService: LegoSetsService) {}
+
   ngOnInit(): void {
     this.legoSetsService
       .getLegoSets()
       .pipe(take(1))
       .subscribe((sets: LegoSet[]) => {
-        this.ownedSets = sets
+        this.ownedSets = this.filteredOwnedSets = sets
           .sort((a, b) => (a.name > b.name ? 1 : -1))
           .filter((l) => l.owned);
         this.wantedSets = sets
           .sort((a, b) => (a.name > b.name ? 1 : -1))
           .filter((l) => !l.owned);
+
+        this.ownedSeriesOptions = Array.from(
+          new Set(this.ownedSets.map((s) => s.series))
+        ).sort();
       });
+  }
+
+  public applyFilters() {
+    this.filteredOwnedSets = this.ownedSets.filter((t) => {
+      if (this.filterOptionSelected === this.filterOptionBuilt) {
+        return t.built;
+      } else if (this.filterOptionSelected === this.filterOptionUnbuilt) {
+        return !t.built;
+      }
+      return t;
+    });
+    this.filteredOwnedSets = this.filteredOwnedSets.filter((t) => {
+      if (this.seriesOptionSelected !== this.filterOptionNoSeries) {
+        return t.series === this.seriesOptionSelected;
+      }
+      return t;
+    });
   }
 }
