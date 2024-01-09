@@ -13,7 +13,7 @@ export class ReplybotService extends ApiService {
     guildId: string
   ): Observable<GuildReplyDefinition[]> {
     return this.http.get<GuildReplyDefinition[]>(
-      `https://${this.domainUrl}/api/replybot/reply-definitions?accessToken=${discordAccessToken}&guildId=${guildId}`
+      `${this.domainUrl}replybot/reply-definitions?accessToken=${discordAccessToken}&guildId=${guildId}`
     );
   }
 
@@ -22,7 +22,7 @@ export class ReplybotService extends ApiService {
     guildReplyDefinitionId: number
   ): Observable<GuildReplyDefinition[]> {
     return this.http.delete<GuildReplyDefinition[]>(
-      `https://${this.domainUrl}/api/replybot/reply-definition?accessToken=${discordAccessToken}&guildReplyDefinitionId=${guildReplyDefinitionId}`
+      `${this.domainUrl}replybot/reply-definition?accessToken=${discordAccessToken}&guildReplyDefinitionId=${guildReplyDefinitionId}`
     );
   }
 
@@ -30,7 +30,7 @@ export class ReplybotService extends ApiService {
     bodyToUse: any
   ): Observable<GuildReplyDefinition> {
     return this.http.post<GuildReplyDefinition>(
-      `https://${this.domainUrl}/api/replybot/reply-definition`,
+      `${this.domainUrl}replybot/reply-definition`,
       bodyToUse
     );
   }
@@ -39,7 +39,7 @@ export class ReplybotService extends ApiService {
     bodyToUse: any
   ): Observable<GuildReplyDefinition> {
     return this.http.put<GuildReplyDefinition>(
-      `https://${this.domainUrl}/api/replybot/reply-definition`,
+      `${this.domainUrl}replybot/reply-definition`,
       bodyToUse
     );
   }
@@ -50,9 +50,9 @@ export class ReplybotService extends ApiService {
     direction: string
   ) {
     return this.http.put<GuildReplyDefinition[]>(
-      `https://${
+      `${
         this.domainUrl
-      }/api/replybot/reply-definition/${direction.toLowerCase()}`,
+      }replybot/reply-definition/${direction.toLowerCase()}`,
       {
         accessToken: discordAccessToken,
         ...guildReplyDefinition,
@@ -64,7 +64,7 @@ export class ReplybotService extends ApiService {
     discordAccessToken: string
   ): Observable<GuildConfiguration[]> {
     return this.http.get<GuildConfiguration[]>(
-      `https://${this.domainUrl}/api/replybot/config/all?accessToken=${discordAccessToken}`
+      `${this.domainUrl}replybot/config/all?accessToken=${discordAccessToken}`
     );
   }
 
@@ -73,7 +73,7 @@ export class ReplybotService extends ApiService {
     guildId: string
   ): Observable<GuildConfiguration> {
     return this.http.get<GuildConfiguration>(
-      `https://${this.domainUrl}/api/replybot/config/?accessToken=${discordAccessToken}&guildId=${guildId}`
+      `${this.domainUrl}replybot/config/?accessToken=${discordAccessToken}&guildId=${guildId}`
     );
   }
 }

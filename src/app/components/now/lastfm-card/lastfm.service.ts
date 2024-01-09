@@ -13,13 +13,13 @@ export class LastfmService {
 
   getTopAlbums(limit: number): Observable<LastfmAlbum[]> {
     return this.http.get<LastfmAlbum[]>(
-      `${environment.nowApiUrl}lastfm/topalbums?limit=${limit}`
+      `${environment.apiUrl}now/lastfm/topalbums?limit=${limit}`
     );
   }
 
   getTopArtists(limit: number): Observable<LastfmArtist[]> {
     return this.http.get<LastfmArtist[]>(
-      `${environment.nowApiUrl}lastfm/topartists?limit=${limit}`
+      `${environment.apiUrl}now/lastfm/topartists?limit=${limit}`
     );
   }
 }

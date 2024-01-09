@@ -11,26 +11,28 @@ import { DiscordUser } from '../models/bots/discord-user';
 })
 export class DiscordService extends ApiService {
   public getAccessToken(code: string) {
+    const callbackUrl = window.location.protocol + '//' + window.location.host;
+    console.log(callbackUrl);
     return this.http.get<DiscordAuthResponse>(
-      `https://${this.domainUrl}/api/discord/access-token?code=${code}&redirectUrl=https://${this.domainUrl}/callback`
+      `${this.domainUrl}discord/access-token?code=${code}&redirectUrl=${callbackUrl}/callback`
     );
   }
 
   public refreshAccessToken(refreshToken: string) {
     return this.http.get<DiscordAuthResponse>(
-      `https://${this.domainUrl}/api/discord/access-token?refreshToken=${refreshToken}`
+      `${this.domainUrl}discord/access-token?refreshToken=${refreshToken}`
     );
   }
 
   public getDiscordGuilds(accessToken: string) {
     return this.http.get<DiscordGuild[]>(
-      `https://${this.domainUrl}/api/discord/guilds?accessToken=${accessToken}`
+      `${this.domainUrl}discord/guilds?accessToken=${accessToken}`
     );
   }
 
   public getDiscordUser(accessToken: string) {
     return this.http.get<DiscordUser>(
-      `https://${this.domainUrl}/api/discord/user?accessToken=${accessToken}`
+      `${this.domainUrl}discord/user?accessToken=${accessToken}`
     );
   }
 
@@ -39,7 +41,7 @@ export class DiscordService extends ApiService {
     guildId: string
   ): Observable<GuildMember> {
     return this.http.get<GuildMember>(
-      `https://${this.domainUrl}/api/discord/guild-member?accessToken=${accessToken}&guildId=${guildId}`
+      `${this.domainUrl}discord/guild-member?accessToken=${accessToken}&guildId=${guildId}`
     );
   }
 }

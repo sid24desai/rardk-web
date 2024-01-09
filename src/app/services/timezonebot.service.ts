@@ -10,7 +10,7 @@ import { SetTimeZoneRequest } from '../models/bots/timezonebot/set-time-zone-req
 export class TimezonebotService extends ApiService {
   public getTimeZones(): Observable<TimeZoneItem[]> {
     return this.http.get<TimeZoneItem[]>(
-      `https://${this.domainUrl}/api/timezonebot/time-zones`
+      `${this.domainUrl}timezonebot/time-zones`
     );
   }
 
@@ -18,7 +18,7 @@ export class TimezonebotService extends ApiService {
     bodyToUse: SetTimeZoneRequest
   ): Observable<SetTimeZoneRequest> {
     return this.http.put<SetTimeZoneRequest>(
-      `https://${this.domainUrl}/api/timezonebot/time-zone`,
+      `${this.domainUrl}timezonebot/time-zone`,
       bodyToUse
     );
   }
@@ -28,7 +28,7 @@ export class TimezonebotService extends ApiService {
     userId: string
   ): Observable<string> {
     return this.http.get<string>(
-      `https://${this.domainUrl}/api/timezonebot/time-zone?accessToken=${discordAccessToken}&userId=${userId}`
+      `${this.domainUrl}timezonebot/time-zone?accessToken=${discordAccessToken}&userId=${userId}`
     );
   }
 }

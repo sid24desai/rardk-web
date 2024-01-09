@@ -21,6 +21,7 @@ export class CallbackComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {
+    console.log('at callback');
     this.route.queryParams.subscribe((params: any) => {
       if (!params || !params['code']) {
         this.redirect();
@@ -46,6 +47,7 @@ export class CallbackComponent implements OnInit {
               if (!state || !state.url || state.url.trim() === '') {
                 this.redirect();
               }
+              console.log(state?.url);
               this.redirect(state?.url);
             } else {
               this.redirect();
