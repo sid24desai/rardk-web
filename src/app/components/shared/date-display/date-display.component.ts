@@ -12,9 +12,10 @@ export class DateDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.dateToDisplay) {
+      console.log('date', this.dateToDisplay);
       const easternDate = DateTime.fromFormat(
         this.dateToDisplay,
-        'MM/dd/yyyy tt ZZ',
+        'MM/dd/yyyy TT ZZ',
         {
           zone: 'America/New_York',
         }
