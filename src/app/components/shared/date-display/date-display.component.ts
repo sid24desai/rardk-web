@@ -11,17 +11,16 @@ export class DateDisplayComponent implements OnInit {
   public formattedDate: string;
 
   ngOnInit(): void {
-    this.formattedDate = this.dateToDisplay;
-    // if (this.dateToDisplay) {
-    //   console.log('date', this.dateToDisplay);
-    //   const easternDate = DateTime.fromFormat(
-    //     this.dateToDisplay,
-    //     'MM/dd/yyyy tt ZZ',
-    //     {
-    //       zone: 'America/New_York',
-    //     }
-    //   );
-    //   this.formattedDate = easternDate.toLocaleString(DateTime.DATE_HUGE);
-    // }
+    if (this.dateToDisplay) {
+      console.log('date', this.dateToDisplay);
+      const easternDate = DateTime.fromFormat(
+        this.dateToDisplay,
+        'MM/dd/yyyy TT ZZ',
+        {
+          zone: 'America/New_York',
+        }
+      );
+      this.formattedDate = easternDate.toLocaleString(DateTime.DATE_HUGE);
+    }
   }
 }
