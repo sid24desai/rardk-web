@@ -8,6 +8,12 @@ import { LegoSetsComponent } from './components/collections/lego-sets/lego-sets.
 import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
+import { TimezonesComponent } from './components/discord-bots/bots/timezonebot/timezones/timezones.component';
+import { AuthenticationGuard } from './guards/authentication-guard.guard';
+import { ReplybotServerSelectorComponent } from './components/discord-bots/bots/replybot/replybot-server-selector/replybot-server-selector.component';
+import { GuildReplyDefinitionsComponent } from './components/discord-bots/bots/replybot/guild-reply-definitions.component';
+import { CallbackComponent } from './components/discord-bots/callback/callback.component';
+import { BotHomeComponent } from './components/discord-bots/home/home.component';
 
 const routes: Routes = [
   { path: 'blog/:postId', component: BlogPostComponent },
@@ -23,6 +29,24 @@ const routes: Routes = [
   { path: 'now', component: NowComponent },
   { path: 'collections', component: CollectionsComponent },
   { path: 'socials', component: SocialLinksComponent },
+  {
+    path: 'timezones',
+    component: TimezonesComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'replybot-server-selector',
+    component: ReplybotServerSelectorComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'reply-definitions',
+    component: GuildReplyDefinitionsComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  { path: 'bots', component: BotHomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'callback', component: CallbackComponent },
   { path: '**', component: HomeComponent },
 ];
 

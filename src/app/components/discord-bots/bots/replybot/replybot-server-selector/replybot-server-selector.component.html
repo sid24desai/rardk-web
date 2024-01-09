@@ -1,0 +1,20 @@
+<h2 class="page-title">Server Selector for Toby the Replybot</h2>
+<div class="guild-list-container">
+  <div class="guild-items-loading" *ngIf="isLoading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <div class="guild-items" *ngIf="!isLoading">
+    <ng-container *ngIf="isLoggedIn()">
+      <a
+        class="guild-item-link"
+        *ngFor="let guild of discordGuilds"
+        [href]="'/reply-definitions?guildId=' + guild.id"
+      >
+        <div class="guild-item">
+          <img class="icon-img" [src]="guild.iconUrl" [alt]="guild.name" />
+          <span class="guild-name">{{ guild.name }}</span>
+        </div>
+      </a>
+    </ng-container>
+  </div>
+</div>

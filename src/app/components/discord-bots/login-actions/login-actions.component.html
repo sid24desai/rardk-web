@@ -1,0 +1,18 @@
+<button
+  mat-raised-button
+  class="log-in-button"
+  color="accent"
+  (click)="logInWithDiscord()"
+  *ngIf="!isLoggedIn()"
+>
+  Log in with Discord
+</button>
+<button
+  mat-raised-button
+  class="log-in-button"
+  color="warn"
+  *ngIf="isLoggedIn()"
+  (click)="confirmLogOut()"
+>
+  Log Out
+</button>

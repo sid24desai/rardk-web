@@ -35,7 +35,38 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { APP_BASE_HREF } from '@angular/common';
+import { TimezonesComponent } from './components/discord-bots/bots/timezonebot/timezones/timezones.component';
+import { ReplybotServerSelectorComponent } from './components/discord-bots/bots/replybot/replybot-server-selector/replybot-server-selector.component';
+import { GuildReplyDefinitionsComponent } from './components/discord-bots/bots/replybot/guild-reply-definitions.component';
+import { CallbackComponent } from './components/discord-bots/callback/callback.component';
+import { PageComponent } from './components/discord-bots/page/page.component';
+import { GuildReplyDefinitionEditorDialogComponent } from './components/discord-bots/bots/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
+import { HelpDialogComponent } from './components/discord-bots/bots/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
+import { CheckXComponent } from './components/discord-bots/check-x/check-x.component';
+import { LoginActionsComponent } from './components/discord-bots/login-actions/login-actions.component';
+import { LoadingBarComponent } from './components/discord-bots/loading-bar/loading-bar.component';
+import { BotHomeComponent } from './components/discord-bots/home/home.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +97,18 @@ import { FormsModule } from '@angular/forms';
     PageTitleComponent,
     NavbarButtonComponent,
     DateDisplayComponent,
+    CallbackComponent,
+    PageComponent,
+    ReplybotServerSelectorComponent,
+    GuildReplyDefinitionsComponent,
+    GuildReplyDefinitionEditorDialogComponent,
+    HelpDialogComponent,
+    CheckXComponent,
+    TimezonesComponent,
+    LoginActionsComponent,
+    HeaderComponent,
+    LoadingBarComponent,
+    BotHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -77,8 +120,30 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatRadioModule,
     MatSelectModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    ClipboardModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatChipsModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
   ],
-  providers: [],
+  providers: [
+    // { provide: APP_BASE_HREF, useValue: '/' },
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: { hasBackdrop: true, disableClose: true },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

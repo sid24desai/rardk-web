@@ -1,0 +1,230 @@
+<div class="editor-box">
+  <h1>
+    {{ dialogData.id ? "Editing" : "Creating" }} Reply Definition
+    <button
+      class="info-icon-button"
+      mat-icon-button
+      matTooltip="Click here for a detailed outline of this editor"
+      (click)="openHelpDialog()"
+    >
+      <mat-icon>help</mat-icon>
+    </button>
+  </h1>
+
+  <div class="input-section">
+    <h2>Status</h2>
+    <mat-slide-toggle [(ngModel)]="isActive">{{
+      isActive ? "ENABLED" : "DISABLED"
+    }}</mat-slide-toggle>
+    (The bot will {{ isActive ? "use" : "ignore" }} this reply definition)
+  </div>
+
+  <div class="input-section">
+    <h2>Triggers</h2>
+    <div *ngFor="let trigger of triggers; let i = index; trackBy: trackByFn">
+      <span class="form-error" *ngIf="hasForbiddenTerm(triggers[i])">{{
+        forbiddenTermErrorMessage
+      }}</span>
+      <mat-form-field class="input-full-width">
+        <mat-label>Trigger Text</mat-label>
+        <input matInput placeholder="Trigger Text" [(ngModel)]="triggers[i]" />
+        <button
+          mat-icon-button
+          matSuffix
+          color="warn"
+          matTooltip="Remove this trigger"
+          (click)="removeTrigger(i)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="addTrigger()"
+      >
+        + Add Trigger
+      </button>
+    </div>
+    <div class="input-section">
+      <mat-checkbox [(ngModel)]="requiresBotName" labelPosition="before"
+        >Trigger Requires Bot Name in the Message</mat-checkbox
+      >
+    </div>
+  </div>
+  <div class="input-section">
+    <h2>
+      Specific Channels
+      <button
+        class="info-icon-button"
+        mat-icon-button
+        matTooltip="The IDs of the only channels in your server where you want this trigger to apply. If none
+    are specified, this will trigger server-wide."
+      >
+        <mat-icon>help</mat-icon>
+      </button>
+    </h2>
+    <div class="channel-ids-description"></div>
+    <div
+      *ngFor="let channelId of channelIds; let i = index; trackBy: trackByFn"
+    >
+      <span class="form-error" *ngIf="!isValidId(channelIds[i])">{{
+        invalidIdErrorMessage
+      }}</span>
+      <mat-form-field class="input-full-width">
+        <mat-label>Channel ID</mat-label>
+        <input matInput placeholder="Channel ID" [(ngModel)]="channelIds[i]" />
+        <button
+          mat-icon-button
+          matSuffix
+          color="warn"
+          matTooltip="Remove this Channel ID"
+          (click)="removeChannelId(i)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="addChannelId()"
+      >
+        + Add Channel ID
+      </button>
+    </div>
+  </div>
+
+  <div class="input-section">
+    <h2>
+      Specific Users
+      <button
+        class="info-icon-button"
+        mat-icon-button
+        matTooltip="The IDs of the only users to whom you want this trigger to apply. If none
+  are specified, this will trigger for everyone."
+      >
+        <mat-icon>help</mat-icon>
+      </button>
+    </h2>
+    <div *ngFor="let userId of userIds; let i = index; trackBy: trackByFn">
+      <span class="form-error" *ngIf="!isValidId(userIds[i])">{{
+        invalidIdErrorMessage
+      }}</span>
+      <mat-form-field class="input-full-width">
+        <mat-label>User ID</mat-label>
+        <input matInput placeholder="User ID" [(ngModel)]="userIds[i]" />
+        <button
+          mat-icon-button
+          matSuffix
+          color="warn"
+          matTooltip="Remove this User ID"
+          (click)="removeUserId(i)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="addUserId()"
+      >
+        + Add User ID
+      </button>
+    </div>
+  </div>
+  <div class="input-section">
+    <h2>Replies</h2>
+
+    <div *ngFor="let reply of replies; let i = index; trackBy: trackByFn">
+      <span class="form-error" *ngIf="hasForbiddenTerm(replies[i])">{{
+        forbiddenTermErrorMessage
+      }}</span>
+      <mat-form-field class="input-full-width">
+        <mat-label>Reply Text</mat-label>
+        <textarea
+          matInput
+          placeholder="Reply Text"
+          [(ngModel)]="replies[i]"
+          [maxlength]="maxReplyLength"
+        ></textarea>
+        <button mat-icon-button matSuffix color="warn" (click)="removeReply(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="addReply()"
+      >
+        + Add Reply
+      </button>
+    </div>
+    <div class="input-section">
+      <mat-checkbox [(ngModel)]="mentionAuthor" labelPosition="before"
+        >Mention Message Sender When Replying</mat-checkbox
+      >
+    </div>
+  </div>
+  <div class="input-section">
+    <h2>Reactions</h2>
+    <div *ngFor="let reaction of reactions; let i = index; trackBy: trackByFn">
+      <span class="form-error" *ngIf="!isValidSingleEmoji(reactions[i])">{{
+        invalidEmojiErrorMessage
+      }}</span>
+      <mat-form-field class="input-full-width">
+        <mat-label>Reaction Emoji</mat-label>
+        <input
+          matInput
+          placeholder="Reaction Emoji"
+          [(ngModel)]="reactions[i]"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          color="warn"
+          matTooltip="Remove this Reaction"
+          (click)="removeReaction(i)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="action-buttons">
+      <button
+        mat-raised-button
+        class="action-button"
+        color="primary"
+        (click)="addReaction()"
+      >
+        + Add Reaction
+      </button>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button mat-raised-button class="action-button" (click)="cancelEdit()">
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      class="action-button"
+      color="accent"
+      [disabled]="!isSaveEnabled()"
+      (click)="saveEdit()"
+    >
+      Save
+    </button>
+  </div>
+</div>
