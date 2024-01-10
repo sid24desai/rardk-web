@@ -35,9 +35,8 @@ export class PageComponent {
   logInWithDiscord(urlToComeBackTo: string = '') {
     const redirectUrlDomain = window.location.host;
     const protocol = window.location.protocol.replace(':', '');
-    console.log('protocol', protocol);
     const paramsToSend = {
-      url: urlToComeBackTo ? urlToComeBackTo : redirectUrlDomain,
+      url: urlToComeBackTo ? urlToComeBackTo : '/bots',
     };
     console.log('params', paramsToSend);
     const encodedParams = btoa(JSON.stringify(paramsToSend));
