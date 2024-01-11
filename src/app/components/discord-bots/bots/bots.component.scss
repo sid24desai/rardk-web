@@ -1,17 +1,17 @@
-a {
-  color: white;
-}
+// a {
+//   color: white;
+// }
 
-.home-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .home-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
-.home-content {
-  flex-grow: 0.6;
-  max-width: 1000px;
-}
+// .home-content {
+//   flex-grow: 0.6;
+//   max-width: 1000px;
+// }
 
 /* .bot {
   border: 1px solid;
@@ -41,8 +41,7 @@ a {
   font-weight: 500;
   display: inline;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  padding-top: 45px;
 }
 
 .bot-name {
@@ -56,12 +55,17 @@ a {
 }
 
 .bot {
+  // width:80%;
+  // background-color: black;
   margin-bottom: 10px;
   padding-top: 10px;
-  padding-left: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  /* for vertical align */
+  // padding-left: 5px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+}
+
+.bot-card {
+  width: 80%;
   position: relative;
 }
 
@@ -72,33 +76,60 @@ a {
   width: 138px;
 }
 
+.bot-text {
+  margin-right: 10px;
+}
+
 .settings {
   background-color: rgb(255, 64, 129);
   color: #ffffff;
 }
+.settings:hover,
+.settings:active {
+  background-color: rgb(245, 54, 119);
+  color: #ffffff;
+}
 
 .invite {
-  background-color: rgb(63, 81, 181);
+  background-color: rgb(130, 75, 158);
+  color: #ffffff;
+}
+.invite:hover,
+.invite:active {
+  background-color: rgb(120, 65, 148);
+  color: #ffffff;
+}
+
+.github {
+  background-color: rgb(0, 178, 214);
+  color: #ffffff;
+}
+.github:hover,
+.github:active {
+  background-color: rgb(-10, 168, 204);
   color: #ffffff;
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
   .bot {
     padding-top: 5px;
-    padding-left: 5px;
+    /* padding-left: 5px; */
     display: block;
     text-align: center;
+    /* margin: 0 auto; */
   }
 
   .bot-description {
     position: relative;
     padding: 0px;
     margin: 0px;
+    text-align: center;
   }
 
   .icon-img {
     border-radius: 18px;
-    margin: 0px;
-    padding: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

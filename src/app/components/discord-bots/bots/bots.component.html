@@ -1,4 +1,3 @@
-<div class="home-container"></div>
 <div class="page-description-container">
   <div class="page-description-content">
     <app-page-title>Discord Bots</app-page-title>
@@ -7,15 +6,15 @@
     <!-- </mat-toolbar> -->
   </div>
 </div>
-<div class="content-container" *ngIf="isLoading">
+<!-- <div class="content-container" *ngIf="isLoading">
   <div class="content-container-card">
     <mat-spinner></mat-spinner>
   </div>
-</div>
+</div> -->
 
 <ng-container *ngFor="let bot of bots">
   <div class="content-container bot">
-    <div class="content-container-card">
+    <div class="content-container-card bot-card">
       <img class="icon-img" [src]="bot.imageUrl" [alt]="bot.name" />
       <div class="bot-description">
         <h3 class="bot-name">{{ bot.name }}</h3>
@@ -31,7 +30,7 @@
             <div class="button bot-button-link settings">Settings</div>
           </a>
           <a [href]="bot.gitHubLink" target="_blank" *ngIf="bot.gitHubLink">
-            <div class="button bot-button-link">GitHub</div>
+            <div class="button bot-button-link github">GitHub</div>
           </a>
         </div>
       </div>

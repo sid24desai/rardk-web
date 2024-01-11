@@ -6,7 +6,7 @@ import { take } from 'rxjs';
 @Component({
   selector: 'app-bots',
   templateUrl: './bots.component.html',
-  styleUrls: ['./bots.component.css'],
+  styleUrls: ['./bots.component.scss'],
 })
 export class BotsComponent extends PageComponent implements OnInit {
   public isLoading: boolean;
