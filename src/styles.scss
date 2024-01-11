@@ -36,6 +36,7 @@ body {
 
 .page-description-content {
   text-align: center;
+  width: 60%;
 }
 
 .page-description-content a {
@@ -110,6 +111,50 @@ body {
 
 .button:hover {
   background-color: #f28834;
+  // color: #ffffff;
+}
+
+.button.action.primary {
+  background-color: rgb(63, 81, 181);
+  color: #ffffff;
+}
+
+.button.action.primary:hover,
+.button.action.primary:active {
+  background-color: rgb(53, 71, 171);
+  color: #ffffff;
+}
+
+.button.action.secondary {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+}
+
+.button.action.secondary:hover,
+.button.action.secondary:active {
+  background-color: rgb(245, 245, 245);
+  color: #000000;
+}
+
+.button.action.tertiary {
+  background-color: rgb(255, 64, 129);
+  color: #ffffff;
+}
+
+.button.action.tertiary:hover,
+.button.action.tertiary:active {
+  background-color: rgb(245, 54, 119);
+  color: #ffffff;
+}
+
+.button.action.danger {
+  background-color: rgb(244, 67, 54);
+  color: #ffffff;
+}
+
+.button.action.danger:hover,
+.button.action.danger:active {
+  background-color: rgb(234, 57, 44);
   color: #ffffff;
 }
 

@@ -61,34 +61,34 @@ export class BotsComponent extends PageComponent implements OnInit {
       gitHubLink: 'https://github.com/SteveF92/FantasyCritic',
     } as BotDefinition,
     {
+      name: 'PokémonBot',
+      imageUrl: 'assets/pokemonbot2.png',
+      inviteLink:
+        'https://discord.com/api/oauth2/authorize?client_id=798376639578112001&permissions=515136&scope=bot%20applications.commands',
+      description:
+        'A Discord Bot for quickly searching basic Pokémon information and Pokémon TCG card images.',
+      isConfigurable: false,
+      gitHubLink: 'https://github.com/rarDevelopment/pokemon-bot-dotnet',
+    } as BotDefinition,
+    {
       name: 'ChefBot',
       imageUrl: 'assets/chefbot.png',
       inviteLink:
         'https://discord.com/api/oauth2/authorize?client_id=847737219125084180&permissions=414464678976&scope=bot%20applications.commands',
       description:
-        'A fun Discord Bot for ordering food (Disclaimer: does not actually serve food)',
+        'A fun Discord Bot for ordering food (Disclaimer: does not actually serve food).',
       isConfigurable: false,
       gitHubLink: 'https://github.com/rarDevelopment/chef-bot-dotnet',
     } as BotDefinition,
     {
       name: 'Theodore (ThreadBot)',
       imageUrl: 'assets/threadbot.png',
-      inviteLink:
-        'https://discord.com/api/oauth2/authorize?client_id=950921256314740766&permissions=534723914832&scope=bot%20applications.commands',
+      // inviteLink:
+      //   'https://discord.com/api/oauth2/authorize?client_id=950921256314740766&permissions=534723914832&scope=bot%20applications.commands',
       description:
-        'A Discord Bot for displaying the active threads in a Discord server in a designated channel',
+        'A Discord Bot for displaying the active threads in a Discord server in a designated channel. This bot has been decommissioned and is no longer maintained.',
       isConfigurable: false,
       gitHubLink: 'https://github.com/rarDevelopment/thread-bot-dotnet',
-    } as BotDefinition,
-    {
-      name: 'PokémonBot',
-      imageUrl: 'assets/pokemonbot2.png',
-      inviteLink:
-        'https://discord.com/api/oauth2/authorize?client_id=798376639578112001&permissions=515136&scope=bot%20applications.commands',
-      description:
-        'A Discord Bot for quickly searching basic Pokémon information and Pokémon TCG card images',
-      isConfigurable: false,
-      gitHubLink: 'https://github.com/rarDevelopment/pokemon-bot-dotnet',
     } as BotDefinition,
   ];
 

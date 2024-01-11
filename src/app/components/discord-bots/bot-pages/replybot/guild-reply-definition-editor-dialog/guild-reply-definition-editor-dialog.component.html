@@ -4,6 +4,7 @@
     <button
       class="info-icon-button"
       mat-icon-button
+      [disableRipple]="true"
       matTooltip="Click here for a detailed outline of this editor"
       (click)="openHelpDialog()"
     >
@@ -30,6 +31,7 @@
         <input matInput placeholder="Trigger Text" [(ngModel)]="triggers[i]" />
         <button
           mat-icon-button
+          [disableRipple]="true"
           matSuffix
           color="warn"
           matTooltip="Remove this trigger"
@@ -41,16 +43,17 @@
     </div>
     <div class="action-buttons">
       <button
-        mat-raised-button
-        class="action-button"
-        color="primary"
+        class="action-button primary action button"
         (click)="addTrigger()"
       >
         + Add Trigger
       </button>
     </div>
     <div class="input-section">
-      <mat-checkbox [(ngModel)]="requiresBotName" labelPosition="before"
+      <mat-checkbox
+        [(ngModel)]="requiresBotName"
+        labelPosition="before"
+        [disableRipple]="true"
         >Trigger Requires Bot Name in the Message</mat-checkbox
       >
     </div>
@@ -61,6 +64,7 @@
       <button
         class="info-icon-button"
         mat-icon-button
+        [disableRipple]="true"
         matTooltip="The IDs of the only channels in your server where you want this trigger to apply. If none
     are specified, this will trigger server-wide."
       >
@@ -79,6 +83,7 @@
         <input matInput placeholder="Channel ID" [(ngModel)]="channelIds[i]" />
         <button
           mat-icon-button
+          [disableRipple]="true"
           matSuffix
           color="warn"
           matTooltip="Remove this Channel ID"
@@ -90,9 +95,7 @@
     </div>
     <div class="action-buttons">
       <button
-        mat-raised-button
-        class="action-button"
-        color="primary"
+        class="action-button primary action button"
         (click)="addChannelId()"
       >
         + Add Channel ID
@@ -106,6 +109,7 @@
       <button
         class="info-icon-button"
         mat-icon-button
+        [disableRipple]="true"
         matTooltip="The IDs of the only users to whom you want this trigger to apply. If none
   are specified, this will trigger for everyone."
       >
@@ -121,6 +125,7 @@
         <input matInput placeholder="User ID" [(ngModel)]="userIds[i]" />
         <button
           mat-icon-button
+          [disableRipple]="true"
           matSuffix
           color="warn"
           matTooltip="Remove this User ID"
@@ -131,12 +136,7 @@
       </mat-form-field>
     </div>
     <div class="action-buttons">
-      <button
-        mat-raised-button
-        class="action-button"
-        color="primary"
-        (click)="addUserId()"
-      >
+      <button class="action-button primary action button" (click)="addUserId()">
         + Add User ID
       </button>
     </div>
@@ -156,23 +156,27 @@
           [(ngModel)]="replies[i]"
           [maxlength]="maxReplyLength"
         ></textarea>
-        <button mat-icon-button matSuffix color="warn" (click)="removeReply(i)">
+        <button
+          mat-icon-button
+          [disableRipple]="true"
+          matSuffix
+          color="warn"
+          (click)="removeReply(i)"
+        >
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
     </div>
     <div class="action-buttons">
-      <button
-        mat-raised-button
-        class="action-button"
-        color="primary"
-        (click)="addReply()"
-      >
+      <button class="action-button primary action button" (click)="addReply()">
         + Add Reply
       </button>
     </div>
     <div class="input-section">
-      <mat-checkbox [(ngModel)]="mentionAuthor" labelPosition="before"
+      <mat-checkbox
+        [(ngModel)]="mentionAuthor"
+        labelPosition="before"
+        [disableRipple]="true"
         >Mention Message Sender When Replying</mat-checkbox
       >
     </div>
@@ -192,6 +196,7 @@
         />
         <button
           mat-icon-button
+          [disableRipple]="true"
           matSuffix
           color="warn"
           matTooltip="Remove this Reaction"
@@ -203,9 +208,7 @@
     </div>
     <div class="action-buttons">
       <button
-        mat-raised-button
-        class="action-button"
-        color="primary"
+        class="action-button primary action button"
         (click)="addReaction()"
       >
         + Add Reaction
@@ -214,13 +217,14 @@
   </div>
 
   <div class="action-buttons">
-    <button mat-raised-button class="action-button" (click)="cancelEdit()">
+    <button
+      class="action-button secondary action button"
+      (click)="cancelEdit()"
+    >
       Cancel
     </button>
     <button
-      mat-raised-button
-      class="action-button"
-      color="accent"
+      class="action-button primary action button"
       [disabled]="!isSaveEnabled()"
       (click)="saveEdit()"
     >

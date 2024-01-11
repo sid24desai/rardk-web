@@ -1,16 +1,15 @@
 <div class="page-description-container">
   <div class="page-description-content">
     <app-page-title>Discord Bots</app-page-title>
-    <!-- <mat-toolbar class="navbar-toolbar"> -->
+    <p>
+      These are the Discord bots I run. Some of them have settings that can be
+      configured by selecting the Settings button in their description below.
+      You will need to be logged in with your Discord account to use these
+      features.
+    </p>
     <app-login-actions></app-login-actions>
-    <!-- </mat-toolbar> -->
   </div>
 </div>
-<!-- <div class="content-container" *ngIf="isLoading">
-  <div class="content-container-card">
-    <mat-spinner></mat-spinner>
-  </div>
-</div> -->
 
 <ng-container *ngFor="let bot of bots">
   <div class="content-container bot">
@@ -20,7 +19,7 @@
         <h3 class="bot-name">{{ bot.name }}</h3>
         <div class="bot-text">{{ bot.description }}</div>
         <div class="bot-actions">
-          <a [href]="bot.inviteLink" target="_blank">
+          <a [href]="bot.inviteLink" target="_blank" *ngIf="bot.inviteLink">
             <div class="button bot-button-link invite">Invite Bot</div>
           </a>
           <a

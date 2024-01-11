@@ -1,11 +1,10 @@
 <div class="guild-reply-definitions-list-container">
   <div class="navigation-button-section">
     <button
-      mat-raised-button
-      class="back-button"
+      class="back-button secondary action button"
       (click)="backToGuildSelector()"
     >
-      <mat-icon>keyboard_arrow_left</mat-icon> Back to Server Selector
+      ⬅️ Back to Server Selector
     </button>
   </div>
   <app-loading-bar [isLoading]="isLoading"></app-loading-bar>
@@ -13,15 +12,15 @@
     class="guild-reply-definitions-container"
     *ngIf="!isLoading && isAuthorizedToAdministrate"
   >
-    <h2>Custom Reply Definitions for {{ guildName }}</h2>
+    <app-page-title
+      >Custom Reply Definitions for {{ guildName }}</app-page-title
+    >
     <div
       class="guild-reply-definition-add-action-section"
       *ngIf="guildReplyDefinitions.length > 0"
     >
       <button
-        mat-raised-button
-        class="add-guild-reply-definition-button"
-        color="primary"
+        class="add-guild-reply-definition-button primary action button"
         (click)="addNewGuildReplyDefinition()"
       >
         Create New Reply Definition
@@ -32,11 +31,10 @@
       *ngIf="guildReplyDefinitions.length > 0"
     >
       <button
-        mat-raised-button
-        class="add-guild-reply-definition-button"
+        class="add-guild-reply-definition-button secondary action button"
         (click)="addFromClipboard()"
       >
-        Create From Clipboard <mat-icon>file_copy</mat-icon>
+        Create From Clipboard 📋
       </button>
     </div>
     <div
@@ -56,6 +54,7 @@
             *ngFor="let filterType of getFilters()"
             (click)="applyFilters()"
             [value]="filterType"
+            [disableRipple]="true"
             >{{ filterType.displayName }}</mat-button-toggle
           >
         </mat-button-toggle-group>
@@ -65,12 +64,10 @@
           >Showing only: {{ getActiveFilterDisplayNames().join(" & ") }}</span
         >
         <button
-          mat-raised-button
-          color="accent"
-          class="clear-filters-button"
+          class="clear-filters-button tertiary action button"
           (click)="clearFilters()"
         >
-          Clear Filters <mat-icon>close</mat-icon>
+          Clear Filters
         </button>
       </div>
     </div>
@@ -127,6 +124,7 @@
             class="priority-button"
             matTooltip="Move up in priority"
             color="primary"
+            [disableRipple]="true"
             [disabled]="indexOfReplies == 0"
             (click)="movePriority('up', guildReplyDefinition)"
           >
@@ -137,6 +135,7 @@
             class="priority-button"
             matTooltip="Move down in priority"
             color="primary"
+            [disableRipple]="true"
             [disabled]="
               indexOfReplies == filteredGuildReplyDefinitions.length - 1
             "
@@ -306,64 +305,58 @@
             </div>
             <div class="delete-warning-actions">
               <button
-                mat-raised-button
-                color="warn"
-                class="delete-warning-button"
+                class="delete-warning-button danger action button"
                 (click)="doDelete()"
               >
                 Delete Forever!
               </button>
               <button
-                mat-raised-button
-                class="delete-warning-button"
+                class="delete-warning-button secondary action button"
                 (click)="cancelDelete()"
               >
                 No! Cancel!
               </button>
             </div>
           </ng-container>
-          <div
-            class="guild-reply-definition-actions"
+          <ng-container
             *ngIf="replyDefinitionToDelete?.id !== guildReplyDefinition.id"
           >
-            <button
-              class="guild-reply-definition-action-button"
-              mat-raised-button
-              color="accent"
-              (click)="startEdit(guildReplyDefinition)"
-            >
-              Edit
-            </button>
-            <button
-              class="guild-reply-definition-action-button"
-              mat-raised-button
-              (click)="addFromCopy(guildReplyDefinition)"
-            >
-              Create Duplicate
-            </button>
-            <button
-              class="guild-reply-definition-action-button"
-              mat-raised-button
-              (click)="copyJsonToClipboard(guildReplyDefinition)"
-            >
-              Copy to Clipboard <mat-icon>file_copy</mat-icon>
-            </button>
-            <button
-              class="guild-reply-definition-action-button"
-              mat-raised-button
-              color="warn"
-              (click)="showDeleteConfirm(guildReplyDefinition)"
-            >
-              Delete
-            </button>
-          </div>
+            <div class="guild-reply-definition-actions">
+              <button
+                class="guild-reply-definition-action-button secondary action button"
+                (click)="addFromCopy(guildReplyDefinition)"
+              >
+                Create Duplicate
+              </button>
+              <button
+                class="guild-reply-definition-action-button secondary action button"
+                (click)="copyJsonToClipboard(guildReplyDefinition)"
+              >
+                Copy to Clipboard 📋
+              </button>
+            </div>
+            <div class="guild-reply-definition-actions">
+              <button
+                class="guild-reply-definition-action-button tertiary action button"
+                (click)="startEdit(guildReplyDefinition)"
+              >
+                Edit
+              </button>
+              <button
+                class="guild-reply-definition-action-button danger action button"
+                (click)="showDeleteConfirm(guildReplyDefinition)"
+              >
+                Delete
+              </button>
+            </div>
+          </ng-container>
         </div>
       </mat-expansion-panel>
     </div>
     <div class="guild-reply-definition-add-action-section">
       <button
         mat-raised-button
-        class="add-guild-reply-definition-button"
+        class="add-guild-reply-definition-button primary action button"
         color="primary"
         (click)="addNewGuildReplyDefinition()"
       >
@@ -373,10 +366,10 @@
     <div class="guild-reply-definition-paste-action-section">
       <button
         mat-raised-button
-        class="add-guild-reply-definition-button"
+        class="add-guild-reply-definition-button secondary action button"
         (click)="addFromClipboard()"
       >
-        Create From Clipboard <mat-icon>file_copy</mat-icon>
+        Create From Clipboard 📋
       </button>
     </div>
   </div>
