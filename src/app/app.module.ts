@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,7 +34,37 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { TimezonesComponent } from './components/bots/bot-pages/timezonebot/timezones/timezones.component';
+import { ReplybotServerSelectorComponent } from './components/bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
+import { GuildReplyDefinitionsComponent } from './components/bots/bot-pages/replybot/guild-reply-definitions.component';
+import { CallbackComponent } from './components/bots/callback/callback.component';
+import { BotPageComponent } from './components/bots/bot-page/bot-page.component';
+import { GuildReplyDefinitionEditorDialogComponent } from './components/bots/bot-pages/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
+import { HelpDialogComponent } from './components/bots/bot-pages/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
+import { CheckXComponent } from './components/bots/check-x/check-x.component';
+import { LoginActionsComponent } from './components/bots/login-actions/login-actions.component';
+import { LoadingBarComponent } from './components/bots/loading-bar/loading-bar.component';
+import { BotsComponent } from './components/bots/bots.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +95,18 @@ import { FormsModule } from '@angular/forms';
     PageTitleComponent,
     NavbarButtonComponent,
     DateDisplayComponent,
+    CallbackComponent,
+    BotPageComponent,
+    ReplybotServerSelectorComponent,
+    GuildReplyDefinitionsComponent,
+    GuildReplyDefinitionEditorDialogComponent,
+    HelpDialogComponent,
+    CheckXComponent,
+    TimezonesComponent,
+    LoginActionsComponent,
+    HeaderComponent,
+    LoadingBarComponent,
+    BotsComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,8 +118,30 @@ import { FormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatRadioModule,
     MatSelectModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    ClipboardModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatChipsModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
   ],
-  providers: [],
+  providers: [
+    // { provide: APP_BASE_HREF, useValue: '/' },
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: { hasBackdrop: true, disableClose: true },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,8 +3,7 @@ export const environment = {
   mastodonBaseUrl: 'https://mastodon.social/',
   mastodonId: 425168,
   githubUrl: 'https://api.github.com/',
-  nowApiUrl: 'https://rardk64-bot-api.com/api/now/',
-  blogApiUrl: 'https://rardk64-bot-api.com/api/blog/',
+  apiUrl: 'https://rardk64-bot-api.com/api/',
   githubUsername: 'rarDevelopment',
   isSocialEnabled: true,
 };

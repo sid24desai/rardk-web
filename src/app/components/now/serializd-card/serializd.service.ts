@@ -14,7 +14,7 @@ export class SerializdService {
     limit: number
   ): Observable<SerializdCurrentlyWatchingItem[]> {
     return this.http.get<SerializdCurrentlyWatchingItem[]>(
-      `${environment.nowApiUrl}serializd/currentlywatching?limit=${limit}`
+      `${environment.apiUrl}now/serializd/currentlywatching?limit=${limit}`
     );
   }
 }

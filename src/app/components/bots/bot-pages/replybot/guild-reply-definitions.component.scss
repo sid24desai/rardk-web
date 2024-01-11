@@ -1,0 +1,142 @@
+.guild-reply-definitions-list-container {
+  padding-bottom: 30px;
+}
+
+.guild-reply-definition-card-container {
+  margin-bottom: 20px;
+}
+
+.filter-options-container {
+  margin-bottom: 20px;
+}
+
+.filter-options-expansion-panel {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  min-width: 300px;
+}
+
+.active-filter-display-text {
+  margin-top: 10px;
+}
+
+.clear-filters-button {
+  margin-left: 10px;
+}
+
+.navigation-button-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guild-reply-definition-card {
+  color: #000000;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  min-width: 300px;
+  text-align: left;
+}
+
+.guild-reply-definition-card mat-expansion-panel-header {
+  height: 170px;
+}
+
+.guild-reply-definition-card mat-expansion-panel-header.mat-expanded {
+  height: 50px;
+}
+
+.guild-reply-definitions-container {
+  text-align: center;
+}
+
+.delete-warning {
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.guild-reply-definition-action-section {
+  margin-top: 20px;
+}
+
+.priority-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.priority-button {
+  flex-grow: 0.8;
+  margin-right: 10px;
+}
+
+.guild-reply-definition-actions {
+  margin-top: 15px;
+  display: flex;
+}
+
+.guild-reply-definition-action-button {
+  margin-right: 10px;
+  flex-grow: 0.8;
+}
+
+.delete-warning-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-warning-button {
+  margin-right: 10px;
+  flex-grow: 0.8;
+}
+
+.guild-reply-definition-add-action-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guild-reply-definition-paste-action-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-guild-reply-definition-button {
+  flex-grow: 0.1;
+}
+
+.status-text {
+  font-weight: 700;
+}
+
+.inactive-reply-defintion {
+  background-color: rgb(165, 165, 164);
+  font-style: italic;
+}
+
+.filter-options-toggle-group {
+  flex-wrap: wrap;
+  border: none;
+  justify-content: center;
+}
+
+.edit-date,
+.edit-user {
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 5px;
+}

@@ -11,6 +11,6 @@ export class LetterboxdService {
   constructor(private http: HttpClient) {}
 
   getLetterboxdFeed(limit: number): Observable<LetterboxdItem[]> {
-    return this.http.get<LetterboxdItem[]>(`${environment.nowApiUrl}letterboxd?limit=${limit}`);
+    return this.http.get<LetterboxdItem[]>(`${environment.apiUrl}now/letterboxd?limit=${limit}`);
   }
 }

@@ -12,7 +12,7 @@ export class GoodreadsService {
 
   getGoodreadsFinishedBooksFeed(limit: number): Observable<GoodreadsItem[]> {
     return this.http.get<GoodreadsItem[]>(
-      `${environment.nowApiUrl}goodreads/finished?limit=${limit}`
+      `${environment.apiUrl}now/goodreads/finished?limit=${limit}`
     );
   }
 
@@ -20,7 +20,7 @@ export class GoodreadsService {
     limit: number
   ): Observable<GoodreadsItem[]> {
     return this.http.get<GoodreadsItem[]>(
-      `${environment.nowApiUrl}goodreads/currently-reading?limit=${limit}`
+      `${environment.apiUrl}now/goodreads/currently-reading?limit=${limit}`
     );
   }
 }
