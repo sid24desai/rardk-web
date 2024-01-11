@@ -54,13 +54,13 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { TimezonesComponent } from './components/bots/bot-pages/timezonebot/timezones/timezones.component';
-import { ReplybotServerSelectorComponent } from './components/bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
-import { GuildReplyDefinitionsComponent } from './components/bots/bot-pages/replybot/guild-reply-definitions.component';
+import { TimezonesComponent } from './components/bots/timezonebot/timezones/timezones.component';
+import { ReplybotServerSelectorComponent } from './components/bots/replybot/replybot-server-selector/replybot-server-selector.component';
+import { GuildReplyDefinitionsComponent } from './components/bots/replybot/guild-reply-definitions.component';
 import { CallbackComponent } from './components/bots/callback/callback.component';
 import { BotPageComponent } from './components/bots/bot-page/bot-page.component';
-import { GuildReplyDefinitionEditorDialogComponent } from './components/bots/bot-pages/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
-import { HelpDialogComponent } from './components/bots/bot-pages/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
+import { GuildReplyDefinitionEditorDialogComponent } from './components/bots/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
+import { HelpDialogComponent } from './components/bots/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
 import { CheckXComponent } from './components/bots/check-x/check-x.component';
 import { LoginActionsComponent } from './components/bots/login-actions/login-actions.component';
 import { LoadingBarComponent } from './components/bots/loading-bar/loading-bar.component';

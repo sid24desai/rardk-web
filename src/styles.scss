@@ -26,6 +26,11 @@ body {
   color: $opposite-font-color;
 }
 
+.cdk-overlay-pane ::selection {
+  background-color: $opposite-font-color;
+  color: $font-color;
+}
+
 .page-container {
   padding-bottom: 50px;
 }
@@ -111,7 +116,23 @@ body {
 
 .button:hover {
   background-color: #f28834;
-  // color: #ffffff;
+}
+
+.button.action:disabled,
+.button.action[disabled="disabled"],
+.button.action.primary:disabled,
+.button.action.primary[disabled="disabled"],
+.button.action:disabled:hover,
+.button.action[disabled="disabled"]:hover,
+.button.action.primary:disabled:hover,
+.button.action.primary[disabled="disabled"]:hover,
+.button.action:disabled:active,
+.button.action[disabled="disabled"]:active,
+.button.action.primary:disabled:active,
+.button.action.primary[disabled="disabled"]:active {
+  background-color: rgba(122, 122, 122, 0.12);
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
 }
 
 .button.action.primary {
@@ -119,9 +140,13 @@ body {
   color: #ffffff;
 }
 
-.button.action.primary:hover,
-.button.action.primary:active {
+.button.action.primary:hover {
   background-color: rgb(53, 71, 171);
+  color: #ffffff;
+}
+
+.button.action.primary:active {
+  background-color: rgb(43, 61, 161);
   color: #ffffff;
 }
 
@@ -130,9 +155,13 @@ body {
   color: #000000;
 }
 
-.button.action.secondary:hover,
-.button.action.secondary:active {
+.button.action.secondary:hover {
   background-color: rgb(245, 245, 245);
+  color: #000000;
+}
+
+.button.action.secondary:active {
+  background-color: rgb(235, 235, 235);
   color: #000000;
 }
 
@@ -141,9 +170,13 @@ body {
   color: #ffffff;
 }
 
-.button.action.tertiary:hover,
-.button.action.tertiary:active {
+.button.action.tertiary:hover {
   background-color: rgb(245, 54, 119);
+  color: #ffffff;
+}
+
+.button.action.tertiary:active {
+  background-color: rgb(235, 44, 109);
   color: #ffffff;
 }
 
@@ -152,9 +185,13 @@ body {
   color: #ffffff;
 }
 
-.button.action.danger:hover,
-.button.action.danger:active {
+.button.action.danger:hover {
   background-color: rgb(234, 57, 44);
+  color: #ffffff;
+}
+
+.button.action.danger:active {
+  background-color: rgb(224, 47, 34);
   color: #ffffff;
 }
 

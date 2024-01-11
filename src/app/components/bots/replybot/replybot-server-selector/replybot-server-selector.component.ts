@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DiscordGuild } from 'src/app/models/bots/discord-guild';
-import { BotPageComponent } from '../../../bot-page/bot-page.component';
+import { BotPageComponent } from '../../bot-page/bot-page.component';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configuration';
