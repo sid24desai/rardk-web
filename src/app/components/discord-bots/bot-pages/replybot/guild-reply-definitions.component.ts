@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageComponent } from '../../page/page.component';
+import { BotPageComponent } from '../../page/bot-page.component';
 import { GuildReplyDefinition } from 'src/app/models/bots/replybot/guild-reply-definition';
 import { take, forkJoin, timeout, throwError } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -16,7 +16,7 @@ import { DiscordUser } from 'src/app/models/bots/discord-user';
   styleUrls: ['./guild-reply-definitions.component.css'],
 })
 export class GuildReplyDefinitionsComponent
-  extends PageComponent
+  extends BotPageComponent
   implements OnInit
 {
   isLoading: boolean;

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,18 +54,16 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { APP_BASE_HREF } from '@angular/common';
 import { TimezonesComponent } from './components/discord-bots/bot-pages/timezonebot/timezones/timezones.component';
 import { ReplybotServerSelectorComponent } from './components/discord-bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
 import { GuildReplyDefinitionsComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definitions.component';
 import { CallbackComponent } from './components/discord-bots/callback/callback.component';
-import { PageComponent } from './components/discord-bots/page/page.component';
+import { BotPageComponent } from './components/discord-bots/page/bot-page.component';
 import { GuildReplyDefinitionEditorDialogComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
 import { HelpDialogComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
 import { CheckXComponent } from './components/discord-bots/check-x/check-x.component';
 import { LoginActionsComponent } from './components/discord-bots/login-actions/login-actions.component';
 import { LoadingBarComponent } from './components/discord-bots/loading-bar/loading-bar.component';
-import { BotHomeComponent } from './components/discord-bots/home/home.component';
 import { BotsComponent } from './components/discord-bots/bots/bots.component';
 
 @NgModule({
@@ -99,7 +96,7 @@ import { BotsComponent } from './components/discord-bots/bots/bots.component';
     NavbarButtonComponent,
     DateDisplayComponent,
     CallbackComponent,
-    PageComponent,
+    BotPageComponent,
     ReplybotServerSelectorComponent,
     GuildReplyDefinitionsComponent,
     GuildReplyDefinitionEditorDialogComponent,
@@ -109,7 +106,6 @@ import { BotsComponent } from './components/discord-bots/bots/bots.component';
     LoginActionsComponent,
     HeaderComponent,
     LoadingBarComponent,
-    BotHomeComponent,
     BotsComponent,
   ],
   imports: [

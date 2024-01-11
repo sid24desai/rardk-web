@@ -11,10 +11,10 @@ import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-page',
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.css'],
+  templateUrl: './bot-page.component.html',
+  styleUrls: ['./bot-page.component.css'],
 })
-export class PageComponent {
+export class BotPageComponent {
   constructor(
     public authService: AuthenticationService,
     public discordService: DiscordService,

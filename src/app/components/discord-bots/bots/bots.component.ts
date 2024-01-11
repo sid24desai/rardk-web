@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageComponent } from '../page/page.component';
+import { BotPageComponent } from '../page/bot-page.component';
 import { BotDefinition } from 'src/app/models/bots/bot-definition';
 import { take } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { take } from 'rxjs';
   templateUrl: './bots.component.html',
   styleUrls: ['./bots.component.scss'],
 })
-export class BotsComponent extends PageComponent implements OnInit {
+export class BotsComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;
   public bots: BotDefinition[] = [
     {

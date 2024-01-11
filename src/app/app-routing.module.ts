@@ -13,7 +13,6 @@ import { AuthenticationGuard } from './guards/authentication-guard.guard';
 import { ReplybotServerSelectorComponent } from './components/discord-bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
 import { GuildReplyDefinitionsComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definitions.component';
 import { CallbackComponent } from './components/discord-bots/callback/callback.component';
-import { BotHomeComponent } from './components/discord-bots/home/home.component';
 import { BotsComponent } from './components/discord-bots/bots/bots.component';
 
 const routes: Routes = [

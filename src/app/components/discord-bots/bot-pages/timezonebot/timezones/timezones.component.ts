@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { take, forkJoin, map, timeout, throwError } from 'rxjs';
-import { PageComponent } from 'src/app/components/discord-bots/page/page.component';
+import { BotPageComponent } from 'src/app/components/discord-bots/page/bot-page.component';
 import { SetTimeZoneRequest } from 'src/app/models/bots/timezonebot/set-time-zone-request';
 import { TimeZoneDataSource } from 'src/app/models/bots/timezonebot/time-zone-data-source';
 import { TimeZoneItem } from 'src/app/models/bots/timezonebot/time-zone-item';
@@ -10,7 +10,7 @@ import { TimeZoneItem } from 'src/app/models/bots/timezonebot/time-zone-item';
   templateUrl: './timezones.component.html',
   styleUrls: ['./timezones.component.css'],
 })
-export class TimezonesComponent extends PageComponent implements OnInit {
+export class TimezonesComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;
   public isTimeZoneLoading: boolean;
   public timeZones: TimeZoneItem[];
