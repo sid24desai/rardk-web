@@ -8,10 +8,10 @@ import { LegoSetsComponent } from './components/collections/lego-sets/lego-sets.
 import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
-import { TimezonesComponent } from './components/bots/bot-pages/timezonebot/timezones/timezones.component';
+import { TimezonesComponent } from './components/bots/timezonebot/timezones/timezones.component';
 import { AuthenticationGuard } from './guards/authentication-guard.guard';
-import { ReplybotServerSelectorComponent } from './components/bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
-import { GuildReplyDefinitionsComponent } from './components/bots/bot-pages/replybot/guild-reply-definitions.component';
+import { ReplybotServerSelectorComponent } from './components/bots/replybot/replybot-server-selector/replybot-server-selector.component';
+import { GuildReplyDefinitionsComponent } from './components/bots/replybot/guild-reply-definitions.component';
 import { CallbackComponent } from './components/bots/callback/callback.component';
 import { BotsComponent } from './components/bots/bots.component';
 

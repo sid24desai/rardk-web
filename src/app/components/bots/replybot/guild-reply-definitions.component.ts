@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BotPageComponent } from '../../bot-page/bot-page.component';
+import { BotPageComponent } from '../bot-page/bot-page.component';
 import { GuildReplyDefinition } from 'src/app/models/bots/replybot/guild-reply-definition';
 import { take, forkJoin, timeout, throwError } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';

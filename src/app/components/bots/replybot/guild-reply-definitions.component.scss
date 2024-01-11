@@ -42,6 +42,12 @@
   text-align: left;
 }
 
+.guild-reply-definition-card ::selection{
+  background-color: #000000;
+  text-shadow: none;
+  color: #ffffff;
+}
+
 .guild-reply-definition-card mat-expansion-panel-header {
   height: 170px;
 }
