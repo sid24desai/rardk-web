@@ -10,7 +10,7 @@ import { HelpKeywordDetail } from 'src/app/models/bots/replybot/help-keyword-det
 @Component({
   selector: 'app-help-dialog',
   templateUrl: './help-dialog.component.html',
-  styleUrls: ['./help-dialog.component.css'],
+  styleUrls: ['./help-dialog.component.scss'],
 })
 export class HelpDialogComponent {
   public dialogData: any;

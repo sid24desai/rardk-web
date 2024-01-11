@@ -12,7 +12,7 @@ import emojiRegex from 'emoji-regex';
 @Component({
   selector: 'app-guild-reply-definition-editor-dialog',
   templateUrl: './guild-reply-definition-editor-dialog.component.html',
-  styleUrls: ['./guild-reply-definition-editor-dialog.component.css'],
+  styleUrls: ['./guild-reply-definition-editor-dialog.component.scss'],
 })
 export class GuildReplyDefinitionEditorDialogComponent {
   public dialogData: GuildReplyDefinitionEditorDialogData;

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { BotPageComponent } from '../page/bot-page.component';
+import { BotPageComponent } from '../bot-page/bot-page.component';
 
 @Component({
   selector: 'app-login-actions',
   templateUrl: './login-actions.component.html',
-  styleUrls: ['./login-actions.component.css'],
+  styleUrls: ['./login-actions.component.scss'],
 })
 export class LoginActionsComponent extends BotPageComponent {
   public confirmLogOut() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BotPageComponent } from '../page/bot-page.component';
+import { BotPageComponent } from './bot-page/bot-page.component';
 import { BotDefinition } from 'src/app/models/bots/bot-definition';
 import { take } from 'rxjs';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BotPageComponent } from '../../page/bot-page.component';
+import { BotPageComponent } from '../../bot-page/bot-page.component';
 import { GuildReplyDefinition } from 'src/app/models/bots/replybot/guild-reply-definition';
 import { take, forkJoin, timeout, throwError } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { DiscordUser } from 'src/app/models/bots/discord-user';
 @Component({
   selector: 'app-guild-reply-definitions',
   templateUrl: './guild-reply-definitions.component.html',
-  styleUrls: ['./guild-reply-definitions.component.css'],
+  styleUrls: ['./guild-reply-definitions.component.scss'],
 })
 export class GuildReplyDefinitionsComponent
   extends BotPageComponent

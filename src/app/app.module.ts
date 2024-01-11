@@ -54,17 +54,17 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { TimezonesComponent } from './components/discord-bots/bot-pages/timezonebot/timezones/timezones.component';
-import { ReplybotServerSelectorComponent } from './components/discord-bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
-import { GuildReplyDefinitionsComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definitions.component';
-import { CallbackComponent } from './components/discord-bots/callback/callback.component';
-import { BotPageComponent } from './components/discord-bots/page/bot-page.component';
-import { GuildReplyDefinitionEditorDialogComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
-import { HelpDialogComponent } from './components/discord-bots/bot-pages/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
-import { CheckXComponent } from './components/discord-bots/check-x/check-x.component';
-import { LoginActionsComponent } from './components/discord-bots/login-actions/login-actions.component';
-import { LoadingBarComponent } from './components/discord-bots/loading-bar/loading-bar.component';
-import { BotsComponent } from './components/discord-bots/bots/bots.component';
+import { TimezonesComponent } from './components/bots/bot-pages/timezonebot/timezones/timezones.component';
+import { ReplybotServerSelectorComponent } from './components/bots/bot-pages/replybot/replybot-server-selector/replybot-server-selector.component';
+import { GuildReplyDefinitionsComponent } from './components/bots/bot-pages/replybot/guild-reply-definitions.component';
+import { CallbackComponent } from './components/bots/callback/callback.component';
+import { BotPageComponent } from './components/bots/bot-page/bot-page.component';
+import { GuildReplyDefinitionEditorDialogComponent } from './components/bots/bot-pages/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
+import { HelpDialogComponent } from './components/bots/bot-pages/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
+import { CheckXComponent } from './components/bots/check-x/check-x.component';
+import { LoginActionsComponent } from './components/bots/login-actions/login-actions.component';
+import { LoadingBarComponent } from './components/bots/loading-bar/loading-bar.component';
+import { BotsComponent } from './components/bots/bots.component';
 
 @NgModule({
   declarations: [

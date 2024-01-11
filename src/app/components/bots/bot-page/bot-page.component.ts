@@ -12,7 +12,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 @Component({
   selector: 'app-page',
   templateUrl: './bot-page.component.html',
-  styleUrls: ['./bot-page.component.css'],
+  styleUrls: ['./bot-page.component.scss'],
 })
 export class BotPageComponent {
   constructor(

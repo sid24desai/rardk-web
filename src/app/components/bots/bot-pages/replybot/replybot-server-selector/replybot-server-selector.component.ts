@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DiscordGuild } from 'src/app/models/bots/discord-guild';
-import { BotPageComponent } from '../../../page/bot-page.component';
+import { BotPageComponent } from '../../../bot-page/bot-page.component';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configuration';
@@ -8,7 +8,7 @@ import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configura
 @Component({
   selector: 'app-guild-selector',
   templateUrl: './replybot-server-selector.component.html',
-  styleUrls: ['./replybot-server-selector.component.css'],
+  styleUrls: ['./replybot-server-selector.component.scss'],
 })
 export class ReplybotServerSelectorComponent
   extends BotPageComponent
