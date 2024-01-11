@@ -8,7 +8,7 @@ import { TimeZoneItem } from 'src/app/models/bots/timezonebot/time-zone-item';
 @Component({
   selector: 'app-timezones',
   templateUrl: './timezones.component.html',
-  styleUrls: ['./timezones.component.css'],
+  styleUrls: ['./timezones.component.scss'],
 })
 export class TimezonesComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;
