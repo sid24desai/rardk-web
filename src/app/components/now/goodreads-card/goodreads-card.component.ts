@@ -3,11 +3,14 @@ import { FeedItem } from 'src/app/models/feed-item';
 import { GoodreadsItem } from 'src/app/models/goodreads-item';
 import { GoodreadsService } from './goodreads.service';
 import { take } from 'rxjs';
+import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-  selector: 'app-goodreads-card',
-  templateUrl: './goodreads-card.component.html',
-  styleUrls: ['./goodreads-card.component.scss'],
+    selector: 'app-goodreads-card',
+    templateUrl: './goodreads-card.component.html',
+    styleUrls: ['./goodreads-card.component.scss'],
+    standalone: true,
+    imports: [FeedPostersComponent],
 })
 export class GoodreadsCardComponent {
   public isFinishedBooksLoading: boolean;

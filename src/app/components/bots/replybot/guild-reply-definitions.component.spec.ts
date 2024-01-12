@@ -8,8 +8,8 @@ describe('ReplybotComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GuildReplyDefinitionsComponent ]
-    })
+    imports: [GuildReplyDefinitionsComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(GuildReplyDefinitionsComponent);

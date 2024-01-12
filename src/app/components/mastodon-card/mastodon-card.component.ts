@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { MastodonStatus } from 'src/app/models/mastodon/mastodon-status';
 import { MastodonService } from './mastodon.service';
+import { HtmlDirective } from '../../directives/html.directive';
+import { NgFor, NgIf, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-mastodon-card',
-  templateUrl: './mastodon-card.component.html',
-  styleUrls: ['./mastodon-card.component.scss'],
+    selector: 'app-mastodon-card',
+    templateUrl: './mastodon-card.component.html',
+    styleUrls: ['./mastodon-card.component.scss'],
+    standalone: true,
+    imports: [
+        NgFor,
+        HtmlDirective,
+        NgIf,
+        DatePipe,
+    ],
 })
 export class MastodonCardComponent implements OnInit {
   constructor(private mastodonService: MastodonService) {}

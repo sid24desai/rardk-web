@@ -8,8 +8,8 @@ describe('SerializdCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SerializdCardComponent ]
-    })
+    imports: [SerializdCardComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SerializdCardComponent);

@@ -3,11 +3,14 @@ import { take } from 'rxjs';
 import { FeedItem } from 'src/app/models/feed-item';
 import { LetterboxdItem } from 'src/app/models/letterboxd-item';
 import { LetterboxdService } from './letterboxd.service';
+import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-  selector: 'app-letterboxd-card',
-  templateUrl: './letterboxd-card.component.html',
-  styleUrls: ['./letterboxd-card.component.scss'],
+    selector: 'app-letterboxd-card',
+    templateUrl: './letterboxd-card.component.html',
+    styleUrls: ['./letterboxd-card.component.scss'],
+    standalone: true,
+    imports: [FeedPostersComponent],
 })
 export class LetterboxdCardComponent {
   public isLoading: boolean;

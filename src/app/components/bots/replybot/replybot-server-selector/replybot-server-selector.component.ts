@@ -4,11 +4,21 @@ import { BotPageComponent } from '../../bot-page/bot-page.component';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configuration';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NgIf, NgFor } from '@angular/common';
+import { PageTitleComponent } from '../../../shared/page-title/page-title.component';
 
 @Component({
-  selector: 'app-guild-selector',
-  templateUrl: './replybot-server-selector.component.html',
-  styleUrls: ['./replybot-server-selector.component.scss'],
+    selector: 'app-guild-selector',
+    templateUrl: './replybot-server-selector.component.html',
+    styleUrls: ['./replybot-server-selector.component.scss'],
+    standalone: true,
+    imports: [
+        PageTitleComponent,
+        NgIf,
+        MatProgressBarModule,
+        NgFor,
+    ],
 })
 export class ReplybotServerSelectorComponent
   extends BotPageComponent

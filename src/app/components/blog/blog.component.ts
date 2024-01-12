@@ -1,12 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from './blog.service';
 import { BlogPost } from 'src/app/models/blog-post';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { HtmlDirective } from '../../directives/html.directive';
+import { DateDisplayComponent } from '../shared/date-display/date-display.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf, NgFor } from '@angular/common';
+import { PageTitleComponent } from '../shared/page-title/page-title.component';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss',
+    selector: 'app-blog',
+    templateUrl: './blog.component.html',
+    styleUrl: './blog.component.scss',
+    standalone: true,
+    imports: [
+        PageTitleComponent,
+        NgIf,
+        MatProgressSpinnerModule,
+        NgFor,
+        DateDisplayComponent,
+        HtmlDirective,
+        RouterLink,
+    ],
 })
 export class BlogComponent implements OnInit {
   public blogPosts: BlogPost[];

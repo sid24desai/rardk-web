@@ -8,9 +8,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DiscordService } from 'src/app/services/discord.service';
 
 @Component({
-  selector: 'app-callback',
-  templateUrl: './callback.component.html',
-  styleUrls: ['./callback.component.scss'],
+    selector: 'app-callback',
+    templateUrl: './callback.component.html',
+    styleUrls: ['./callback.component.scss'],
+    standalone: true,
 })
 export class CallbackComponent implements OnInit {
   constructor(

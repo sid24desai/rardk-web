@@ -8,8 +8,8 @@ describe('GuildReplyDefinitionEditorDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GuildReplyDefinitionEditorDialogComponent ]
-    })
+    imports: [GuildReplyDefinitionEditorDialogComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(GuildReplyDefinitionEditorDialogComponent);

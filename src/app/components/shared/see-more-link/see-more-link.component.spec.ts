@@ -8,8 +8,8 @@ describe('SeeMoreLinkComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SeeMoreLinkComponent]
-    });
+    imports: [SeeMoreLinkComponent]
+});
     fixture = TestBed.createComponent(SeeMoreLinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -2,11 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { BotPageComponent } from './bot-page/bot-page.component';
 import { BotDefinition } from 'src/app/models/bots/bot-definition';
 import { take } from 'rxjs';
+import { NgFor, NgIf } from '@angular/common';
+import { LoginActionsComponent } from './login-actions/login-actions.component';
+import { PageTitleComponent } from '../shared/page-title/page-title.component';
 
 @Component({
-  selector: 'app-bots',
-  templateUrl: './bots.component.html',
-  styleUrls: ['./bots.component.scss'],
+    selector: 'app-bots',
+    templateUrl: './bots.component.html',
+    styleUrls: ['./bots.component.scss'],
+    standalone: true,
+    imports: [
+        PageTitleComponent,
+        LoginActionsComponent,
+        NgFor,
+        NgIf,
+    ],
 })
 export class BotsComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;

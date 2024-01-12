@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 
 // found here https://javascript.plainenglish.io/handle-css-and-links-in-dynamically-injected-html-using-angular-74c074ca2fd7
 @Directive({
-  selector: '[html]',
+    selector: '[html]',
+    standalone: true,
 })
 export class HtmlDirective implements OnChanges {
   private _uniqueId: string;

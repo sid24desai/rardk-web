@@ -4,11 +4,37 @@ import { BotPageComponent } from 'src/app/components/bots/bot-page/bot-page.comp
 import { SetTimeZoneRequest } from 'src/app/models/bots/timezonebot/set-time-zone-request';
 import { TimeZoneDataSource } from 'src/app/models/bots/timezonebot/time-zone-data-source';
 import { TimeZoneItem } from 'src/app/models/bots/timezonebot/time-zone-item';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf, NgFor } from '@angular/common';
+import { LoadingBarComponent } from '../../loading-bar/loading-bar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { PageTitleComponent } from '../../../shared/page-title/page-title.component';
 
 @Component({
-  selector: 'app-timezones',
-  templateUrl: './timezones.component.html',
-  styleUrls: ['./timezones.component.scss'],
+    selector: 'app-timezones',
+    templateUrl: './timezones.component.html',
+    styleUrls: ['./timezones.component.scss'],
+    standalone: true,
+    imports: [
+        PageTitleComponent,
+        MatIconModule,
+        LoadingBarComponent,
+        NgIf,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        NgFor,
+        MatOptionModule,
+        MatInputModule,
+        MatButtonModule,
+        ClipboardModule,
+    ],
 })
 export class TimezonesComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;

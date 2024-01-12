@@ -10,9 +10,10 @@ import { TimezonebotService } from 'src/app/services/timezonebot.service';
 import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
-  selector: 'app-page',
-  templateUrl: './bot-page.component.html',
-  styleUrls: ['./bot-page.component.scss'],
+    selector: 'app-page',
+    templateUrl: './bot-page.component.html',
+    styleUrls: ['./bot-page.component.scss'],
+    standalone: true,
 })
 export class BotPageComponent {
   constructor(

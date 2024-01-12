@@ -2,11 +2,30 @@ import { Component } from '@angular/core';
 import { take } from 'rxjs';
 import { LegoSet } from 'src/app/models/lego-set';
 import { LegoSetsService } from './lego-sets.service';
+import { CheckOrXComponent } from '../../shared/check-or-x/check-or-x.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgFor } from '@angular/common';
+import { PageTitleComponent } from '../../shared/page-title/page-title.component';
 
 @Component({
-  selector: 'app-lego-sets',
-  templateUrl: './lego-sets.component.html',
-  styleUrls: ['./lego-sets.component.scss'],
+    selector: 'app-lego-sets',
+    templateUrl: './lego-sets.component.html',
+    styleUrls: ['./lego-sets.component.scss'],
+    standalone: true,
+    imports: [
+        PageTitleComponent,
+        NgFor,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        MatOptionModule,
+        MatRadioModule,
+        CheckOrXComponent,
+    ],
 })
 export class LegoSetsComponent {
   public ownedSets: LegoSet[];

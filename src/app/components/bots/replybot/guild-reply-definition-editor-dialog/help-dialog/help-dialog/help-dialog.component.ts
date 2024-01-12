@@ -6,11 +6,22 @@ import {
 } from '@angular/material/dialog';
 import { GuildReplyDefinitionEditorDialogComponent } from '../../guild-reply-definition-editor-dialog.component';
 import { HelpKeywordDetail } from 'src/app/models/bots/replybot/help-keyword-detail';
+import { MatIconModule } from '@angular/material/icon';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatButtonModule } from '@angular/material/button';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-help-dialog',
-  templateUrl: './help-dialog.component.html',
-  styleUrls: ['./help-dialog.component.scss'],
+    selector: 'app-help-dialog',
+    templateUrl: './help-dialog.component.html',
+    styleUrls: ['./help-dialog.component.scss'],
+    standalone: true,
+    imports: [
+        NgFor,
+        MatButtonModule,
+        ClipboardModule,
+        MatIconModule,
+    ],
 })
 export class HelpDialogComponent {
   public dialogData: any;

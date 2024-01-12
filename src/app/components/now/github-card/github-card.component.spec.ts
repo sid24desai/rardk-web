@@ -8,8 +8,8 @@ describe('GithubCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GithubCardComponent ]
-    })
+    imports: [GithubCardComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(GithubCardComponent);
