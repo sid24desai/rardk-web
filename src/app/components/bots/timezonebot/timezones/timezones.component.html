@@ -77,7 +77,7 @@
               class="copy-button"
               mat-icon-button
               [disableRipple]="true"
-              [cdkCopyToClipboard]="timeZone.id"
+              (click)="copyTimeZone(timeZone.id)"
             >
               <mat-icon>file_copy</mat-icon>
             </button>

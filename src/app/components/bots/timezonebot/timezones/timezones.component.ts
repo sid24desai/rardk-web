@@ -17,24 +17,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { PageTitleComponent } from '../../../shared/page-title/page-title.component';
 
 @Component({
-    selector: 'app-timezones',
-    templateUrl: './timezones.component.html',
-    styleUrls: ['./timezones.component.scss'],
-    standalone: true,
-    imports: [
-        PageTitleComponent,
-        MatIconModule,
-        LoadingBarComponent,
-        NgIf,
-        MatFormFieldModule,
-        MatSelectModule,
-        FormsModule,
-        NgFor,
-        MatOptionModule,
-        MatInputModule,
-        MatButtonModule,
-        ClipboardModule,
-    ],
+  selector: 'app-timezones',
+  templateUrl: './timezones.component.html',
+  styleUrls: ['./timezones.component.scss'],
+  standalone: true,
+  imports: [
+    PageTitleComponent,
+    MatIconModule,
+    LoadingBarComponent,
+    NgIf,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    NgFor,
+    MatOptionModule,
+    MatInputModule,
+    MatButtonModule,
+    ClipboardModule,
+  ],
 })
 export class TimezonesComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;
@@ -213,5 +213,13 @@ export class TimezonesComponent extends BotPageComponent implements OnInit {
       return `+${utcOffset}`;
     }
     return `${utcOffset}`;
+  }
+
+  public copyTimeZone(timeZone: string) {
+    if (this.clipboard.copy(timeZone)) {
+      this.showSnackBar('Copied Time Zone ID to clipboard!', false);
+    } else {
+      this.showSnackBar('There was a problem copying. Please try again.', true);
+    }
   }
 }
