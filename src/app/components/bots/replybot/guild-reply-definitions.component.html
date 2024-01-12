@@ -1,12 +1,4 @@
 <div class="guild-reply-definitions-list-container">
-  <div class="navigation-button-section">
-    <button
-      class="back-button secondary action button"
-      (click)="backToGuildSelector()"
-    >
-      ⬅️ Back to Server List
-    </button>
-  </div>
   <app-loading-bar [isLoading]="isLoading"></app-loading-bar>
   <div
     class="guild-reply-definitions-container"
@@ -15,6 +7,14 @@
     <app-page-title
       >Custom Reply Definitions for {{ guildName }}</app-page-title
     >
+    <div class="navigation-button-section">
+      <button
+        class="back-button secondary action button"
+        (click)="backToGuildSelector()"
+      >
+        ⬅️ Back to Server List
+      </button>
+    </div>
     <div
       class="guild-reply-definition-add-action-section"
       *ngIf="guildReplyDefinitions.length > 0"
