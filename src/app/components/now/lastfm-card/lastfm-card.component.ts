@@ -4,11 +4,14 @@ import { FeedItem } from 'src/app/models/feed-item';
 import { LastfmAlbum } from 'src/app/models/lastfm/lastfm-album';
 import { LastfmArtist } from 'src/app/models/lastfm/lastfm-artist';
 import { LastfmService } from './lastfm.service';
+import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-  selector: 'app-lastfm-card',
-  templateUrl: './lastfm-card.component.html',
-  styleUrls: ['./lastfm-card.component.scss'],
+    selector: 'app-lastfm-card',
+    templateUrl: './lastfm-card.component.html',
+    styleUrls: ['./lastfm-card.component.scss'],
+    standalone: true,
+    imports: [FeedPostersComponent],
 })
 export class LastfmCardComponent {
   public isTopAlbumsLoading: boolean;

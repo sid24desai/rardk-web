@@ -8,8 +8,8 @@ describe('PageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BotPageComponent ]
-    })
+    imports: [BotPageComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(BotPageComponent);

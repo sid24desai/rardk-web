@@ -9,11 +9,39 @@ import { DiscordGuild } from 'src/app/models/bots/discord-guild';
 import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configuration';
 import { GuildReplyDefinitionFilterType as GuildReplyDefinitionAttributeType } from 'src/app/models/bots/replybot/guild-reply-definition-filter-type';
 import { DiscordUser } from 'src/app/models/bots/discord-user';
+import { CheckXComponent } from '../check-x/check-x.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { FormsModule } from '@angular/forms';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { PageTitleComponent } from '../../shared/page-title/page-title.component';
+import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
+import { LoadingBarComponent } from '../loading-bar/loading-bar.component';
 
 @Component({
-  selector: 'app-guild-reply-definitions',
-  templateUrl: './guild-reply-definitions.component.html',
-  styleUrls: ['./guild-reply-definitions.component.scss'],
+    selector: 'app-guild-reply-definitions',
+    templateUrl: './guild-reply-definitions.component.html',
+    styleUrls: ['./guild-reply-definitions.component.scss'],
+    standalone: true,
+    imports: [
+        LoadingBarComponent,
+        NgIf,
+        PageTitleComponent,
+        MatButtonToggleModule,
+        FormsModule,
+        NgFor,
+        MatExpansionModule,
+        NgClass,
+        MatChipsModule,
+        MatTooltipModule,
+        MatButtonModule,
+        MatIconModule,
+        CheckXComponent,
+        DatePipe,
+    ],
 })
 export class GuildReplyDefinitionsComponent
   extends BotPageComponent

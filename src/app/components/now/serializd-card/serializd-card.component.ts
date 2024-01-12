@@ -3,11 +3,14 @@ import { take } from 'rxjs';
 import { FeedItem } from 'src/app/models/feed-item';
 import { SerializdCurrentlyWatchingItem } from 'src/app/models/serializd-currently-watching-item';
 import { SerializdService } from './serializd.service';
+import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-  selector: 'app-serializd-card',
-  templateUrl: './serializd-card.component.html',
-  styleUrls: ['./serializd-card.component.scss'],
+    selector: 'app-serializd-card',
+    templateUrl: './serializd-card.component.html',
+    styleUrls: ['./serializd-card.component.scss'],
+    standalone: true,
+    imports: [FeedPostersComponent],
 })
 export class SerializdCardComponent {
   public isLoading: boolean;

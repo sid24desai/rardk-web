@@ -8,8 +8,8 @@ describe('TimezonesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimezonesComponent ]
-    })
+    imports: [TimezonesComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(TimezonesComponent);

@@ -8,8 +8,8 @@ describe('LetterboxdCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LetterboxdCardComponent ]
-    })
+    imports: [LetterboxdCardComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(LetterboxdCardComponent);

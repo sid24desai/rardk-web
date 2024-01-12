@@ -5,11 +5,22 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { Meta } from '@angular/platform-browser';
+import { HtmlDirective } from '../../../directives/html.directive';
+import { DateDisplayComponent } from '../../shared/date-display/date-display.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-blog-post',
-  templateUrl: './blog-post.component.html',
-  styleUrl: './blog-post.component.scss',
+    selector: 'app-blog-post',
+    templateUrl: './blog-post.component.html',
+    styleUrl: './blog-post.component.scss',
+    standalone: true,
+    imports: [
+        NgIf,
+        MatProgressSpinnerModule,
+        DateDisplayComponent,
+        HtmlDirective,
+    ],
 })
 export class BlogPostComponent {
   public post: BlogPost;

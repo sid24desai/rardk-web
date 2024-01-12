@@ -8,11 +8,33 @@ import { GuildReplyDefinition } from 'src/app/models/bots/replybot/guild-reply-d
 import { GuildReplyDefinitionEditorDialogData } from 'src/app/models/bots/replybot/guild-reply-definition-editor-dialog-data';
 import { HelpDialogComponent } from './help-dialog/help-dialog/help-dialog.component';
 import emojiRegex from 'emoji-regex';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgFor, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-guild-reply-definition-editor-dialog',
-  templateUrl: './guild-reply-definition-editor-dialog.component.html',
-  styleUrls: ['./guild-reply-definition-editor-dialog.component.scss'],
+    selector: 'app-guild-reply-definition-editor-dialog',
+    templateUrl: './guild-reply-definition-editor-dialog.component.html',
+    styleUrls: ['./guild-reply-definition-editor-dialog.component.scss'],
+    standalone: true,
+    imports: [
+        MatButtonModule,
+        MatTooltipModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        FormsModule,
+        NgFor,
+        NgIf,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCheckboxModule,
+    ],
 })
 export class GuildReplyDefinitionEditorDialogComponent {
   public dialogData: GuildReplyDefinitionEditorDialogData;

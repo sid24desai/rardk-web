@@ -8,8 +8,8 @@ describe('CheckOrXComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CheckOrXComponent]
-    });
+    imports: [CheckOrXComponent]
+});
     fixture = TestBed.createComponent(CheckOrXComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

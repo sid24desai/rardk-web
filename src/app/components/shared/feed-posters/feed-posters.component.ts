@@ -1,10 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FeedItem } from 'src/app/models/feed-item';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SeeMoreLinkComponent } from '../see-more-link/see-more-link.component';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-feed-posters',
-  templateUrl: './feed-posters.component.html',
-  styleUrls: ['./feed-posters.component.scss'],
+    selector: 'app-feed-posters',
+    templateUrl: './feed-posters.component.html',
+    styleUrls: ['./feed-posters.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        SeeMoreLinkComponent,
+        MatProgressSpinnerModule,
+        NgFor,
+    ],
 })
 export class FeedPostersComponent implements OnInit {
   @Input() sectionTitle: string;

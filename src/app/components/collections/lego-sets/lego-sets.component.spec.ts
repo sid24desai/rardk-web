@@ -8,8 +8,8 @@ describe('LegoSetsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LegoSetsComponent]
-    });
+    imports: [LegoSetsComponent]
+});
     fixture = TestBed.createComponent(LegoSetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

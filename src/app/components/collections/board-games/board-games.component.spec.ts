@@ -8,8 +8,8 @@ describe('BoardGamesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BoardGamesComponent]
-    });
+    imports: [BoardGamesComponent]
+});
     fixture = TestBed.createComponent(BoardGamesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

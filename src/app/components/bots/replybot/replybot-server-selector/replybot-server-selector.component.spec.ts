@@ -8,8 +8,8 @@ describe('BotControlPanelsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReplybotServerSelectorComponent],
-    }).compileComponents();
+    imports: [ReplybotServerSelectorComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(ReplybotServerSelectorComponent);
     component = fixture.componentInstance;
