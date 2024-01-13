@@ -5,18 +5,20 @@ import { take } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
 import { LoginActionsComponent } from './login-actions/login-actions.component';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-    selector: 'app-bots',
-    templateUrl: './bots.component.html',
-    styleUrls: ['./bots.component.scss'],
-    standalone: true,
-    imports: [
-        PageTitleComponent,
-        LoginActionsComponent,
-        NgFor,
-        NgIf,
-    ],
+  selector: 'app-bots',
+  templateUrl: './bots.component.html',
+  styleUrls: ['./bots.component.scss'],
+  standalone: true,
+  imports: [
+    PageTitleComponent,
+    LoginActionsComponent,
+    NgFor,
+    NgIf,
+    MatTooltipModule,
+  ],
 })
 export class BotsComponent extends BotPageComponent implements OnInit {
   public isLoading: boolean;
