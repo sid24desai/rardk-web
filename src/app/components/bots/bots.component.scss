@@ -1,8 +1,25 @@
 .icon-img {
   height: 235px;
   width: 235px;
-  border-radius: 18px;
+  border-radius: 4px;
   margin-right: 20px;
+}
+
+.discord-button {
+  width: 30px;
+
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+}
+
+.discord-button:hover {
+  transform: rotate(360deg);
+}
+
+.discord-button:active {
+  opacity: 0;
+  transition: 0.1s linear;
+  transform: scale(3) rotate(10deg);
 }
 
 .bot-description {
@@ -31,6 +48,10 @@
 .bot-card {
   width: 80%;
   position: relative;
+
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-bottom: 1px;
 }
 
 .bot-button-link {
@@ -74,6 +95,13 @@
   color: #ffffff;
 }
 
+@media screen and (min-width: 0px) and (max-width: 940px) {
+  .bot-description {
+    display: inline;
+    position: absolute;
+    padding-top: 20px;
+  }
+}
 @media screen and (min-width: 0px) and (max-width: 767px) {
   .bot {
     padding-top: 5px;
