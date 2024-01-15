@@ -11,7 +11,7 @@ import { BlogPostComponent } from './components/blog/blog-post/blog-post.compone
 import { TimezonesComponent } from './components/bots/timezonebot/timezones/timezones.component';
 import { AuthenticationGuard } from './guards/authentication-guard.guard';
 import { ReplybotServerSelectorComponent } from './components/bots/replybot/replybot-server-selector/replybot-server-selector.component';
-import { GuildReplyDefinitionsComponent } from './components/bots/replybot/guild-reply-definitions.component';
+import { ReplyDefinitionsComponent } from './components/bots/replybot/reply-definitions.component';
 import { CallbackComponent } from './components/bots/callback/callback.component';
 import { BotsComponent } from './components/bots/bots.component';
 
@@ -41,7 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'bots/replybot/reply-definitions',
-    component: GuildReplyDefinitionsComponent,
+    component: ReplyDefinitionsComponent,
     canActivate: [AuthenticationGuard],
   },
   { path: 'bots', component: BotsComponent },

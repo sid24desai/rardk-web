@@ -1,4 +1,4 @@
-export class GuildReplyDefinition {
+export class ReplyDefinition {
   public id: number;
   public guildId: string;
   public triggers: string[];

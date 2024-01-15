@@ -16,18 +16,18 @@
     </div>
     <div
       class="guild-reply-definition-add-action-section"
-      *ngIf="guildReplyDefinitions.length > 0"
+      *ngIf="replyDefinitions.length > 0"
     >
       <button
         class="add-guild-reply-definition-button primary action button"
-        (click)="addNewGuildReplyDefinition()"
+        (click)="addNewReplyDefinition()"
       >
         Create New Reply Definition
       </button>
     </div>
     <div
       class="guild-reply-definition-paste-action-section"
-      *ngIf="guildReplyDefinitions.length > 0"
+      *ngIf="replyDefinitions.length > 0"
     >
       <button
         class="add-guild-reply-definition-button secondary action button"
@@ -38,7 +38,7 @@
     </div>
     <div
       class="filter-options-container"
-      *ngIf="guildReplyDefinitions && guildReplyDefinitions.length > 0"
+      *ngIf="replyDefinitions && replyDefinitions.length > 0"
     >
       <div>
         <div class="filter-description">Filter By:</div>
@@ -70,7 +70,7 @@
         </button>
       </div>
     </div>
-    <div *ngIf="filteredGuildReplyDefinitions.length === 0">
+    <div *ngIf="filteredReplyDefinitions.length === 0">
       <span *ngIf="!hasFilters()">
         No reply definitions are set up for this server yet.
       </span>
@@ -81,7 +81,7 @@
     <div
       class="guild-reply-definition-card-container"
       *ngFor="
-        let guildReplyDefinition of filteredGuildReplyDefinitions;
+        let replyDefinition of filteredReplyDefinitions;
         let indexOfReplies = index
       "
     >
@@ -89,15 +89,15 @@
         class="guild-reply-definition-card"
         [ngClass]="{
           'guild-reply-definition-card': true,
-          'inactive-reply-defintion': !guildReplyDefinition.isActive
+          'inactive-reply-defintion': !replyDefinition.isActive
         }"
         (opened)="setOpen(indexOfReplies, true)"
         (closed)="setOpen(indexOfReplies, false)"
       >
         <mat-expansion-panel-header>
           <mat-panel-title *ngIf="!getOpen(indexOfReplies)" [ngClass]="">
-            {{ guildReplyDefinition.triggers.slice(0, 3).join(", ")
-            }}<ng-container *ngIf="guildReplyDefinition.triggers.length > 3"
+            {{ replyDefinition.triggers.slice(0, 3).join(", ")
+            }}<ng-container *ngIf="replyDefinition.triggers.length > 3"
               >(...)</ng-container
             ></mat-panel-title
           >
@@ -106,10 +106,10 @@
               <ng-container *ngFor="let filterType of getAttributes()">
                 <mat-chip
                   class="filter-chip"
-                  [highlighted]="filterType.filter(guildReplyDefinition)"
-                  [disabled]="!filterType.filter(guildReplyDefinition)"
+                  [highlighted]="filterType.filter(replyDefinition)"
+                  [disabled]="!filterType.filter(replyDefinition)"
                   [matTooltip]="
-                    filterType.valueDisplayText(guildReplyDefinition)
+                    filterType.valueDisplayText(replyDefinition)
                   "
                   >{{ filterType.displayName }}</mat-chip
                 >
@@ -125,7 +125,7 @@
             color="primary"
             [disableRipple]="true"
             [disabled]="indexOfReplies == 0"
-            (click)="movePriority('up', guildReplyDefinition)"
+            (click)="movePriority('up', replyDefinition)"
           >
             <mat-icon>arrow_upward</mat-icon>
           </button>
@@ -136,9 +136,9 @@
             color="primary"
             [disableRipple]="true"
             [disabled]="
-              indexOfReplies == filteredGuildReplyDefinitions.length - 1
+              indexOfReplies == filteredReplyDefinitions.length - 1
             "
-            (click)="movePriority('down', guildReplyDefinition)"
+            (click)="movePriority('down', replyDefinition)"
           >
             <mat-icon>arrow_downward</mat-icon>
           </button>
@@ -148,7 +148,7 @@
           <div class="status-section">
             Status:
             <span class="status-text">{{
-              guildReplyDefinition.isActive ? "ON" : "OFF"
+              replyDefinition.isActive ? "ON" : "OFF"
             }}</span>
           </div>
         </div>
@@ -157,7 +157,7 @@
           <h2 class="triggers-title">Triggers</h2>
           <div class="trigger">
             <ul>
-              <li *ngFor="let trigger of guildReplyDefinition.triggers">
+              <li *ngFor="let trigger of replyDefinition.triggers">
                 {{ trigger }}
               </li>
             </ul>
@@ -167,7 +167,7 @@
               >Trigger Requires Bot Name</span
             >
             <app-check-x
-              [isCheck]="guildReplyDefinition.requiresBotName"
+              [isCheck]="replyDefinition.requiresBotName"
             ></app-check-x>
           </div>
         </div>
@@ -175,14 +175,14 @@
         <div
           class="channel-ids"
           *ngIf="
-            guildReplyDefinition.channelIds &&
-            guildReplyDefinition.channelIds.length > 0
+            replyDefinition.channelIds &&
+            replyDefinition.channelIds.length > 0
           "
         >
           <h2 class="channel-ids-title">Specific Channels</h2>
           <div class="channel-id">
             <ul>
-              <li *ngFor="let channelId of guildReplyDefinition.channelIds">
+              <li *ngFor="let channelId of replyDefinition.channelIds">
                 {{ channelId }}
               </li>
             </ul>
@@ -192,14 +192,14 @@
         <div
           class="user-ids"
           *ngIf="
-            guildReplyDefinition.userIds &&
-            guildReplyDefinition.userIds.length > 0
+            replyDefinition.userIds &&
+            replyDefinition.userIds.length > 0
           "
         >
           <h2 class="user-ids-title">Specific Users</h2>
           <div class="user-id">
             <ul>
-              <li *ngFor="let userId of guildReplyDefinition.userIds">
+              <li *ngFor="let userId of replyDefinition.userIds">
                 {{ userId }}
               </li>
             </ul>
@@ -209,14 +209,14 @@
         <div
           class="replies"
           *ngIf="
-            guildReplyDefinition.replies &&
-            guildReplyDefinition.replies.length > 0
+            replyDefinition.replies &&
+            replyDefinition.replies.length > 0
           "
         >
           <h2 class="replies-title">Replies</h2>
           <div class="response">
             <ul>
-              <li *ngFor="let reply of guildReplyDefinition.replies">
+              <li *ngFor="let reply of replyDefinition.replies">
                 {{ reply }}
               </li>
             </ul>
@@ -226,7 +226,7 @@
               >Mention Author When Replying</span
             >
             <app-check-x
-              [isCheck]="guildReplyDefinition.mentionAuthor"
+              [isCheck]="replyDefinition.mentionAuthor"
             ></app-check-x>
           </div>
         </div>
@@ -234,14 +234,14 @@
         <div
           class="reactions"
           *ngIf="
-            guildReplyDefinition.reactions &&
-            guildReplyDefinition.reactions.length > 0
+            replyDefinition.reactions &&
+            replyDefinition.reactions.length > 0
           "
         >
           <h2 class="reactions-title">Reactions</h2>
           <div class="reaction">
             <ul>
-              <li *ngFor="let reaction of guildReplyDefinition.reactions">
+              <li *ngFor="let reaction of replyDefinition.reactions">
                 {{ reaction }}
               </li>
             </ul>
@@ -253,21 +253,21 @@
             Created On
             <span
               class="edit-date"
-              *ngIf="guildReplyDefinition.createdDate"
-              [matTooltip]="guildReplyDefinition.createdDate"
-              >{{ guildReplyDefinition.createdDate | date }}</span
+              *ngIf="replyDefinition.createdDate"
+              [matTooltip]="replyDefinition.createdDate"
+              >{{ replyDefinition.createdDate | date }}</span
             >
-            <span class="edit-date" *ngIf="!guildReplyDefinition.createdDate"
+            <span class="edit-date" *ngIf="!replyDefinition.createdDate"
               >Unknown Date</span
             >
             by
             <span
               class="edit-user"
-              *ngIf="guildReplyDefinition.createdById"
-              [matTooltip]="guildReplyDefinition.createdById"
-              >{{ guildReplyDefinition.createdByUsername }}</span
+              *ngIf="replyDefinition.createdById"
+              [matTooltip]="replyDefinition.createdById"
+              >{{ replyDefinition.createdByUsername }}</span
             >
-            <span class="edit-user" *ngIf="!guildReplyDefinition.createdById"
+            <span class="edit-user" *ngIf="!replyDefinition.createdById"
               >Unknown User</span
             >
           </div>
@@ -275,21 +275,21 @@
             Last Updated On
             <span
               class="edit-date"
-              *ngIf="guildReplyDefinition.updatedDate"
-              [matTooltip]="guildReplyDefinition.updatedDate"
-              >{{ guildReplyDefinition.updatedDate | date }}</span
+              *ngIf="replyDefinition.updatedDate"
+              [matTooltip]="replyDefinition.updatedDate"
+              >{{ replyDefinition.updatedDate | date }}</span
             >
-            <span class="edit-date" *ngIf="!guildReplyDefinition.updatedDate"
+            <span class="edit-date" *ngIf="!replyDefinition.updatedDate"
               >Unknown Date</span
             >
             by
             <span
               class="edit-user"
-              *ngIf="guildReplyDefinition.updatedById"
-              [matTooltip]="guildReplyDefinition.updatedById"
-              >{{ guildReplyDefinition.updatedByUsername }}</span
+              *ngIf="replyDefinition.updatedById"
+              [matTooltip]="replyDefinition.updatedById"
+              >{{ replyDefinition.updatedByUsername }}</span
             >
-            <span class="edit-user" *ngIf="!guildReplyDefinition.updatedById"
+            <span class="edit-user" *ngIf="!replyDefinition.updatedById"
               >Unknown</span
             >
           </div>
@@ -297,7 +297,7 @@
 
         <div class="guild-reply-definition-action-section">
           <ng-container
-            *ngIf="replyDefinitionToDelete?.id === guildReplyDefinition.id"
+            *ngIf="replyDefinitionToDelete?.id === replyDefinition.id"
           >
             <div class="delete-warning">
               Are you sure you want to delete? You cannot undo this!
@@ -318,18 +318,18 @@
             </div>
           </ng-container>
           <ng-container
-            *ngIf="replyDefinitionToDelete?.id !== guildReplyDefinition.id"
+            *ngIf="replyDefinitionToDelete?.id !== replyDefinition.id"
           >
             <div class="guild-reply-definition-actions">
               <button
                 class="guild-reply-definition-action-button secondary action button"
-                (click)="addFromCopy(guildReplyDefinition)"
+                (click)="addFromCopy(replyDefinition)"
               >
                 Create Duplicate
               </button>
               <button
                 class="guild-reply-definition-action-button secondary action button"
-                (click)="copyJsonToClipboard(guildReplyDefinition)"
+                (click)="copyJsonToClipboard(replyDefinition)"
               >
                 Copy to Clipboard 📋
               </button>
@@ -337,13 +337,13 @@
             <div class="guild-reply-definition-actions">
               <button
                 class="guild-reply-definition-action-button tertiary action button"
-                (click)="startEdit(guildReplyDefinition)"
+                (click)="startEdit(replyDefinition)"
               >
                 Edit
               </button>
               <button
                 class="guild-reply-definition-action-button danger action button"
-                (click)="showDeleteConfirm(guildReplyDefinition)"
+                (click)="showDeleteConfirm(replyDefinition)"
               >
                 Delete
               </button>
@@ -357,7 +357,7 @@
         mat-raised-button
         class="add-guild-reply-definition-button primary action button"
         color="primary"
-        (click)="addNewGuildReplyDefinition()"
+        (click)="addNewReplyDefinition()"
       >
         Create New Reply Definition
       </button>

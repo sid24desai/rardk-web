@@ -55,11 +55,11 @@ import {
 import { FormsModule } from '@angular/forms';
 import { TimezonesComponent } from './components/bots/timezonebot/timezones/timezones.component';
 import { ReplybotServerSelectorComponent } from './components/bots/replybot/replybot-server-selector/replybot-server-selector.component';
-import { GuildReplyDefinitionsComponent } from './components/bots/replybot/guild-reply-definitions.component';
+import { ReplyDefinitionsComponent } from './components/bots/replybot/reply-definitions.component';
 import { CallbackComponent } from './components/bots/callback/callback.component';
 import { BotPageComponent } from './components/bots/bot-page/bot-page.component';
-import { GuildReplyDefinitionEditorDialogComponent } from './components/bots/replybot/guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
-import { HelpDialogComponent } from './components/bots/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
+import { ReplyDefinitionEditorDialogComponent } from './components/bots/replybot/reply-definition-editor-dialog/reply-definition-editor-dialog.component';
+import { HelpDialogComponent } from './components/bots/replybot/reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
 import { CheckXComponent } from './components/bots/check-x/check-x.component';
 import { LoginActionsComponent } from './components/bots/login-actions/login-actions.component';
 import { BotsComponent } from './components/bots/bots.component';
@@ -120,8 +120,8 @@ import { BotsComponent } from './components/bots/bots.component';
         CallbackComponent,
         BotPageComponent,
         ReplybotServerSelectorComponent,
-        GuildReplyDefinitionsComponent,
-        GuildReplyDefinitionEditorDialogComponent,
+        ReplyDefinitionsComponent,
+        ReplyDefinitionEditorDialogComponent,
         HelpDialogComponent,
         CheckXComponent,
         TimezonesComponent,
