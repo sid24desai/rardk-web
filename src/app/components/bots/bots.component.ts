@@ -31,7 +31,7 @@ export class BotsComponent extends BotPageComponent implements OnInit {
       description:
         'A Discord Bot for easily converting times in a Discord server. It can also remind you about birthdays!',
       isConfigurable: true,
-      controlPanelLink: '/timezones',
+      controlPanelLink: '/bots/timezonebot',
       gitHubLink: 'https://github.com/rarDevelopment/timezone-bot-dotnet',
     } as BotDefinition,
     {
@@ -42,7 +42,7 @@ export class BotsComponent extends BotPageComponent implements OnInit {
       description:
         'A Discord Bot with a personality, including built-in replies, custom replies, and useful features.',
       isConfigurable: true,
-      controlPanelLink: '/replybot-server-selector',
+      controlPanelLink: 'bots/replybot',
       gitHubLink: 'https://github.com/rarDevelopment/replybot-dotnet',
     } as BotDefinition,
     {
