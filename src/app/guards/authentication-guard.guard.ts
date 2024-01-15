@@ -21,7 +21,7 @@ export class AuthenticationGuard {
 
   private authenticate(): boolean {
     if (!this.authService.isUserLoggedIn()) {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/bots');
       return false;
     } else {
       return true;
