@@ -35,7 +35,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     NgFor,
     MatExpansionModule,
     NgClass,
-    MatChipsModule,
     MatTooltipModule,
     MatButtonModule,
     MatIconModule,
@@ -371,10 +370,7 @@ export class ReplyDefinitionsComponent
     if (this.replyDefinitionToDelete) {
       var accessToken = this.getLoginToken();
       this.replybotService
-        .deleteReplyDefinition(
-          accessToken!,
-          this.replyDefinitionToDelete.id
-        )
+        .deleteReplyDefinition(accessToken!, this.replyDefinitionToDelete.id)
         .pipe(take(1))
         .subscribe({
           next: (_) => {
