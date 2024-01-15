@@ -22,7 +22,7 @@ export class ReplybotService extends ApiService {
     replyDefinitionId: number
   ): Observable<ReplyDefinition[]> {
     return this.http.delete<ReplyDefinition[]>(
-      `${this.domainUrl}replybot/reply-definition?accessToken=${discordAccessToken}&guildReplyDefinitionId=${replyDefinitionId}`
+      `${this.domainUrl}replybot/reply-definition?accessToken=${discordAccessToken}&replyDefinitionId=${replyDefinitionId}`
     );
   }
 
