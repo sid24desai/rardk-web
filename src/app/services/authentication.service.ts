@@ -49,4 +49,15 @@ export class AuthenticationService {
   getLoginToken() {
     return localStorage.getItem(this.lsKey);
   }
-} 
+
+  logInWithDiscord(urlToComeBackTo: string = '') {
+    const redirectUrlDomain = window.location.host;
+    const protocol = window.location.protocol.replace(':', '');
+    const paramsToSend = {
+      url: urlToComeBackTo ? urlToComeBackTo : '/bots',
+    };
+    const encodedParams = btoa(JSON.stringify(paramsToSend));
+    const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=1083874894867091526&state=${encodedParams}&redirect_uri=${protocol}%3A%2F%2F${redirectUrlDomain}%2Fcallback&response_type=code&scope=identify%20guilds%20guilds.members.read`;
+    window.location.href = discordAuthUrl;
+  }
+}

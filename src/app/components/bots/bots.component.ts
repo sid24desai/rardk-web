@@ -124,15 +124,12 @@ export class BotsComponent extends BotPageComponent implements OnInit {
       });
   }
   navigateIfLoggedIn(urlToNavigate?: string) {
-    if (this.isLoggedIn()) {
-      this.router.navigate([urlToNavigate]);
-    } else {
-      this.logOut();
+    if (!this.isLoggedIn()) {
       this.showSnackBar(
         'You must be logged in with Discord to access the bot settings.',
         true
       );
-      this.logInWithDiscord(urlToNavigate);
     }
+    this.router.navigate([urlToNavigate]);
   }
 }
