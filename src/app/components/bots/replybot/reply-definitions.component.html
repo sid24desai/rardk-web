@@ -102,19 +102,15 @@
             ></mat-panel-title
           >
           <mat-panel-description *ngIf="!getOpen(indexOfReplies)">
-            <mat-chip-set>
-              <ng-container *ngFor="let filterType of getAttributes()">
-                <mat-chip
-                  class="filter-chip"
-                  [highlighted]="filterType.filter(replyDefinition)"
-                  [disabled]="!filterType.filter(replyDefinition)"
-                  [matTooltip]="
-                    filterType.valueDisplayText(replyDefinition)
-                  "
-                  >{{ filterType.displayName }}</mat-chip
-                >
-              </ng-container>
-            </mat-chip-set>
+            <ng-container *ngFor="let filterType of getAttributes()">
+              <div
+                class="filter-chip"
+                [ngClass]="{ disabled: !filterType.filter(replyDefinition) }"
+                [matTooltip]="filterType.valueDisplayText(replyDefinition)"
+              >
+                {{ filterType.displayName }}
+              </div>
+            </ng-container>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="priority-buttons" *ngIf="!hasFilters()">
@@ -135,9 +131,7 @@
             matTooltip="Move down in priority"
             color="primary"
             [disableRipple]="true"
-            [disabled]="
-              indexOfReplies == filteredReplyDefinitions.length - 1
-            "
+            [disabled]="indexOfReplies == filteredReplyDefinitions.length - 1"
             (click)="movePriority('down', replyDefinition)"
           >
             <mat-icon>arrow_downward</mat-icon>
@@ -175,8 +169,7 @@
         <div
           class="channel-ids"
           *ngIf="
-            replyDefinition.channelIds &&
-            replyDefinition.channelIds.length > 0
+            replyDefinition.channelIds && replyDefinition.channelIds.length > 0
           "
         >
           <h2 class="channel-ids-title">Specific Channels</h2>
@@ -191,10 +184,7 @@
 
         <div
           class="user-ids"
-          *ngIf="
-            replyDefinition.userIds &&
-            replyDefinition.userIds.length > 0
-          "
+          *ngIf="replyDefinition.userIds && replyDefinition.userIds.length > 0"
         >
           <h2 class="user-ids-title">Specific Users</h2>
           <div class="user-id">
@@ -208,10 +198,7 @@
 
         <div
           class="replies"
-          *ngIf="
-            replyDefinition.replies &&
-            replyDefinition.replies.length > 0
-          "
+          *ngIf="replyDefinition.replies && replyDefinition.replies.length > 0"
         >
           <h2 class="replies-title">Replies</h2>
           <div class="response">
@@ -234,8 +221,7 @@
         <div
           class="reactions"
           *ngIf="
-            replyDefinition.reactions &&
-            replyDefinition.reactions.length > 0
+            replyDefinition.reactions && replyDefinition.reactions.length > 0
           "
         >
           <h2 class="reactions-title">Reactions</h2>
