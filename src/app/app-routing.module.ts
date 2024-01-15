@@ -30,17 +30,17 @@ const routes: Routes = [
   { path: 'collections', component: CollectionsComponent },
   { path: 'socials', component: SocialLinksComponent },
   {
-    path: 'timezones',
+    path: 'bots/timezonebot',
     component: TimezonesComponent,
     canActivate: [AuthenticationGuard],
   },
   {
-    path: 'replybot-server-selector',
+    path: 'bots/replybot',
     component: ReplybotServerSelectorComponent,
     canActivate: [AuthenticationGuard],
   },
   {
-    path: 'reply-definitions',
+    path: 'bots/replybot/reply-definitions',
     component: GuildReplyDefinitionsComponent,
     canActivate: [AuthenticationGuard],
   },

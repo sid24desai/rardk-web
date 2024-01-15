@@ -20,28 +20,30 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
 import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
 import { LoadingBarComponent } from '../loading-bar/loading-bar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-guild-reply-definitions',
-    templateUrl: './guild-reply-definitions.component.html',
-    styleUrls: ['./guild-reply-definitions.component.scss'],
-    standalone: true,
-    imports: [
-        LoadingBarComponent,
-        NgIf,
-        PageTitleComponent,
-        MatButtonToggleModule,
-        FormsModule,
-        NgFor,
-        MatExpansionModule,
-        NgClass,
-        MatChipsModule,
-        MatTooltipModule,
-        MatButtonModule,
-        MatIconModule,
-        CheckXComponent,
-        DatePipe,
-    ],
+  selector: 'app-guild-reply-definitions',
+  templateUrl: './guild-reply-definitions.component.html',
+  styleUrls: ['./guild-reply-definitions.component.scss'],
+  standalone: true,
+  imports: [
+    LoadingBarComponent,
+    NgIf,
+    PageTitleComponent,
+    MatButtonToggleModule,
+    FormsModule,
+    NgFor,
+    MatExpansionModule,
+    NgClass,
+    MatChipsModule,
+    MatTooltipModule,
+    MatButtonModule,
+    MatIconModule,
+    CheckXComponent,
+    DatePipe,
+    RouterLink,
+  ],
 })
 export class GuildReplyDefinitionsComponent
   extends BotPageComponent
@@ -488,9 +490,5 @@ export class GuildReplyDefinitionsComponent
         console.error('error saving', error);
       },
     });
-  }
-
-  backToGuildSelector() {
-    this.router.navigate(['replybot-server-selector']);
   }
 }

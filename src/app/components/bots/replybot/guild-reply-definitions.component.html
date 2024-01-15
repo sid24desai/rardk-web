@@ -8,12 +8,11 @@
       >Custom Reply Definitions for {{ guildName }}</app-page-title
     >
     <div class="navigation-button-section">
-      <button
-        class="back-button secondary action button"
-        (click)="backToGuildSelector()"
-      >
-        ⬅️ Back to Server List
-      </button>
+      <a [routerLink]="['/bots/replybot']">
+        <div class="back-button secondary action button">
+          ⬅️ Back to Server List
+        </div>
+      </a>
     </div>
     <div
       class="guild-reply-definition-add-action-section"
