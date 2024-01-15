@@ -4,7 +4,7 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { GuildReplyDefinitionEditorDialogComponent } from '../../guild-reply-definition-editor-dialog.component';
+import { ReplyDefinitionEditorDialogComponent } from '../../reply-definition-editor-dialog.component';
 import { HelpKeywordDetail } from 'src/app/models/bots/replybot/help-keyword-detail';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from '@angular/cdk/clipboard';
@@ -61,7 +61,7 @@ export class HelpDialogComponent {
   ];
 
   constructor(
-    public dialogRef: MatDialogRef<GuildReplyDefinitionEditorDialogComponent>,
+    public dialogRef: MatDialogRef<ReplyDefinitionEditorDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.dialogData = data;

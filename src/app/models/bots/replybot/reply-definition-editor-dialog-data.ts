@@ -1,6 +1,6 @@
 import { DiscordUser } from "../discord-user";
 
-export class GuildReplyDefinitionEditorDialogData {
+export class ReplyDefinitionEditorDialogData {
   public id?: number;
   public guildId: string;
   public triggers?: string[];

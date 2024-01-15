@@ -9,19 +9,19 @@ import { NgIf, NgFor } from '@angular/common';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
 
 @Component({
-    selector: 'app-blog',
-    templateUrl: './blog.component.html',
-    styleUrl: './blog.component.scss',
-    standalone: true,
-    imports: [
-        PageTitleComponent,
-        NgIf,
-        MatProgressSpinnerModule,
-        NgFor,
-        DateDisplayComponent,
-        HtmlDirective,
-        RouterLink,
-    ],
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrl: './blog.component.scss',
+  standalone: true,
+  imports: [
+    PageTitleComponent,
+    NgIf,
+    MatProgressSpinnerModule,
+    NgFor,
+    DateDisplayComponent,
+    HtmlDirective,
+    RouterLink,
+  ],
 })
 export class BlogComponent implements OnInit {
   public blogPosts: BlogPost[];

@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgIf, NgFor } from '@angular/common';
-import { LoadingBarComponent } from '../../loading-bar/loading-bar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PageTitleComponent } from '../../../shared/page-title/page-title.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-timezones',
@@ -24,7 +24,6 @@ import { PageTitleComponent } from '../../../shared/page-title/page-title.compon
   imports: [
     PageTitleComponent,
     MatIconModule,
-    LoadingBarComponent,
     NgIf,
     MatFormFieldModule,
     MatSelectModule,
@@ -34,6 +33,7 @@ import { PageTitleComponent } from '../../../shared/page-title/page-title.compon
     MatInputModule,
     MatButtonModule,
     ClipboardModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class TimezonesComponent extends BotPageComponent implements OnInit {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { GuildReplyDefinition } from '../models/bots/replybot/guild-reply-definition';
+import { ReplyDefinition } from '../models/bots/replybot/reply-definition';
 import { Observable } from 'rxjs';
 import { GuildConfiguration } from '../models/bots/replybot/guild-configuration';
 
@@ -8,37 +8,37 @@ import { GuildConfiguration } from '../models/bots/replybot/guild-configuration'
   providedIn: 'root',
 })
 export class ReplybotService extends ApiService {
-  public getReplybotGuildReplyDefinitions(
+  public getReplybotReplyDefinitions(
     discordAccessToken: string,
     guildId: string
-  ): Observable<GuildReplyDefinition[]> {
-    return this.http.get<GuildReplyDefinition[]>(
+  ): Observable<ReplyDefinition[]> {
+    return this.http.get<ReplyDefinition[]>(
       `${this.domainUrl}replybot/reply-definitions?accessToken=${discordAccessToken}&guildId=${guildId}`
     );
   }
 
-  public deleteGuildReplyDefinition(
+  public deleteReplyDefinition(
     discordAccessToken: string,
-    guildReplyDefinitionId: number
-  ): Observable<GuildReplyDefinition[]> {
-    return this.http.delete<GuildReplyDefinition[]>(
-      `${this.domainUrl}replybot/reply-definition?accessToken=${discordAccessToken}&guildReplyDefinitionId=${guildReplyDefinitionId}`
+    replyDefinitionId: number
+  ): Observable<ReplyDefinition[]> {
+    return this.http.delete<ReplyDefinition[]>(
+      `${this.domainUrl}replybot/reply-definition?accessToken=${discordAccessToken}&guildReplyDefinitionId=${replyDefinitionId}`
     );
   }
 
-  public createGuildReplyDefinition(
+  public createReplyDefinition(
     bodyToUse: any
-  ): Observable<GuildReplyDefinition> {
-    return this.http.post<GuildReplyDefinition>(
+  ): Observable<ReplyDefinition> {
+    return this.http.post<ReplyDefinition>(
       `${this.domainUrl}replybot/reply-definition`,
       bodyToUse
     );
   }
 
-  public updateGuildReplyDefinition(
+  public updateReplyDefinition(
     bodyToUse: any
-  ): Observable<GuildReplyDefinition> {
-    return this.http.put<GuildReplyDefinition>(
+  ): Observable<ReplyDefinition> {
+    return this.http.put<ReplyDefinition>(
       `${this.domainUrl}replybot/reply-definition`,
       bodyToUse
     );
@@ -46,16 +46,16 @@ export class ReplybotService extends ApiService {
 
   public movePriority(
     discordAccessToken: string,
-    guildReplyDefinition: GuildReplyDefinition,
+    replyDefinition: ReplyDefinition,
     direction: string
   ) {
-    return this.http.put<GuildReplyDefinition[]>(
+    return this.http.put<ReplyDefinition[]>(
       `${
         this.domainUrl
       }replybot/reply-definition/${direction.toLowerCase()}`,
       {
         accessToken: discordAccessToken,
-        ...guildReplyDefinition,
+        ...replyDefinition,
       }
     );
   }

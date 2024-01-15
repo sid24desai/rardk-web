@@ -4,8 +4,8 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { GuildReplyDefinition } from 'src/app/models/bots/replybot/guild-reply-definition';
-import { GuildReplyDefinitionEditorDialogData } from 'src/app/models/bots/replybot/guild-reply-definition-editor-dialog-data';
+import { ReplyDefinition } from 'src/app/models/bots/replybot/reply-definition';
+import { ReplyDefinitionEditorDialogData as ReplyDefinitionEditorDialogData } from 'src/app/models/bots/replybot/reply-definition-editor-dialog-data';
 import { HelpDialogComponent } from './help-dialog/help-dialog/help-dialog.component';
 import emojiRegex from 'emoji-regex';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -19,9 +19,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-    selector: 'app-guild-reply-definition-editor-dialog',
-    templateUrl: './guild-reply-definition-editor-dialog.component.html',
-    styleUrls: ['./guild-reply-definition-editor-dialog.component.scss'],
+    selector: 'app-reply-definition-editor-dialog',
+    templateUrl: './reply-definition-editor-dialog.component.html',
+    styleUrls: ['./reply-definition-editor-dialog.component.scss'],
     standalone: true,
     imports: [
         MatButtonModule,
@@ -36,8 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
         MatCheckboxModule,
     ],
 })
-export class GuildReplyDefinitionEditorDialogComponent {
-  public dialogData: GuildReplyDefinitionEditorDialogData;
+export class ReplyDefinitionEditorDialogComponent {
+  public dialogData: ReplyDefinitionEditorDialogData;
 
   public isActive: boolean;
   public triggers: string[];
@@ -62,8 +62,8 @@ export class GuildReplyDefinitionEditorDialogComponent {
   ];
 
   constructor(
-    public dialogRef: MatDialogRef<GuildReplyDefinitionEditorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data: GuildReplyDefinitionEditorDialogData,
+    public dialogRef: MatDialogRef<ReplyDefinitionEditorDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) data: ReplyDefinitionEditorDialogData,
     public helpDialog: MatDialog
   ) {
     this.dialogData = data;
@@ -165,7 +165,7 @@ export class GuildReplyDefinitionEditorDialogComponent {
       isActive: this.isActive,
       editingUserId: this.dialogData?.user?.id,
       editingUsername: this.dialogData?.user?.username,
-    } as GuildReplyDefinition;
+    } as ReplyDefinition;
     this.closeDialog(savedObject);
   }
 
@@ -187,7 +187,7 @@ export class GuildReplyDefinitionEditorDialogComponent {
     return reactionsWithoutDuplicates;
   }
 
-  closeDialog(savedObject?: GuildReplyDefinition) {
+  closeDialog(savedObject?: ReplyDefinition) {
     this.dialogRef.close(savedObject);
   }
 

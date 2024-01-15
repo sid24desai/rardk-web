@@ -18,6 +18,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: rgb(27, 25, 27);
   color: $font-color;
+  margin: 0;
+  height: 100%;
 }
 
 ::selection {
@@ -121,33 +123,51 @@ body {
 
 .button.action:disabled,
 .button.action[disabled="disabled"],
-.button.action.primary:disabled,
-.button.action.primary[disabled="disabled"],
 .button.action:disabled:hover,
 .button.action[disabled="disabled"]:hover,
-.button.action.primary:disabled:hover,
-.button.action.primary[disabled="disabled"]:hover,
 .button.action:disabled:active,
 .button.action[disabled="disabled"]:active,
+.button.action.primary:disabled,
+.button.action.primary[disabled="disabled"],
+.button.action.primary:disabled:hover,
+.button.action.primary[disabled="disabled"]:hover,
 .button.action.primary:disabled:active,
-.button.action.primary[disabled="disabled"]:active {
-  background-color: rgba(122, 122, 122, 0.12);
-  color: rgba(0, 0, 0, 0.38);
+.button.action.primary[disabled="disabled"]:active,
+.button.action.secondary:disabled,
+.button.action.secondary[disabled="disabled"],
+.button.action.secondary:disabled:hover,
+.button.action.secondary[disabled="disabled"]:hover,
+.button.action.secondary:disabled:active,
+.button.action.secondary[disabled="disabled"]:active,
+.button.action.tertiary:disabled,
+.button.action.tertiary[disabled="disabled"],
+.button.action.tertiary:disabled:hover,
+.button.action.tertiary[disabled="disabled"]:hover,
+.button.action.tertiary:disabled:active,
+.button.action.tertiary[disabled="disabled"]:active,
+.button.action.danger:disabled,
+.button.action.danger[disabled="disabled"],
+.button.action.danger:disabled:hover,
+.button.action.danger[disabled="disabled"]:hover,
+.button.action.danger:disabled:active,
+.button.action.danger[disabled="disabled"]:active {
+  background-color: rgba(56, 56, 56, 0.12);
+  color: rgba(65, 65, 65, 0.38);
   cursor: default;
 }
 
 .button.action.primary {
-  background-color: rgb(63, 81, 181);
+  background-color: rgb(137, 37, 196);
   color: #ffffff;
 }
 
 .button.action.primary:hover {
-  background-color: rgb(53, 71, 171);
+  background-color: rgb(162, 42, 232);
   color: #ffffff;
 }
 
 .button.action.primary:active {
-  background-color: rgb(43, 61, 161);
+  background-color: rgb(152, 32, 222);
   color: #ffffff;
 }
 
@@ -215,16 +235,11 @@ circle {
   stroke: #f28834;
 }
 
+.mdc-linear-progress__bar-inner{
+  border-color: #f28834 !important;
+}
+
 // used for dropdown on lego filters
 .mat-mdc-form-field {
   width: 340px;
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BotPageComponent } from '../bot-page/bot-page.component';
-import { GuildReplyDefinition } from 'src/app/models/bots/replybot/guild-reply-definition';
+import { ReplyDefinition } from 'src/app/models/bots/replybot/reply-definition';
 import { take, forkJoin, timeout, throwError } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { GuildReplyDefinitionEditorDialogComponent } from './guild-reply-definition-editor-dialog/guild-reply-definition-editor-dialog.component';
-import { GuildReplyDefinitionEditorDialogData } from 'src/app/models/bots/replybot/guild-reply-definition-editor-dialog-data';
+import { ReplyDefinitionEditorDialogComponent } from './reply-definition-editor-dialog/reply-definition-editor-dialog.component';
+import { ReplyDefinitionEditorDialogData } from 'src/app/models/bots/replybot/reply-definition-editor-dialog-data';
 import { DiscordGuild } from 'src/app/models/bots/discord-guild';
 import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configuration';
-import { GuildReplyDefinitionFilterType as GuildReplyDefinitionAttributeType } from 'src/app/models/bots/replybot/guild-reply-definition-filter-type';
+import { ReplyDefinitionAttributeType } from 'src/app/models/bots/replybot/reply-definition-filter-type';
 import { DiscordUser } from 'src/app/models/bots/discord-user';
 import { CheckXComponent } from '../check-x/check-x.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,16 +19,15 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
 import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
-import { LoadingBarComponent } from '../loading-bar/loading-bar.component';
 import { RouterLink } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-guild-reply-definitions',
-  templateUrl: './guild-reply-definitions.component.html',
-  styleUrls: ['./guild-reply-definitions.component.scss'],
+  selector: 'app-reply-definitions',
+  templateUrl: './reply-definitions.component.html',
+  styleUrls: ['./reply-definitions.component.scss'],
   standalone: true,
   imports: [
-    LoadingBarComponent,
     NgIf,
     PageTitleComponent,
     MatButtonToggleModule,
@@ -43,28 +42,29 @@ import { RouterLink } from '@angular/router';
     CheckXComponent,
     DatePipe,
     RouterLink,
+    MatProgressSpinnerModule,
   ],
 })
-export class GuildReplyDefinitionsComponent
+export class ReplyDefinitionsComponent
   extends BotPageComponent
   implements OnInit
 {
   isLoading: boolean;
-  guildReplyDefinitions: GuildReplyDefinition[] = [];
-  filteredGuildReplyDefinitions: GuildReplyDefinition[] = [];
+  replyDefinitions: ReplyDefinition[] = [];
+  filteredReplyDefinitions: ReplyDefinition[] = [];
   guildId: string;
   guildName: string;
   domainUrl: string;
   isAuthorizedToAdministrate: boolean = false;
   filterOptionsPanelOpenState: boolean;
-  filterOptions: GuildReplyDefinitionAttributeType[] = [];
+  filterOptions: ReplyDefinitionAttributeType[] = [];
   toolTipMaxLength = 100;
   panelOpenStates: boolean[] = [];
-  filterTypes: GuildReplyDefinitionAttributeType[];
-  replyDefinitionToDelete?: GuildReplyDefinition;
+  filterTypes: ReplyDefinitionAttributeType[];
+  replyDefinitionToDelete?: ReplyDefinition;
   discordUser: DiscordUser;
 
-  attributeIsActive: GuildReplyDefinitionAttributeType = {
+  attributeIsActive: ReplyDefinitionAttributeType = {
     key: 'isActive',
     displayName: 'Active',
     filter: (gr) => gr.isActive,
@@ -73,7 +73,7 @@ export class GuildReplyDefinitionsComponent
     showAsAttribute: false,
   };
 
-  attributeIsInactive: GuildReplyDefinitionAttributeType = {
+  attributeIsInactive: ReplyDefinitionAttributeType = {
     key: 'isInactive',
     displayName: 'Inactive',
     filter: (gr) => !gr.isActive,
@@ -82,7 +82,7 @@ export class GuildReplyDefinitionsComponent
     showAsAttribute: false,
   };
 
-  attributeHasReplies: GuildReplyDefinitionAttributeType = {
+  attributeHasReplies: ReplyDefinitionAttributeType = {
     key: 'hasReplies',
     displayName: 'Replies',
     filter: (gr) => gr.replies && gr.replies.length > 0,
@@ -100,7 +100,7 @@ export class GuildReplyDefinitionsComponent
     showAsAttribute: true,
   };
 
-  attributeHasReactions: GuildReplyDefinitionAttributeType = {
+  attributeHasReactions: ReplyDefinitionAttributeType = {
     key: 'hasReactions',
     displayName: 'Reactions',
     filter: (gr) => gr.reactions && gr.reactions.length > 0,
@@ -118,7 +118,7 @@ export class GuildReplyDefinitionsComponent
     showAsAttribute: true,
   };
 
-  attributeHasChannelIds: GuildReplyDefinitionAttributeType = {
+  attributeHasChannelIds: ReplyDefinitionAttributeType = {
     key: 'hasChannelIds',
     displayName: 'Channel-Specific',
     filter: (gr) => gr.channelIds && gr.channelIds.length > 0,
@@ -132,7 +132,7 @@ export class GuildReplyDefinitionsComponent
     showAsAttribute: true,
   };
 
-  attributeHasUserIds: GuildReplyDefinitionAttributeType = {
+  attributeHasUserIds: ReplyDefinitionAttributeType = {
     key: 'hasUserIds',
     displayName: 'User-Specific',
     filter: (gr) => gr.userIds && gr.userIds.length > 0,
@@ -173,7 +173,7 @@ export class GuildReplyDefinitionsComponent
           this.guildId = params['guildId'];
           const accessToken = this.getLoginToken();
           return forkJoin([
-            this.replybotService.getReplybotGuildReplyDefinitions(
+            this.replybotService.getReplybotReplyDefinitions(
               accessToken!,
               this.guildId
             ),
@@ -196,13 +196,13 @@ export class GuildReplyDefinitionsComponent
             }),
             map(
               ([
-                guildReplyDefinitions,
+                replyDefinitions,
                 discordGuilds,
                 guildConfiguration,
                 discordUser,
               ]) => {
                 return {
-                  guildReplyDefinitions,
+                  replyDefinitions,
                   discordGuilds,
                   guildConfiguration,
                   discordUser,
@@ -214,7 +214,7 @@ export class GuildReplyDefinitionsComponent
       )
       .subscribe({
         next: (result: {
-          guildReplyDefinitions: GuildReplyDefinition[];
+          replyDefinitions: ReplyDefinition[];
           discordGuilds: DiscordGuild[];
           guildConfiguration: GuildConfiguration;
           discordUser: DiscordUser;
@@ -233,7 +233,7 @@ export class GuildReplyDefinitionsComponent
             }
           });
 
-          this.populateGuildReplyDefinitions(result.guildReplyDefinitions);
+          this.populateReplyDefinitions(result.replyDefinitions);
           this.discordUser = result.discordUser;
           this.isLoading = false;
         },
@@ -248,17 +248,17 @@ export class GuildReplyDefinitionsComponent
       });
   }
 
-  retrieveAndPopulateGuildReplyDefinitions() {
+  retrieveAndPopulateReplyDefinitions() {
     this.isLoading = true;
     const accessToken = this.getLoginToken();
     this.clearFilters();
     this.clearOpenStates();
     this.replybotService
-      .getReplybotGuildReplyDefinitions(accessToken!, this.guildId)
+      .getReplybotReplyDefinitions(accessToken!, this.guildId)
       .pipe(take(1))
       .subscribe({
-        next: (guildReplyDefinitions) => {
-          this.populateGuildReplyDefinitions(guildReplyDefinitions);
+        next: (replyDefinitions) => {
+          this.populateReplyDefinitions(replyDefinitions);
           this.isLoading = false;
         },
         error: (error) => {
@@ -268,21 +268,21 @@ export class GuildReplyDefinitionsComponent
       });
   }
 
-  populateGuildReplyDefinitions(guildReplyDefinitions: GuildReplyDefinition[]) {
-    if (guildReplyDefinitions) {
-      const sortedGuildReplyDefinitions = guildReplyDefinitions.sort(
+  populateReplyDefinitions(replyDefinitions: ReplyDefinition[]) {
+    if (replyDefinitions) {
+      const sortedreplyDefinitions = replyDefinitions.sort(
         (g1, g2) => g1.priority - g2.priority
       );
-      this.guildReplyDefinitions = sortedGuildReplyDefinitions;
-      this.filteredGuildReplyDefinitions = sortedGuildReplyDefinitions;
+      this.replyDefinitions = sortedreplyDefinitions;
+      this.filteredReplyDefinitions = sortedreplyDefinitions;
     }
   }
 
-  addNewGuildReplyDefinition() {
+  addNewReplyDefinition() {
     this.openEditDialog({
       guildId: this.guildId,
       isActive: true,
-    } as GuildReplyDefinitionEditorDialogData);
+    } as ReplyDefinitionEditorDialogData);
   }
 
   getFilters() {
@@ -293,35 +293,35 @@ export class GuildReplyDefinitionsComponent
     return this.filterTypes.filter((f) => f.showAsAttribute);
   }
 
-  startEdit(guildReplyDefinition: GuildReplyDefinition) {
+  startEdit(replyDefinition: ReplyDefinition) {
     const dialogData = {
-      id: guildReplyDefinition.id,
-      guildId: guildReplyDefinition.guildId,
-      mentionAuthor: guildReplyDefinition.mentionAuthor,
-      reactions: guildReplyDefinition.reactions,
-      replies: guildReplyDefinition.replies,
-      requiresBotName: guildReplyDefinition.requiresBotName,
-      triggers: guildReplyDefinition.triggers,
-      channelIds: guildReplyDefinition.channelIds,
-      userIds: guildReplyDefinition.userIds,
-      isActive: guildReplyDefinition.isActive,
-    } as GuildReplyDefinitionEditorDialogData;
+      id: replyDefinition.id,
+      guildId: replyDefinition.guildId,
+      mentionAuthor: replyDefinition.mentionAuthor,
+      reactions: replyDefinition.reactions,
+      replies: replyDefinition.replies,
+      requiresBotName: replyDefinition.requiresBotName,
+      triggers: replyDefinition.triggers,
+      channelIds: replyDefinition.channelIds,
+      userIds: replyDefinition.userIds,
+      isActive: replyDefinition.isActive,
+    } as ReplyDefinitionEditorDialogData;
 
     this.openEditDialog(dialogData);
   }
 
-  addFromCopy(guildReplyDefinition: GuildReplyDefinition) {
+  addFromCopy(replyDefinition: ReplyDefinition) {
     const dialogData = {
-      guildId: guildReplyDefinition.guildId,
-      mentionAuthor: guildReplyDefinition.mentionAuthor,
-      reactions: guildReplyDefinition.reactions,
-      replies: guildReplyDefinition.replies,
-      requiresBotName: guildReplyDefinition.requiresBotName,
-      triggers: guildReplyDefinition.triggers,
-      channelIds: guildReplyDefinition.channelIds,
-      userIds: guildReplyDefinition.userIds,
-      isActive: guildReplyDefinition.isActive,
-    } as GuildReplyDefinitionEditorDialogData;
+      guildId: replyDefinition.guildId,
+      mentionAuthor: replyDefinition.mentionAuthor,
+      reactions: replyDefinition.reactions,
+      replies: replyDefinition.replies,
+      requiresBotName: replyDefinition.requiresBotName,
+      triggers: replyDefinition.triggers,
+      channelIds: replyDefinition.channelIds,
+      userIds: replyDefinition.userIds,
+      isActive: replyDefinition.isActive,
+    } as ReplyDefinitionEditorDialogData;
 
     this.openEditDialog(dialogData);
   }
@@ -342,15 +342,15 @@ export class GuildReplyDefinitionsComponent
     }
   }
 
-  copyJsonToClipboard(guildReplyDefinition: GuildReplyDefinition) {
+  copyJsonToClipboard(replyDefinition: ReplyDefinition) {
     const dialogData = {
-      mentionAuthor: guildReplyDefinition.mentionAuthor,
-      reactions: guildReplyDefinition.reactions,
-      replies: guildReplyDefinition.replies,
-      requiresBotName: guildReplyDefinition.requiresBotName,
-      triggers: guildReplyDefinition.triggers,
-      isActive: guildReplyDefinition.isActive,
-    } as GuildReplyDefinitionEditorDialogData;
+      mentionAuthor: replyDefinition.mentionAuthor,
+      reactions: replyDefinition.reactions,
+      replies: replyDefinition.replies,
+      requiresBotName: replyDefinition.requiresBotName,
+      triggers: replyDefinition.triggers,
+      isActive: replyDefinition.isActive,
+    } as ReplyDefinitionEditorDialogData;
 
     if (this.clipboard.copy(JSON.stringify(dialogData))) {
       this.showSnackBar('Copied reply definition to clipboard!', false);
@@ -359,8 +359,8 @@ export class GuildReplyDefinitionsComponent
     }
   }
 
-  showDeleteConfirm(guildReplyDefinition: GuildReplyDefinition) {
-    this.replyDefinitionToDelete = guildReplyDefinition;
+  showDeleteConfirm(replyDefinition: ReplyDefinition) {
+    this.replyDefinitionToDelete = replyDefinition;
   }
 
   cancelDelete() {
@@ -371,14 +371,14 @@ export class GuildReplyDefinitionsComponent
     if (this.replyDefinitionToDelete) {
       var accessToken = this.getLoginToken();
       this.replybotService
-        .deleteGuildReplyDefinition(
+        .deleteReplyDefinition(
           accessToken!,
           this.replyDefinitionToDelete.id
         )
         .pipe(take(1))
         .subscribe({
           next: (_) => {
-            this.retrieveAndPopulateGuildReplyDefinitions();
+            this.retrieveAndPopulateReplyDefinitions();
             this.showSnackBar('Reply Definition Deleted', false);
           },
           error: (error) => {
@@ -412,20 +412,18 @@ export class GuildReplyDefinitionsComponent
   applyFilters() {
     this.clearOpenStates();
     if (this.filterOptions.length === 0) {
-      this.filteredGuildReplyDefinitions = this.guildReplyDefinitions;
+      this.filteredReplyDefinitions = this.replyDefinitions;
       return;
     }
-    this.filteredGuildReplyDefinitions = this.guildReplyDefinitions.filter(
-      (gr) => {
-        let filterResult = true;
+    this.filteredReplyDefinitions = this.replyDefinitions.filter((gr) => {
+      let filterResult = true;
 
-        this.filterOptions.forEach((filter) => {
-          filterResult = filterResult && filter.filter(gr);
-        });
+      this.filterOptions.forEach((filter) => {
+        filterResult = filterResult && filter.filter(gr);
+      });
 
-        return filterResult;
-      }
-    );
+      return filterResult;
+    });
   }
 
   clearFilters() {
@@ -433,56 +431,53 @@ export class GuildReplyDefinitionsComponent
     this.applyFilters();
   }
 
-  private openEditDialog(dialogData?: GuildReplyDefinitionEditorDialogData) {
+  private openEditDialog(dialogData?: ReplyDefinitionEditorDialogData) {
     // add editing user to dialog data
     if (dialogData) {
       dialogData.user = this.discordUser;
     } else {
       dialogData = {
         user: this.discordUser,
-      } as GuildReplyDefinitionEditorDialogData;
+      } as ReplyDefinitionEditorDialogData;
     }
 
     // open dialog
-    let dialogRef = this.dialog.open(
-      GuildReplyDefinitionEditorDialogComponent,
-      {
-        height: '800px',
-        width: '700px',
-        data: dialogData,
-      }
-    );
-    dialogRef.afterClosed().subscribe((guildReplyDefinitionToSave) => {
-      if (guildReplyDefinitionToSave) {
-        this.saveGuildReplyDefinition(guildReplyDefinitionToSave);
+    let dialogRef = this.dialog.open(ReplyDefinitionEditorDialogComponent, {
+      height: '800px',
+      width: '700px',
+      data: dialogData,
+    });
+    dialogRef.afterClosed().subscribe((replyDefinitionToSave) => {
+      if (replyDefinitionToSave) {
+        this.saveReplyDefinition(replyDefinitionToSave);
       }
     });
   }
 
-  movePriority(direction: string, guildReplyDefinition: GuildReplyDefinition) {
+  movePriority(direction: string, replyDefinition: ReplyDefinition) {
     var accessToken = this.getLoginToken();
     this.replybotService
-      .movePriority(accessToken!, guildReplyDefinition, direction)
+      .movePriority(accessToken!, replyDefinition, direction)
       .pipe(take(1))
       .subscribe((_) => {
-        this.retrieveAndPopulateGuildReplyDefinitions();
+        this.retrieveAndPopulateReplyDefinitions();
       });
   }
 
-  saveGuildReplyDefinition(guildReplyDefinition: GuildReplyDefinition) {
+  saveReplyDefinition(replyDefinition: ReplyDefinition) {
     var accessToken = this.getLoginToken();
 
     const bodyToUse = {
       accessToken: accessToken,
-      ...guildReplyDefinition,
+      ...replyDefinition,
     };
-    var observableToUse = guildReplyDefinition.id
-      ? this.replybotService.updateGuildReplyDefinition(bodyToUse)
-      : this.replybotService.createGuildReplyDefinition(bodyToUse);
+    var observableToUse = replyDefinition.id
+      ? this.replybotService.updateReplyDefinition(bodyToUse)
+      : this.replybotService.createReplyDefinition(bodyToUse);
 
     observableToUse.pipe(take(1)).subscribe({
       next: (_) => {
-        this.retrieveAndPopulateGuildReplyDefinitions();
+        this.retrieveAndPopulateReplyDefinitions();
         this.showSnackBar('Reply Definition Saved', false);
       },
       error: (error) => {

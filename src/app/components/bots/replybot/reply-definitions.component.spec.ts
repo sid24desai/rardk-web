@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GuildReplyDefinitionsComponent } from './guild-reply-definitions.component';
+import { ReplyDefinitionsComponent } from './reply-definitions.component';
 
 describe('ReplybotComponent', () => {
-  let component: GuildReplyDefinitionsComponent;
-  let fixture: ComponentFixture<GuildReplyDefinitionsComponent>;
+  let component: ReplyDefinitionsComponent;
+  let fixture: ComponentFixture<ReplyDefinitionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [GuildReplyDefinitionsComponent]
+    imports: [ReplyDefinitionsComponent]
 })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GuildReplyDefinitionsComponent);
+    fixture = TestBed.createComponent(ReplyDefinitionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,9 +4,7 @@
   </div>
 </div>
 <div class="guild-list-container">
-  <div class="guild-items-loading" *ngIf="isLoading">
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </div>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
   <div class="guild-items" *ngIf="!isLoading">
     <ng-container *ngIf="isLoggedIn()">
       <a
