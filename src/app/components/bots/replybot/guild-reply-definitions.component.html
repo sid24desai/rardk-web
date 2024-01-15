@@ -1,5 +1,5 @@
 <div class="guild-reply-definitions-list-container">
-  <app-loading-bar [isLoading]="isLoading"></app-loading-bar>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
   <div
     class="guild-reply-definitions-container"
     *ngIf="!isLoading && isAuthorizedToAdministrate"

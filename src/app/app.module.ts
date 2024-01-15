@@ -38,7 +38,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -63,7 +62,6 @@ import { GuildReplyDefinitionEditorDialogComponent } from './components/bots/rep
 import { HelpDialogComponent } from './components/bots/replybot/guild-reply-definition-editor-dialog/help-dialog/help-dialog/help-dialog.component';
 import { CheckXComponent } from './components/bots/check-x/check-x.component';
 import { LoginActionsComponent } from './components/bots/login-actions/login-actions.component';
-import { LoadingBarComponent } from './components/bots/loading-bar/loading-bar.component';
 import { BotsComponent } from './components/bots/bots.component';
 
 @NgModule({
@@ -83,7 +81,6 @@ import { BotsComponent } from './components/bots/bots.component';
         MatButtonModule,
         MatIconModule,
         MatDialogModule,
-        MatProgressBarModule,
         MatTooltipModule,
         ClipboardModule,
         MatExpansionModule,
@@ -130,7 +127,6 @@ import { BotsComponent } from './components/bots/bots.component';
         TimezonesComponent,
         LoginActionsComponent,
         HeaderComponent,
-        LoadingBarComponent,
         BotsComponent,
     ],
     providers: [

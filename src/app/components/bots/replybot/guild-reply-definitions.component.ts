@@ -19,8 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
 import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
-import { LoadingBarComponent } from '../loading-bar/loading-bar.component';
 import { RouterLink } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-guild-reply-definitions',
@@ -28,7 +28,6 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./guild-reply-definitions.component.scss'],
   standalone: true,
   imports: [
-    LoadingBarComponent,
     NgIf,
     PageTitleComponent,
     MatButtonToggleModule,
@@ -43,6 +42,7 @@ import { RouterLink } from '@angular/router';
     CheckXComponent,
     DatePipe,
     RouterLink,
+    MatProgressSpinnerModule
   ],
 })
 export class GuildReplyDefinitionsComponent

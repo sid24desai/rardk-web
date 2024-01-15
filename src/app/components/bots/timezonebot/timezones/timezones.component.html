@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<app-loading-bar [isLoading]="isLoading"></app-loading-bar>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
 
 <div class="content-container" *ngIf="!isLoading">
   <div class="content-container-card time-zones-container">
