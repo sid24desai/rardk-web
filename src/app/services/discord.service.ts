@@ -12,7 +12,6 @@ import { DiscordUser } from '../models/bots/discord-user';
 export class DiscordService extends ApiService {
   public getAccessToken(code: string) {
     const callbackUrl = window.location.protocol + '//' + window.location.host;
-    console.log(callbackUrl);
     return this.http.get<DiscordAuthResponse>(
       `${this.domainUrl}discord/access-token?code=${code}&redirectUrl=${callbackUrl}/callback`
     );
