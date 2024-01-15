@@ -5,7 +5,6 @@ import {
   RouterStateSnapshot,
   UrlSegment,
   UrlTree,
-  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
@@ -14,14 +13,11 @@ import { AuthenticationService } from '../services/authentication.service';
   providedIn: 'root',
 })
 export class AuthenticationGuard {
-  constructor(
-    private authService: AuthenticationService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthenticationService) {}
 
-  private authenticate(): boolean {
+  private authenticate(navigatingUrl: string): boolean {
     if (!this.authService.isUserLoggedIn()) {
-      this.router.navigateByUrl('/bots');
+      this.authService.logInWithDiscord(navigatingUrl);
       return false;
     } else {
       return true;
@@ -36,7 +32,7 @@ export class AuthenticationGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authenticate();
+    return this.authenticate(state.url);
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
@@ -46,7 +42,7 @@ export class AuthenticationGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authenticate();
+    return this.authenticate(state.url);
   }
   canLoad(
     route: Route,
@@ -56,6 +52,7 @@ export class AuthenticationGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authenticate();
+    //note: currently not used, if you use this, you may have to pass in a URL for navigation below
+    return this.authenticate('');
   }
 }
