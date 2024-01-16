@@ -16,19 +16,20 @@
     </p>
   </div>
 </div>
-<div class="content-container">
+<mat-spinner *ngIf="isLoadingWishlist || isLoadingOwnedList"></mat-spinner>
+<div class="disclaimer-container">
+  <div class="loading-disclaimer" *ngIf="showLoadingDisclaimer">
+    If it's not loading, try refreshing the page...
+  </div>
+  <div class="error-message" *ngIf="showErrorMessage">
+    There was an error. Please refresh the page, that should do the trick!
+  </div>
+</div>
+<div
+  class="content-container"
+  *ngIf="!isLoadingWishlist && !isLoadingOwnedList && !showErrorMessage"
+>
   <div class="content-container-card">
-    <ng-container *ngIf="isLoadingWishlist || isLoadingOwnedList">
-      <div class="spinner-container">
-        <mat-spinner></mat-spinner>
-      </div>
-      <div class="loading-disclaimer" *ngIf="showLoadingDisclaimer">
-        If it's not loading, try refreshing the page...
-      </div>
-    </ng-container>
-    <div class="error-message" *ngIf="showErrorMessage">
-      There was an error. Please refresh the page, that should do the trick!
-    </div>
     <ng-container
       *ngIf="!isLoadingWishlist && !isLoadingOwnedList && !showErrorMessage"
     >
