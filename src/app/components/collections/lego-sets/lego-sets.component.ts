@@ -8,24 +8,27 @@ import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-    selector: 'app-lego-sets',
-    templateUrl: './lego-sets.component.html',
-    styleUrls: ['./lego-sets.component.scss'],
-    standalone: true,
-    imports: [
-        PageTitleComponent,
-        NgFor,
-        MatFormFieldModule,
-        MatSelectModule,
-        FormsModule,
-        MatOptionModule,
-        MatRadioModule,
-        CheckOrXComponent,
-    ],
+  selector: 'app-lego-sets',
+  templateUrl: './lego-sets.component.html',
+  styleUrls: ['./lego-sets.component.scss'],
+  standalone: true,
+  imports: [
+    PageTitleComponent,
+    NgFor,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    MatOptionModule,
+    MatRadioModule,
+    CheckOrXComponent,
+    NgIf,
+    MatProgressSpinnerModule,
+  ],
 })
 export class LegoSetsComponent {
   public ownedSets: LegoSet[];
@@ -41,10 +44,12 @@ export class LegoSetsComponent {
   public ownedSeriesOptions: string[];
   public filterOptionNoSeries = 'NONE';
   public seriesOptionSelected: string = this.filterOptionNoSeries;
+  public isLoading: boolean = false;
 
   constructor(private legoSetsService: LegoSetsService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.legoSetsService
       .getLegoSets()
       .pipe(take(1))
@@ -59,6 +64,8 @@ export class LegoSetsComponent {
         this.ownedSeriesOptions = Array.from(
           new Set(this.ownedSets.map((s) => s.series))
         ).sort();
+
+        this.isLoading = false;
       });
   }
 
