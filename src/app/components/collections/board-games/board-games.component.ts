@@ -22,7 +22,6 @@ export class BoardGamesComponent implements OnInit {
   public isLoadingWishlist: boolean;
   public isLoadingOwnedList: boolean;
   public showLoadingDisclaimer: boolean;
-  public showErrorMessage: boolean;
 
   ngOnInit() {
     this.isLoadingWishlist = true;
