@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HtmlDirective } from './directives/html.directive';
 import { CollectionsComponent } from './components/collections/collections.component';
-import { SocialLinksComponent } from './components/social-links/social-links.component';
 import { LetterboxdCardComponent } from './components/now/letterboxd-card/letterboxd-card.component';
 import { FeedPostersComponent } from './components/shared/feed-posters/feed-posters.component';
 import { BackloggdCardComponent } from './components/now/backloggd-card/backloggd-card.component';
@@ -44,9 +43,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatDialogModule,
@@ -68,62 +65,10 @@ import { BotsComponent } from './components/bots/bots.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDialogModule,
-    MatTooltipModule,
-    ClipboardModule,
-    MatExpansionModule,
-    MatButtonToggleModule,
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    GithubCardComponent,
-    MastodonCardComponent,
-    SafeHtmlPipe,
-    NowComponent,
-    HomeComponent,
     NavbarComponent,
-    HeaderComponent,
-    HtmlDirective,
-    CollectionsComponent,
-    SocialLinksComponent,
-    LetterboxdCardComponent,
-    FeedPostersComponent,
-    BackloggdCardComponent,
-    LastfmCardComponent,
-    SerializdCardComponent,
-    GoodreadsCardComponent,
     FooterComponent,
-    SeeMoreLinkComponent,
-    LegoSetsComponent,
-    CheckOrXComponent,
-    BoardGamesComponent,
-    BlogComponent,
-    BlogPostComponent,
-    PageTitleComponent,
-    NavbarButtonComponent,
-    DateDisplayComponent,
-    CallbackComponent,
-    BotPageComponent,
-    ReplybotServerSelectorComponent,
-    ReplyDefinitionsComponent,
-    ReplyDefinitionEditorDialogComponent,
-    HelpDialogComponent,
-    CheckXComponent,
-    TimezonesComponent,
-    LoginActionsComponent,
     HeaderComponent,
-    BotsComponent,
+    HttpClientModule
   ],
   providers: [
     // { provide: APP_BASE_HREF, useValue: '/' },
