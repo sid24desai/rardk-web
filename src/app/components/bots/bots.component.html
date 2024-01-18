@@ -32,8 +32,9 @@
             <div class="button bot-button-link invite">Invite Bot</div>
           </a>
           <a
-            (click)="navigateIfLoggedIn(bot.controlPanelLink)"
+            (click)="showMessageIfNotLoggedIn()"
             *ngIf="bot.isConfigurable"
+            [routerLink]="bot.controlPanelLink"
           >
             <div class="button bot-button-link settings">Settings</div>
           </a>
