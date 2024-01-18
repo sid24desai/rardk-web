@@ -31,19 +31,11 @@
 
 .below-avatar-text {
   color: #ffffff;
-  // text-decoration: none;
 }
-
-// .below-avatar-text:hover {
-//   color: #dbd8d8;
-// }
 
 .below-avatar {
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
-.below-avatar-text {
+  margin-bottom: 7px;
+  margin-top: 15px;
 }
 
 .divider {
@@ -86,8 +78,16 @@
   fill: #6364ff;
 }
 
+.bluesky {
+  fill: #0285ff;
+}
+
 .twitter {
   fill: #1d9bf0;
+}
+
+.discord {
+  fill: #5865f2;
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {

@@ -17,7 +17,10 @@
   </div>
 </div>
 <mat-spinner *ngIf="isLoadingWishlist || isLoadingOwnedList"></mat-spinner>
-<div class="disclaimer-container" *ngIf="showLoadingDisclaimer">
+<div
+  class="disclaimer-container"
+  *ngIf="(isLoadingWishlist || isLoadingOwnedList) && showLoadingDisclaimer"
+>
   If it's not loading, try refreshing the page...
 </div>
 <div

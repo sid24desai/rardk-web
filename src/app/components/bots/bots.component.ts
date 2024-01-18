@@ -44,7 +44,7 @@ export class BotsComponent extends BotPageComponent implements OnInit {
       description:
         'A Discord Bot with a personality, including built-in replies, custom replies, and useful features.',
       isConfigurable: true,
-      controlPanelLink: 'bots/replybot',
+      controlPanelLink: '/bots/replybot',
       gitHubLink: 'https://github.com/rarDevelopment/replybot-dotnet',
     } as BotDefinition,
     {
