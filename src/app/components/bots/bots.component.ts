@@ -6,6 +6,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { LoginActionsComponent } from './login-actions/login-actions.component';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-bots',
@@ -18,6 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NgFor,
     NgIf,
     MatTooltipModule,
+    RouterLink,
   ],
 })
 export class BotsComponent extends BotPageComponent implements OnInit {
@@ -123,13 +125,12 @@ export class BotsComponent extends BotPageComponent implements OnInit {
         },
       });
   }
-  navigateIfLoggedIn(urlToNavigate?: string) {
+  showMessageIfNotLoggedIn() {
     if (!this.isLoggedIn()) {
       this.showSnackBar(
         'You must be logged in with Discord to access the bot settings.',
         true
       );
     }
-    this.router.navigate([urlToNavigate]);
   }
 }
