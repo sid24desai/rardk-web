@@ -29,21 +29,21 @@
   font-variant: small-caps;
 }
 
-.external-link {
+.below-avatar-text {
   color: #ffffff;
   // text-decoration: none;
 }
 
-// .external-link:hover {
+// .below-avatar-text:hover {
 //   color: #dbd8d8;
 // }
 
-.below-avatar-text {
+.below-avatar {
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .below-avatar-text {
-  margin-top: 10px;
 }
 
 .divider {
@@ -91,7 +91,7 @@
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
-  .external-link {
+  .below-avatar-text {
     display: block;
     padding-top: 5px;
     padding-bottom: 5px;
