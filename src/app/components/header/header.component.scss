@@ -17,6 +17,7 @@
 
 .name {
   letter-spacing: 0.12rem;
+  margin-bottom: 7px;
 }
 
 .bio {
@@ -30,15 +31,63 @@
 
 .external-link {
   color: #ffffff;
-  text-decoration: none;
+  // text-decoration: none;
 }
 
-.external-link:hover {
-  color: #dbd8d8;
+// .external-link:hover {
+//   color: #dbd8d8;
+// }
+
+.below-avatar-text {
+  margin-bottom: 20px;
+}
+
+.below-avatar-text {
+  margin-top: 10px;
 }
 
 .divider {
   padding-left: 5px;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.social-icon:hover {
+  transform: rotate(360deg);
+}
+
+.social-icon:active {
+  opacity: 0;
+  transition: 0.1s linear;
+  transform: scale(3) rotate(10deg);
+}
+
+.github {
+  fill: #ffffff;
+}
+
+.twitch {
+  fill: #9146ff;
+}
+
+.mastodon {
+  fill: #6364ff;
+}
+
+.twitter {
+  fill: #1d9bf0;
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
