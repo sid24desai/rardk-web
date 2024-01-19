@@ -118,7 +118,7 @@ export class ReplyDefinitionsComponent
 
   attributeHasChannelIds: ReplyDefinitionAttributeType = {
     key: 'hasChannelIds',
-    displayName: 'Channel-Specific',
+    displayName: 'Channels',
     filter: (gr) => gr.channelIds && gr.channelIds.length > 0,
     valueDisplayText: (gr) => {
       if (!gr.channelIds || gr.channelIds.length === 0) {
@@ -132,7 +132,7 @@ export class ReplyDefinitionsComponent
 
   attributeHasUserIds: ReplyDefinitionAttributeType = {
     key: 'hasUserIds',
-    displayName: 'User-Specific',
+    displayName: 'Users',
     filter: (gr) => gr.userIds && gr.userIds.length > 0,
     valueDisplayText: (gr) => {
       if (!gr.userIds || gr.userIds.length === 0) {
