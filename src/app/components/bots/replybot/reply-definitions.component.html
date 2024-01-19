@@ -115,22 +115,18 @@
         </mat-expansion-panel-header>
         <div class="priority-buttons" *ngIf="!hasFilters()">
           <button
-            mat-raised-button
-            class="priority-button"
+            class="priority-button primary action button"
             matTooltip="Move up in priority"
             color="primary"
-            [disableRipple]="true"
             [disabled]="indexOfReplies == 0"
             (click)="movePriority('up', replyDefinition)"
           >
             <mat-icon>arrow_upward</mat-icon>
           </button>
           <button
-            mat-raised-button
-            class="priority-button"
+            class="priority-button primary action button"
             matTooltip="Move down in priority"
             color="primary"
-            [disableRipple]="true"
             [disabled]="indexOfReplies == filteredReplyDefinitions.length - 1"
             (click)="movePriority('down', replyDefinition)"
           >
@@ -160,9 +156,9 @@
             <span class="requires-bot-name-title"
               >Trigger Requires Bot Name</span
             >
-            <app-check-x
+            <app-check-or-x
               [isCheck]="replyDefinition.requiresBotName"
-            ></app-check-x>
+            ></app-check-or-x>
           </div>
         </div>
 
@@ -212,9 +208,9 @@
             <span class="mention-author-title"
               >Mention Author When Replying</span
             >
-            <app-check-x
+            <app-check-or-x
               [isCheck]="replyDefinition.mentionAuthor"
-            ></app-check-x>
+            ></app-check-or-x>
           </div>
         </div>
 
@@ -340,7 +336,6 @@
     </div>
     <div class="guild-reply-definition-add-action-section">
       <button
-        mat-raised-button
         class="add-guild-reply-definition-button primary action button"
         color="primary"
         (click)="addNewReplyDefinition()"
@@ -350,7 +345,6 @@
     </div>
     <div class="guild-reply-definition-paste-action-section">
       <button
-        mat-raised-button
         class="add-guild-reply-definition-button secondary action button"
         (click)="addFromClipboard()"
       >
