@@ -9,11 +9,9 @@ import { DiscordGuild } from 'src/app/models/bots/discord-guild';
 import { GuildConfiguration } from 'src/app/models/bots/replybot/guild-configuration';
 import { ReplyDefinitionAttributeType } from 'src/app/models/bots/replybot/reply-definition-filter-type';
 import { DiscordUser } from 'src/app/models/bots/discord-user';
-import { CheckXComponent } from '../check-x/check-x.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -21,6 +19,7 @@ import { PageTitleComponent } from '../../shared/page-title/page-title.component
 import { NgIf, NgFor, NgClass, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CheckOrXComponent } from '../../shared/check-or-x/check-or-x.component';
 
 @Component({
   selector: 'app-reply-definitions',
@@ -38,7 +37,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatTooltipModule,
     MatButtonModule,
     MatIconModule,
-    CheckXComponent,
+    CheckOrXComponent,
     DatePipe,
     RouterLink,
     MatProgressSpinnerModule,
@@ -119,7 +118,7 @@ export class ReplyDefinitionsComponent
 
   attributeHasChannelIds: ReplyDefinitionAttributeType = {
     key: 'hasChannelIds',
-    displayName: 'Channel-Specific',
+    displayName: 'Channels',
     filter: (gr) => gr.channelIds && gr.channelIds.length > 0,
     valueDisplayText: (gr) => {
       if (!gr.channelIds || gr.channelIds.length === 0) {
@@ -133,7 +132,7 @@ export class ReplyDefinitionsComponent
 
   attributeHasUserIds: ReplyDefinitionAttributeType = {
     key: 'hasUserIds',
-    displayName: 'User-Specific',
+    displayName: 'Users',
     filter: (gr) => gr.userIds && gr.userIds.length > 0,
     valueDisplayText: (gr) => {
       if (!gr.userIds || gr.userIds.length === 0) {
