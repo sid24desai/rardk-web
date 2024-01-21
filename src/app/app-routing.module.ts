@@ -43,7 +43,6 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
   },
   { path: 'bots', component: BotsComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'callback', component: CallbackComponent },
   { path: '**', component: HomeComponent },
 ];
