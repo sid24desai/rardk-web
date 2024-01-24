@@ -1,0 +1,25 @@
+<div class="page-description-container">
+  <div class="page-description-content">
+    <app-page-title>Video Games Collection</app-page-title>
+    <p></p>
+  </div>
+</div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="content-container" *ngIf="!isLoading">
+  <div class="content-container-card">
+    <section class="games-collection-section">
+      <table class="set-table">
+        <th>Title</th>
+        <th>Platform</th>
+        <th>Notes</th>
+        <tr *ngFor="let gameCollectionItem of gameCollectionItems">
+          <td>
+            {{ gameCollectionItem.title }}
+          </td>
+          <td>{{ gameCollectionItem.platform }}</td>
+          <td>{{ gameCollectionItem.notes }}</td>
+        </tr>
+      </table>
+    </section>
+  </div>
+</div>
