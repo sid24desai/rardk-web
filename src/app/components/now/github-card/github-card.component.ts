@@ -6,11 +6,11 @@ import { GithubService } from './github.service';
 import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-    selector: 'app-github-card',
-    templateUrl: './github-card.component.html',
-    styleUrls: ['./github-card.component.scss'],
-    standalone: true,
-    imports: [FeedPostersComponent],
+  selector: 'app-github-card',
+  templateUrl: './github-card.component.html',
+  styleUrls: ['./github-card.component.scss'],
+  standalone: true,
+  imports: [FeedPostersComponent],
 })
 export class GithubCardComponent implements OnInit {
   constructor(private githubService: GithubService) {}
@@ -18,13 +18,7 @@ export class GithubCardComponent implements OnInit {
   public feedItems: FeedItem[];
   public isLoading: boolean;
   public isRepositoriesError: boolean = false;
-  private numberOfRepositoriesToTake = 5;
-  private filteredRepositoryNames = [
-    'lego-sets-list',
-    'repost-sites-ignore-list',
-    'justwatch-country-config',
-    'replybot-default-replies',
-  ];
+  private numberOfRepositoriesToTake = 10;
 
   ngOnInit() {
     this.isLoading = true;
@@ -39,7 +33,7 @@ export class GithubCardComponent implements OnInit {
         next: (result: GithubSearchResult) => {
           const repos = result.items
             .filter((r) => !r.archived)
-            .filter((r) => !this.filteredRepositoryNames.includes(r.name))
+            .filter((r) => r.topics.includes('active'))
             .slice(0, this.numberOfRepositoriesToTake);
           this.feedItems = repos.map((r) => {
             return {
