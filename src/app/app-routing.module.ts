@@ -13,6 +13,7 @@ import { ReplybotServerSelectorComponent } from './components/bots/replybot/repl
 import { ReplyDefinitionsComponent } from './components/bots/replybot/reply-definitions.component';
 import { CallbackComponent } from './components/bots/callback/callback.component';
 import { BotsComponent } from './components/bots/bots.component';
+import { VideoGamesComponent } from './components/collections/video-games/video-games.component';
 
 const routes: Routes = [
   { path: 'blog/:postId', component: BlogPostComponent },
@@ -22,8 +23,14 @@ const routes: Routes = [
     redirectTo: 'collections/board-games',
     pathMatch: 'full',
   },
+  {
+    path: 'video-games',
+    redirectTo: 'collections/video-games',
+    pathMatch: 'full',
+  },
   { path: 'lego', redirectTo: 'collections/lego', pathMatch: 'full' },
   { path: 'collections/board-games', component: BoardGamesComponent },
+  { path: 'collections/video-games', component: VideoGamesComponent },
   { path: 'collections/lego', component: LegoSetsComponent },
   { path: 'now', component: NowComponent },
   { path: 'collections', component: CollectionsComponent },
