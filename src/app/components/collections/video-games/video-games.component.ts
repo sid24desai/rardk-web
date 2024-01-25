@@ -5,6 +5,9 @@ import { NgIf, NgFor, KeyValuePipe, NgClass } from '@angular/common';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
 import { GameCollectionService } from './video-games.service';
 import { GameCollectionEntry } from 'src/app/models/game-collection-entry';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-video-games',
@@ -18,13 +21,16 @@ import { GameCollectionEntry } from 'src/app/models/game-collection-entry';
     NgFor,
     KeyValuePipe,
     NgClass,
+    MatSelectModule,
+    FormsModule,
+    MatOptionModule,
   ],
 })
 export class VideoGamesComponent implements OnInit {
   public gameCollectionItemsGrouped: { [key: string]: GameCollectionEntry[] };
-  public panelOpenStates: boolean[] = [];
   public gameCollectionItems: GameCollectionEntry[];
   public isLoading: boolean;
+  public selectedPlatform: string = 'Nintendo 64';
 
   constructor(private gameCollectionService: GameCollectionService) {}
 
@@ -61,17 +67,17 @@ export class VideoGamesComponent implements OnInit {
     groupOfItemsToGroup: any[],
     key: string
   ): { [key: string]: GameCollectionEntry[] } {
-    return groupOfItemsToGroup.reduce(function (rv, item) {
+    return groupOfItemsToGroup.reduce((rv, item) => {
       (rv[item[key]] = rv[item[key]] || []).push(item);
       return rv;
     }, []);
   }
 
-  getOpen(index: number) {
-    return this.panelOpenStates[index];
+  getAvailablePlatforms() {
+    return Object.keys(this.gameCollectionItemsGrouped).sort();
   }
 
-  setOpen(index: number, isOpen: boolean) {
-    this.panelOpenStates[index] = isOpen;
+  sortGames(games: GameCollectionEntry[]) {
+    return games.sort((g1, g2) => (g1.title > g2.title ? 1 : -1));
   }
 }

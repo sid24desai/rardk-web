@@ -1,12 +1,22 @@
 <div class="page-description-container">
   <div class="page-description-content">
     <app-page-title>Video Games Collection</app-page-title>
-    <p></p>
+    <p>Select a platform below to view the games I have for that platform.</p>
   </div>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <div class="content-container" *ngIf="!isLoading">
   <div class="content-container-card">
+    <div class="platform-select-container">
+      <mat-form-field>
+        <mat-label>Select a Platform</mat-label>
+        <mat-select [(ngModel)]="selectedPlatform">
+          @for (platform of getAvailablePlatforms(); track platform) {
+          <mat-option [value]="platform">{{ platform }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
     <section
       class="games-collection-section"
       *ngFor="
@@ -14,21 +24,17 @@
         let platformIndex = index
       "
     >
-      <button
-        type="button"
-        class="collapsible"
-        (click)="setOpen(platformIndex, !getOpen(platformIndex))"
+      <table
+        class="set-table"
+        *ngIf="platformGrouping.key === selectedPlatform"
       >
-        <h2 class="platform-name">{{ platformGrouping.key }}</h2>
-      </button>
-      <table class="set-table" *ngIf="getOpen(platformIndex)">
         <th>Title</th>
-        <th>Notes</th>
-        <tr *ngFor="let gameCollectionItem of platformGrouping.value">
+        <tr
+          *ngFor="let gameCollectionItem of sortGames(platformGrouping.value)"
+        >
           <td>
             {{ gameCollectionItem.title }}
           </td>
-          <td>{{ gameCollectionItem.notes }}</td>
         </tr>
       </table>
     </section>

@@ -1,7 +1,3 @@
-.platform-name {
-  margin-top: 20px;
-}
-
 .set-table {
   border-collapse: collapse;
   width: 100%;
@@ -38,19 +34,8 @@ img {
   text-align: center;
 }
 
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 4px;
-  width: 100%;
-  border: none;
-  // text-align: left;
-  outline: none;
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-.collapsible:hover {
-  background-color: #555;
+.platform-select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
