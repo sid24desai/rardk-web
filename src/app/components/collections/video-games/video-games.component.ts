@@ -67,9 +67,9 @@ export class VideoGamesComponent implements OnInit {
     groupOfItemsToGroup: any[],
     key: string
   ): { [key: string]: GameCollectionEntry[] } {
-    return groupOfItemsToGroup.reduce((rv, item) => {
-      (rv[item[key]] = rv[item[key]] || []).push(item);
-      return rv;
+    return groupOfItemsToGroup.reduce((storage, item) => {
+      (storage[item[key]] = storage[item[key]] || []).push(item);
+      return storage;
     }, []);
   }
 
