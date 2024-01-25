@@ -95,7 +95,7 @@
         (closed)="setOpen(indexOfReplies, false)"
       >
         <mat-expansion-panel-header>
-          <mat-panel-title *ngIf="!getOpen(indexOfReplies)" [ngClass]="">
+          <mat-panel-title *ngIf="!getOpen(indexOfReplies)">
             {{ replyDefinition.triggers.slice(0, 3).join(", ")
             }}<ng-container *ngIf="replyDefinition.triggers.length > 3"
               >(...)</ng-container

@@ -7,16 +7,27 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <div class="content-container" *ngIf="!isLoading">
   <div class="content-container-card">
-    <section class="games-collection-section">
-      <table class="set-table">
+    <section
+      class="games-collection-section"
+      *ngFor="
+        let platformGrouping of gameCollectionItemsGrouped | keyvalue;
+        let platformIndex = index
+      "
+    >
+      <button
+        type="button"
+        class="collapsible"
+        (click)="setOpen(platformIndex, !getOpen(platformIndex))"
+      >
+        <h2 class="platform-name">{{ platformGrouping.key }}</h2>
+      </button>
+      <table class="set-table" *ngIf="getOpen(platformIndex)">
         <th>Title</th>
-        <th>Platform</th>
         <th>Notes</th>
-        <tr *ngFor="let gameCollectionItem of gameCollectionItems">
+        <tr *ngFor="let gameCollectionItem of platformGrouping.value">
           <td>
             {{ gameCollectionItem.title }}
           </td>
-          <td>{{ gameCollectionItem.platform }}</td>
           <td>{{ gameCollectionItem.notes }}</td>
         </tr>
       </table>
