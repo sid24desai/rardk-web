@@ -6,15 +6,17 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <ng-container *ngFor="let post of blogPosts">
   <div class="content-container">
-    <div
+    <a
+      [href]="post.url"
+      target="_blank"
       class="content-container-card blog-post-summary"
-      (mouseup)="openBlogPost($event, post.postId)"
-    >
-      <h1 class="card-title">{{ post.title }}</h1>
-      <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
-      <p [html]="post.summary">{{ post.summary }}</p>
-      <a [routerLink]="['/blog/', post.postId]">Read Post</a>
-    </div>
+      ><div class="">
+        <h1 class="card-title">{{ post.title }}</h1>
+        <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
+        <p [html]="post.summary">{{ post.summary }}</p>
+        <a [routerLink]="['/blog/', post.postId]">Read Post</a>
+      </div>
+    </a>
   </div>
   <br />
 </ng-container>
