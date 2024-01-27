@@ -8,6 +8,7 @@ import { GameCollectionEntry } from 'src/app/models/game-collection-entry';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
+import { GamePlatform } from 'src/app/models/game-platform';
 
 @Component({
   selector: 'app-video-games',
@@ -31,6 +32,7 @@ export class VideoGamesComponent implements OnInit {
   public gameCollectionItems: GameCollectionEntry[];
   public isLoading: boolean;
   public selectedPlatform: string = 'Nintendo 64';
+  public availablePlatforms: GamePlatform[] = [];
 
   constructor(private gameCollectionService: GameCollectionService) {}
 
@@ -54,6 +56,7 @@ export class VideoGamesComponent implements OnInit {
             gameCollectionItemsFiltered,
             'platform'
           );
+          this.setAvailablePlatforms();
           this.isLoading = false;
         },
         error: (error) => {
@@ -73,8 +76,15 @@ export class VideoGamesComponent implements OnInit {
     }, []);
   }
 
-  getAvailablePlatforms() {
-    return Object.keys(this.gameCollectionItemsGrouped).sort();
+  setAvailablePlatforms() {
+    const keys: string[] = Object.keys(this.gameCollectionItemsGrouped);
+    const mapped: GamePlatform[] = keys.map((key: string) => {
+      return {
+        name: key,
+        gameCount: this.gameCollectionItemsGrouped[key].length,
+      } as GamePlatform;
+    });
+    this.availablePlatforms = mapped;
   }
 
   sortGames(games: GameCollectionEntry[]) {
