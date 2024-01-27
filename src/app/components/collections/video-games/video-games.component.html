@@ -11,8 +11,10 @@
       <mat-form-field>
         <mat-label>Select a Platform</mat-label>
         <mat-select [(ngModel)]="selectedPlatform">
-          @for (platform of getAvailablePlatforms(); track platform) {
-          <mat-option [value]="platform">{{ platform }}</mat-option>
+          @for (platform of availablePlatforms; track platform) {
+          <mat-option [value]="platform.name"
+            >{{ platform.name }} ({{ platform.gameCount }} games)</mat-option
+          >
           }
         </mat-select>
       </mat-form-field>
@@ -28,7 +30,7 @@
         class="set-table"
         *ngIf="platformGrouping.key === selectedPlatform"
       >
-        <th>Title</th>
+        <th>Game</th>
         <tr
           *ngFor="let gameCollectionItem of sortGames(platformGrouping.value)"
         >
