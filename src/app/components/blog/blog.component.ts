@@ -36,7 +36,6 @@ export class BlogComponent implements OnInit {
         this.blogPosts = blogPosts.sort((p1, p2) =>
           new Date(p1.publishDate) > new Date(p2.publishDate) ? -1 : 1
         );
-        console.log(this.blogPosts);
         this.isLoading = false;
       },
       error: (error) => {
