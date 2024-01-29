@@ -25,7 +25,8 @@ import { PageTitleComponent } from '../shared/page-title/page-title.component';
 })
 export class BlogComponent implements OnInit {
   public blogPosts: BlogPost[];
-  isLoading: boolean;
+  public isLoading: boolean;
+  public maxBlogPosts: number = 3;
 
   constructor(private blogService: BlogService, private router: Router) {}
 
@@ -33,9 +34,11 @@ export class BlogComponent implements OnInit {
     this.isLoading = true;
     this.blogService.getBlogPosts().subscribe({
       next: (blogPosts: BlogPost[]) => {
-        this.blogPosts = blogPosts.sort((p1, p2) =>
-          new Date(p1.publishDate) > new Date(p2.publishDate) ? -1 : 1
-        );
+        this.blogPosts = blogPosts
+          .sort((p1, p2) =>
+            new Date(p1.publishDate) > new Date(p2.publishDate) ? -1 : 1
+          )
+          .slice(0, 3);
         this.isLoading = false;
       },
       error: (error) => {
