@@ -16,8 +16,8 @@ import { BotsComponent } from './components/bots/bots.component';
 import { VideoGamesComponent } from './components/collections/video-games/video-games.component';
 
 const routes: Routes = [
-  { path: 'blog/:postId', component: BlogPostComponent },
-  { path: 'blog', component: BlogComponent },
+  // { path: 'blog/:postId', component: BlogPostComponent },
+  // { path: 'blog', component: BlogComponent },
   {
     path: 'board-games',
     redirectTo: 'collections/board-games',
@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   { path: 'bots', component: BotsComponent },
   { path: 'callback', component: CallbackComponent },
-  { path: '**', component: HomeComponent },
+  { path: '**', component: BlogComponent },
 ];
 
 @NgModule({

@@ -1,3 +1,12 @@
 <div class="page-title-banner">
-  <h1 class="page-title"><ng-content></ng-content></h1>
+  <div
+    [ngClass]="{
+    'page-title-1': !titleSize || titleSize === 1,
+    'page-title-2': titleSize === 2,
+    'page-title-3': titleSize === 3,
+    'page-title-4': titleSize === 4,
+  }"
+  >
+    <ng-content></ng-content>
+  </div>
 </div>

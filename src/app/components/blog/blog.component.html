@@ -1,6 +1,17 @@
 <div class="page-description-container">
   <div class="page-description-content">
-    <app-page-title>Blog</app-page-title>
+    <app-page-title [titleSize]="1">Hello!</app-page-title>
+    <p class="page-description with-border">
+      I'm rardk64! I'm a Software Engineer. I write web applications,
+      <a routerLink="/bots">Discord Bots</a>, and hopefully the occasional game.
+      When I'm not writing code, I'm playing video games, reading comics, or
+      reorganizing my phone's home screen.
+    </p>
+  </div>
+</div>
+<div class="page-description-container">
+  <div class="page-description-content">
+    <app-page-title [titleSize]="2">Recent Posts from my Blog</app-page-title>
   </div>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
@@ -20,3 +31,6 @@
   </div>
   <br />
 </ng-container>
+<div class="blog-link">
+  See more from <a href="/rardk-blog/" target="_blank">my blog</a>.
+</div>
