@@ -45,7 +45,7 @@ jobs:
           name: angular-build
           path: "./dist/"
       - name: ⬆️ Upload Files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: maverage/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_user }}
