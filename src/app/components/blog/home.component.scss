@@ -1,3 +1,5 @@
+$blog-post-font-family: "Courier New", Courier, monospace;
+
 img {
   max-width: 100%;
   height: auto;
@@ -23,12 +25,24 @@ h3 {
 
 .blog-post-summary {
   cursor: pointer;
+  font-family: $blog-post-font-family;
+  font-weight: bold;
   text-decoration: none;
   color: #000000;
+  max-width: 500px;
+  background-color: rgba(164, 39, 214, 0.506);
+  color: white;
+}
+
+.blog-post-title {
+  text-align: left;
+  font-family: $blog-post-font-family;
+  font-weight: bold;
 }
 
 .blog-post-summary:hover {
-  background-color: #e5e5e5 !important;
+  // background-color: #e5e5e5 !important;
+  background-color: rgba(154, 29, 204, 0.506);
 }
 
 .blog-link {

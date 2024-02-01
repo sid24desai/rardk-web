@@ -1,5 +1,5 @@
 <div class="page-description-container">
-  <div class="page-description-content with-border">
+  <div class="page-description-content">
     <!-- <app-page-title [titleSize]="1">Hello!</app-page-title> -->
     <p class="page-description">
       I'm rardk64! I'm a Software Engineer. I write web applications,
@@ -22,9 +22,9 @@
       target="_blank"
       class="content-container-card blog-post-summary"
       ><div class="">
-        <h1 class="card-title">{{ post.title }}</h1>
-        <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
+        <h1 class="blog-post-title">{{ post.title }}</h1>
         <p [html]="post.summary">{{ post.summary }}</p>
+        <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
       </div>
     </a>
   </div>

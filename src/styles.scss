@@ -18,8 +18,9 @@ $min-width: 370px;
 
 html,
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: rgb(27, 25, 27);
+  // font-family: "Courier New", Courier, monospace;
+  background-color: rgb(17, 15, 17);
+  // background-color: rgb(27, 25, 27);
   color: $font-color;
   margin: 0;
   height: 100%;
@@ -240,6 +241,28 @@ a:visited {
 .button.action.danger:active {
   background-color: rgb(224, 47, 34);
   color: #ffffff;
+}
+
+/* footer */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.copyright {
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .below-avatar-text {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .divider {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
