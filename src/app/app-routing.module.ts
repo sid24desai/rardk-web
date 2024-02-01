@@ -4,7 +4,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { NowComponent } from './components/now/now.component';
 import { LegoSetsComponent } from './components/collections/lego-sets/lego-sets.component';
 import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
-import { BlogComponent } from './components/blog/blog.component';
+import { HomeComponent } from './components/blog/home.component';
 import { TimezonesComponent } from './components/bots/timezonebot/timezones/timezones.component';
 import { AuthenticationGuard } from './guards/authentication-guard.guard';
 import { ReplybotServerSelectorComponent } from './components/bots/replybot/replybot-server-selector/replybot-server-selector.component';
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   { path: 'bots', component: BotsComponent },
   { path: 'callback', component: CallbackComponent },
-  { path: '**', component: BlogComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

@@ -9,9 +9,9 @@ import { NgIf, NgFor } from '@angular/common';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
   standalone: true,
   imports: [
     PageTitleComponent,
@@ -23,9 +23,9 @@ import { PageTitleComponent } from '../shared/page-title/page-title.component';
     RouterLink,
   ],
 })
-export class BlogComponent implements OnInit {
-  public blogPosts: BlogPost[];
+export class HomeComponent implements OnInit {
   public isLoading: boolean;
+  public blogPosts: BlogPost[];
   public maxBlogPosts: number = 3;
 
   constructor(private blogService: BlogService, private router: Router) {}
