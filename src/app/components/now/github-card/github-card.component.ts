@@ -18,7 +18,7 @@ export class GithubCardComponent implements OnInit {
   public feedItems: FeedItem[];
   public isLoading: boolean;
   public isRepositoriesError: boolean = false;
-  private numberOfRepositoriesToTake = 10;
+  private numberOfRepositoriesToTake = 5;
 
   ngOnInit() {
     this.isLoading = true;
