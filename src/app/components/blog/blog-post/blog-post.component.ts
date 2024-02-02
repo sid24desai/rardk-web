@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BlogPost } from 'src/app/models/blog-post';
-import { BlogService } from '../blog.service';
+import { BlogService } from '../../../services/blog.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { map, take } from 'rxjs/operators';

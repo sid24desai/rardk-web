@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MastodonStatus } from 'src/app/models/mastodon/mastodon-status';
-import { MastodonService } from './mastodon.service';
+import { MastodonService } from '../../services/mastodon.service';
 import { HtmlDirective } from '../../directives/html.directive';
 import { NgFor, NgIf, DatePipe } from '@angular/common';
 
