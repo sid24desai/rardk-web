@@ -1,0 +1,33 @@
+<div class="mastodon-status-container">
+  <div class="mastodon-header-container">
+    <h2>
+      Mastodon Posts from
+      <a href="https://mastodon.social/@rardk64/">&#64;rardk64&#64;mastodon.social</a>
+    </h2>
+  </div>
+  <div class="mastodon-statuses">
+    <div
+      class="mastodon-status"
+      *ngFor="let status of mastodonStatuses"
+      (mouseup)="openMastodonStatus($event, status)"
+    >
+      <span class="status-avatar"><img [src]="status.account.avatar" /></span>
+      <p class="status-content" [html]="status.content">
+        {{ status.content }}
+      </p>
+      <p
+        *ngIf="status.media_attachments && status.media_attachments.length > 0"
+        class="status-media-container"
+      >
+        <span
+          class="status-media-attachment"
+          *ngFor="let media of status.media_attachments"
+        >
+          <img *ngIf="media.type == 'image'" [src]="media.url" />
+          <img *ngIf="media.type == 'video'" [src]="media.preview_url" />
+        </span>
+      </p>
+      <span class="status-date">{{ status.created_at | date : "long" }}</span>
+    </div>
+  </div>
+</div>
