@@ -1,0 +1,16 @@
+<div class="page-description-container">
+  <div class="page-description-content">
+    <app-page-title [titleSize]="1">Links</app-page-title>
+    <p>Just some links that I found interesting and wanted to share.</p>
+  </div>
+</div>
+<ng-container *ngFor="let post of links">
+  <div class="content-container">
+    <div class="content-container-card external-post-box">
+      <div>
+        <p [html]="post.content_html">{{ post.content_html }}</p>
+      </div>
+    </div>
+  </div>
+  <br />
+</ng-container>

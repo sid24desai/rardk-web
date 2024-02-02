@@ -3,7 +3,7 @@ import { take } from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf, NgFor, KeyValuePipe, NgClass } from '@angular/common';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
-import { GameCollectionService } from './video-games.service';
+import { GameCollectionService } from '../../../services/video-games.service';
 import { GameCollectionEntry } from 'src/app/models/game-collection-entry';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
