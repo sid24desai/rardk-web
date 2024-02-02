@@ -11,7 +11,7 @@ export class MastodonService {
 
   async getMastodonFeed() {
     return this.http.get<MastodonStatus[]>(
-      `${environment.mastodonBaseUrl}/api/v1/accounts/${environment.mastodonId}/statuses/?limit=10&exclude_replies=true&exclude_reblogs=true`
+      `${environment.mastodonBaseUrl}/api/v1/accounts/${environment.mastodonId}/statuses/?limit=100&exclude_replies=true&exclude_reblogs=true`
     );
   }
 }

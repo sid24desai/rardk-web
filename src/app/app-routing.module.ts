@@ -12,6 +12,7 @@ import { ReplyDefinitionsComponent } from './components/bots/replybot/reply-defi
 import { CallbackComponent } from './components/bots/callback/callback.component';
 import { BotsComponent } from './components/bots/bots.component';
 import { VideoGamesComponent } from './components/collections/video-games/video-games.component';
+import { LinksComponent } from './components/links/links.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'collections/video-games', component: VideoGamesComponent },
   { path: 'collections/lego', component: LegoSetsComponent },
   { path: 'now', component: NowComponent },
+  { path: 'links', component: LinksComponent },
   { path: 'collections', component: CollectionsComponent },
   {
     path: 'bots/timezonebot',

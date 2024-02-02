@@ -253,6 +253,16 @@ a:visited {
   margin-bottom: 10px;
 }
 
+.external-post-box {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+  max-width: 500px;
+  background-color: rgba(164, 39, 214, 0.506);
+  color: white;
+}
+
 @media screen and (min-width: 0px) and (max-width: 767px) {
   .below-avatar-text {
     display: block;
