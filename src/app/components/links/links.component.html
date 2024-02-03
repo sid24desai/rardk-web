@@ -4,6 +4,7 @@
     <p>Just some links that I found interesting and wanted to share.</p>
   </div>
 </div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
 <ng-container *ngFor="let post of links">
   <div class="content-container">
     <div class="content-container-card external-post-box">
