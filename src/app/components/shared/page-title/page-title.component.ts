@@ -1,5 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-page-title',
@@ -8,10 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
   standalone: true,
   imports: [NgIf, NgClass],
 })
-export class PageTitleComponent implements OnInit {
+export class PageTitleComponent {
   @Input() titleSize: number;
-
-  ngOnInit(): void {
-    console.log('titlesize', this.titleSize);
-  }
 }

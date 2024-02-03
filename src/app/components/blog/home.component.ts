@@ -7,6 +7,7 @@ import { DateDisplayComponent } from '../shared/date-display/date-display.compon
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf, NgFor } from '@angular/common';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
+import { BlogPostAttributes } from 'src/app/models/blog-post-attributes';
 
 @Component({
   selector: 'app-home',
@@ -34,9 +35,14 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
     this.blogService.getBlogPosts().subscribe({
       next: (blogPosts: BlogPost[]) => {
+        console.log('returned', blogPosts);
+        console.log(blogPosts[0].attributes);
         this.blogPosts = blogPosts
           .sort((p1, p2) =>
-            new Date(p1.publishDate) > new Date(p2.publishDate) ? -1 : 1
+            new Date(this.getPublishedDate(p1.attributes)) >
+            new Date(this.getPublishedDate(p2.attributes))
+              ? -1
+              : 1
           )
           .slice(0, 3);
         this.isLoading = false;
@@ -46,6 +52,12 @@ export class HomeComponent implements OnInit {
         console.error(error);
       },
     });
+  }
+
+  public getPublishedDate(attributes: BlogPostAttributes): string {
+    return attributes.originallyPostedDate
+      ? attributes.originallyPostedDate
+      : attributes.publishedAt;
   }
 
   openBlogPost($event: MouseEvent, postId: string) {

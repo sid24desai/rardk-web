@@ -11,6 +11,6 @@ export class BlogService {
   constructor(private http: HttpClient) {}
 
   public getBlogPosts(): Observable<BlogPost[]> {
-    return this.http.get<BlogPost[]>(`${environment.apiUrl}blog/posts`);
+    return this.http.get<BlogPost[]>(`${environment.apiUrl}blog/postsV2`);
   }
 }
