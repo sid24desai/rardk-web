@@ -3,7 +3,7 @@
 }
 
 .feed-item {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
 }
 .feed-item-list {
@@ -36,13 +36,6 @@
   box-shadow: 6px 6px #000000;
   transition: 0.1s linear;
 }
-
-// .feed-item-poster-img:active {
-//   box-shadow: 1px 1px #000000;
-//   opacity: 0;
-//   transition: 0.2s linear;
-//   transform: scale(2) rotate(10deg);
-// }
 
 .feed-item-rating {
   text-decoration: none;
