@@ -1,4 +1,28 @@
-a,
-a:visited {
-  color: #ffffff;
+.post {
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.post:nth-child(even) {
+  border-top: 2px dotted rgb(41, 41, 41);
+  border-bottom: 2px dotted rgb(41, 41, 41);
+}
+
+.post:last-child {
+  border-bottom: 2px dotted rgb(41, 41, 41);
+}
+
+.post-title {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 28px;
+  padding-top: 10px;
+}
+
+.post-summary {
+  max-width: 700px;
+  text-align: center;
 }

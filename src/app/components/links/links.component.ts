@@ -7,6 +7,10 @@ import { PageTitleComponent } from '../shared/page-title/page-title.component';
 import { MicroBlogService } from 'src/app/services/microblog.service';
 import { MicroBlogPost } from 'src/app/models/microblog-post';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LinksService } from 'src/app/services/links.service';
+import { take } from 'rxjs';
+import { Link } from 'src/app/models/link';
+import { DateDisplayComponent } from '../shared/date-display/date-display.component';
 
 @Component({
   selector: 'app-links',
@@ -18,34 +22,36 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     PageTitleComponent,
     NgIf,
     MatProgressSpinnerModule,
+    DateDisplayComponent,
   ],
   templateUrl: './links.component.html',
   styleUrl: './links.component.scss',
 })
 export class LinksComponent implements OnInit {
-  constructor(private microBlogService: MicroBlogService) {}
-  public mastodonStatuses: MastodonStatus[];
-  public links: MicroBlogPost[];
+  constructor(private linksService: LinksService) {}
+  public links: Link[];
   public isLoading: boolean;
 
   async ngOnInit() {
-    this.populateLinksFromMicroBlog();
+    this.populateLinks();
   }
 
-  public populateLinksFromMicroBlog() {
+  public populateLinks() {
     this.isLoading = true;
-    this.microBlogService.getMicroBlogFeed().subscribe((feed) => {
-      if (feed && feed.items) {
-        this.links = feed.items
-          .filter((i) => i.content_html.includes('#sitelink'))
-          .map((i: MicroBlogPost) => {
-            i.content_html = i.content_html
-              .replaceAll('<a', "<a target='_blank'")
-              .replaceAll('#sitelink', '');
-            return i;
-          });
-        this.isLoading = false;
-      }
-    });
+    this.linksService
+      .getLinks()
+      .pipe(take(1))
+      .subscribe({
+        next: (linksResponse) => {
+          this.links = linksResponse.sort((l1, l2) =>
+            l1.dateShared > l2.dateShared ? -1 : 1
+          );
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.isLoading = false;
+        },
+      });
   }
 }
