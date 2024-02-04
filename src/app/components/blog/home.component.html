@@ -8,24 +8,5 @@
     </p>
   </div>
 </div>
-<div class="page-description-container">
-  <div class="page-description-content">
-    <app-page-title [titleSize]="2">Recent Posts from my Blog</app-page-title>
-  </div>
-</div>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<ng-container *ngIf="!isLoading">
-  <div class="content-container blog-post" *ngFor="let post of blogPosts">
-    <div class="blog-post-summary">
-      <a [routerLink]="['blog', post.attributes.canonicalUrl]" class="">
-        <h1 class="blog-post-title">{{ post.attributes.title }}</h1>
-      </a>
-      <p [html]="post.attributes.description">
-        {{ post.attributes.description }}
-      </p>
-      <app-date-display
-        [dateToDisplay]="getPublishedDate(post.attributes)"
-      ></app-date-display>
-    </div>
-  </div>
-</ng-container>
+
+<app-blog pageTitle="Recent Posts from my Blog" [itemCount]="2"></app-blog>
