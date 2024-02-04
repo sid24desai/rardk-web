@@ -1,11 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HtmlDirective } from 'src/app/directives/html.directive';
-import { MastodonStatus } from 'src/app/models/mastodon/mastodon-status';
 import { SafeHtmlPipe } from 'src/app/pipes/safe-html.pipe';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
-import { MicroBlogService } from 'src/app/services/microblog.service';
-import { MicroBlogPost } from 'src/app/models/microblog-post';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LinksService } from 'src/app/services/links.service';
 import { take } from 'rxjs';
