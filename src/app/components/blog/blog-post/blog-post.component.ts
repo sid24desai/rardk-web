@@ -8,11 +8,7 @@ import { HtmlDirective } from '../../../directives/html.directive';
 import { DateDisplayComponent } from '../../shared/date-display/date-display.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf } from '@angular/common';
-import {
-  MarkdownComponent,
-  MarkdownModule,
-  provideMarkdown,
-} from 'ngx-markdown';
+import { MarkdownModule, provideMarkdown } from 'ngx-markdown';
 
 @Component({
   selector: 'app-blog-post',
