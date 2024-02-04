@@ -1,6 +1,6 @@
 <div class="page-description-container">
   <div class="page-description-content">
-    <app-page-title [titleSize]="2">{{pageTitle}}</app-page-title>
+    <app-page-title [titleSize]="2">{{ pageTitle }}</app-page-title>
   </div>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
@@ -10,7 +10,7 @@
       <a [routerLink]="['/blog', post.attributes.canonicalUrl]" class="">
         <h1 class="blog-post-title">{{ post.attributes.title }}</h1>
       </a>
-      <p [html]="post.attributes.description">
+      <p>
         {{ post.attributes.description }}
       </p>
       <app-date-display

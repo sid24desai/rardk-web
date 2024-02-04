@@ -4,7 +4,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { NowComponent } from './components/now/now.component';
 import { LegoSetsComponent } from './components/collections/lego-sets/lego-sets.component';
 import { BoardGamesComponent } from './components/collections/board-games/board-games.component';
-import { HomeComponent } from './components/blog/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { TimezonesComponent } from './components/bots/timezonebot/timezones/timezones.component';
 import { AuthenticationGuard } from './guards/authentication-guard.guard';
 import { ReplybotServerSelectorComponent } from './components/bots/replybot/replybot-server-selector/replybot-server-selector.component';
@@ -14,10 +14,11 @@ import { BotsComponent } from './components/bots/bots.component';
 import { VideoGamesComponent } from './components/collections/video-games/video-games.component';
 import { LinksComponent } from './components/links/links.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 const routes: Routes = [
   { path: 'blog/:postId', component: BlogPostComponent },
-  // { path: 'blog', component: BlogComponent },
+  { path: 'blog', component: BlogComponent },
   {
     path: 'board-games',
     redirectTo: 'collections/board-games',
