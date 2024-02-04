@@ -5,7 +5,7 @@
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <ng-container *ngIf="!isLoading">
-  <div class="content-container blog-post" *ngFor="let post of blogPosts">
+  <div class="blog-post" *ngFor="let post of blogPosts">
     <div class="blog-post-summary">
       <a [routerLink]="['blog', post.attributes.canonicalUrl]" class="">
         <h1 class="blog-post-title">{{ post.attributes.title }}</h1>
