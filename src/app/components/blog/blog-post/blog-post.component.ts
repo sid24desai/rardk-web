@@ -47,6 +47,7 @@ export class BlogPostComponent {
       .subscribe({
         next: (blogPost: BlogPost) => {
           if (!blogPost) {
+            this.router.navigate(['home']);
           }
           this.post = blogPost;
           this.isLoading = false;

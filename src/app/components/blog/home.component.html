@@ -1,6 +1,5 @@
 <div class="page-description-container">
   <div class="page-description-content">
-    <!-- <app-page-title [titleSize]="1">Hello!</app-page-title> -->
     <p class="page-description">
       I'm rardk64! I'm a Software Engineer. I write web applications,
       <a routerLink="/bots">Discord Bots</a>, and hopefully the occasional game.
@@ -17,18 +16,16 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <ng-container *ngIf="!isLoading">
   <div class="content-container blog-post" *ngFor="let post of blogPosts">
-    <a
-      [routerLink]="['blog', post.attributes.canonicalUrl]"
-      class="content-container-card external-post-box blog-post-summary"
-      ><div>
+    <div class="blog-post-summary">
+      <a [routerLink]="['blog', post.attributes.canonicalUrl]" class="">
         <h1 class="blog-post-title">{{ post.attributes.title }}</h1>
-        <p [html]="post.attributes.description">
-          {{ post.attributes.description }}
-        </p>
-        <app-date-display
-          [dateToDisplay]="getPublishedDate(post.attributes)"
-        ></app-date-display>
-      </div>
-    </a>
+      </a>
+      <p [html]="post.attributes.description">
+        {{ post.attributes.description }}
+      </p>
+      <app-date-display
+        [dateToDisplay]="getPublishedDate(post.attributes)"
+      ></app-date-display>
+    </div>
   </div>
 </ng-container>
