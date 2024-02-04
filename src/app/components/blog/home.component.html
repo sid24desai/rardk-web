@@ -18,7 +18,7 @@
 <ng-container *ngIf="!isLoading">
   <div class="content-container" *ngFor="let post of blogPosts">
     <a
-      [href]="'#'"
+      [routerLink]="['blog', post.attributes.canonicalUrl]"
       target="_blank"
       class="content-container-card external-post-box blog-post-summary"
       ><div>

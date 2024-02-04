@@ -13,4 +13,10 @@ export class BlogService {
   public getBlogPosts(): Observable<BlogPost[]> {
     return this.http.get<BlogPost[]>(`${environment.apiUrl}blog/postsV2`);
   }
+
+  public getBlogPost(canonicalUrl: string): Observable<BlogPost> {
+    return this.http.get<BlogPost>(
+      `${environment.apiUrl}blog/post?canonicalUrl=${canonicalUrl}`
+    );
+  }
 }
