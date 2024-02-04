@@ -16,10 +16,9 @@
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <ng-container *ngIf="!isLoading">
-  <div class="content-container" *ngFor="let post of blogPosts">
+  <div class="content-container blog-post" *ngFor="let post of blogPosts">
     <a
       [routerLink]="['blog', post.attributes.canonicalUrl]"
-      target="_blank"
       class="content-container-card external-post-box blog-post-summary"
       ><div>
         <h1 class="blog-post-title">{{ post.attributes.title }}</h1>
@@ -32,5 +31,4 @@
       </div>
     </a>
   </div>
-  <br />
 </ng-container>

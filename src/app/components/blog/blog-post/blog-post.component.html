@@ -6,7 +6,11 @@
       <app-date-display
         [dateToDisplay]="post.attributes.publishedAt"
       ></app-date-display>
-      <p [html]="post.attributes.content">{{ post.attributes.content }}</p>
+      <p
+        class="blog-post-content"
+        markdown
+        [data]="post.attributes.content"
+      ></p>
     </ng-container>
   </div>
 </div>

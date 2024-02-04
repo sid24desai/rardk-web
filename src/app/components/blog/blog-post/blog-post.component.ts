@@ -8,6 +8,11 @@ import { HtmlDirective } from '../../../directives/html.directive';
 import { DateDisplayComponent } from '../../shared/date-display/date-display.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf } from '@angular/common';
+import {
+  MarkdownComponent,
+  MarkdownModule,
+  provideMarkdown,
+} from 'ngx-markdown';
 
 @Component({
   selector: 'app-blog-post',
@@ -19,7 +24,9 @@ import { NgIf } from '@angular/common';
     MatProgressSpinnerModule,
     DateDisplayComponent,
     HtmlDirective,
+    MarkdownModule,
   ],
+  providers: [provideMarkdown()],
 })
 export class BlogPostComponent {
   public post: BlogPost;
@@ -54,25 +61,4 @@ export class BlogPostComponent {
         },
       });
   }
-
-  // private findAndSetBlogPost(blogPosts: BlogPost[], routeParams: ParamMap) {
-  //   const blogPost = blogPosts.find(
-  //     (p) => p.postId === routeParams.get('postId')
-  //   );
-  //   if (!blogPost) {
-  //     this.router.navigate(['blog']);
-  //     return;
-  //   }
-  //   this.post = blogPost;
-  //   this.meta.updateTag({ property: 'og:title', content: this.post.title });
-  //   this.meta.updateTag({
-  //     property: 'og:image',
-  //     content: '/assets/rarvatar.png',
-  //   });
-  //   this.meta.updateTag({ property: 'og:url', content: window.location.href });
-  //   this.meta.updateTag({
-  //     property: 'og:description',
-  //     content: this.post.summary,
-  //   });
-  // }
 }
