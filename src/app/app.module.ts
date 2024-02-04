@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NavbarComponent,
     HttpClientModule,
     MatTooltipModule,
+    MarkdownModule.forRoot(),
   ],
   providers: [
     {

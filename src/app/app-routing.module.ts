@@ -13,8 +13,11 @@ import { CallbackComponent } from './components/bots/callback/callback.component
 import { BotsComponent } from './components/bots/bots.component';
 import { VideoGamesComponent } from './components/collections/video-games/video-games.component';
 import { LinksComponent } from './components/links/links.component';
+import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
 
 const routes: Routes = [
+  { path: 'blog/:postId', component: BlogPostComponent },
+  // { path: 'blog', component: BlogComponent },
   {
     path: 'board-games',
     redirectTo: 'collections/board-games',

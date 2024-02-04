@@ -15,21 +15,20 @@
   </div>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<ng-container *ngFor="let post of blogPosts">
-  <div class="content-container">
+<ng-container *ngIf="!isLoading">
+  <div class="content-container blog-post" *ngFor="let post of blogPosts">
     <a
-      [href]="post.url"
-      target="_blank"
+      [routerLink]="['blog', post.attributes.canonicalUrl]"
       class="content-container-card external-post-box blog-post-summary"
       ><div>
-        <h1 class="blog-post-title">{{ post.title }}</h1>
-        <p [html]="post.summary">{{ post.summary }}</p>
-        <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
+        <h1 class="blog-post-title">{{ post.attributes.title }}</h1>
+        <p [html]="post.attributes.description">
+          {{ post.attributes.description }}
+        </p>
+        <app-date-display
+          [dateToDisplay]="getPublishedDate(post.attributes)"
+        ></app-date-display>
       </div>
     </a>
   </div>
-  <br />
 </ng-container>
-<div class="blog-link">
-  See more from <a href="/blog/" target="_blank">my blog</a>.
-</div>

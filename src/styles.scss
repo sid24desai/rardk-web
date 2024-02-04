@@ -16,6 +16,39 @@ $accent-color: #f28834;
 $max-width: 800px;
 $min-width: 370px;
 
+// for markdown in the blog post
+.blog-post-content {
+  img {
+    max-width: 100%;
+  }
+  figcaption {
+    font-size: 12px;
+    font-style: italic;
+    padding-bottom: 10px;
+  }
+  h1 {
+    font-size: 34px;
+    padding-top: 10px;
+  }
+
+  h2 {
+    font-size: 32px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .publish-date {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
 html,
 body {
   // background-color: rgb(17, 15, 17);

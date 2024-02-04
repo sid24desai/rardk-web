@@ -2,12 +2,15 @@
 <div class="content-container" *ngIf="!isLoading">
   <div class="content-container-card">
     <ng-container *ngIf="post">
-      <h1 class="card-title">{{ post.title }}</h1>
-      <app-date-display [dateToDisplay]="post.publishDate"></app-date-display>
-      <p [html]="post.content.toString()">{{ post.content }}</p>
-      <p class="wordpress-link-text">
-        <a [href]="post.url" target="_blank">Original Post on my WordPress</a>
-      </p>
+      <h1 class="card-title">{{ post.attributes.title }}</h1>
+      <app-date-display
+        [dateToDisplay]="post.attributes.publishedAt"
+      ></app-date-display>
+      <p
+        class="blog-post-content"
+        markdown
+        [data]="post.attributes.content"
+      ></p>
     </ng-container>
   </div>
 </div>

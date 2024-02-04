@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DateTime } from 'luxon';
 
 @Component({
-    selector: 'app-date-display',
-    templateUrl: './date-display.component.html',
-    styleUrl: './date-display.component.scss',
-    standalone: true,
+  selector: 'app-date-display',
+  templateUrl: './date-display.component.html',
+  styleUrl: './date-display.component.scss',
+  standalone: true,
 })
 export class DateDisplayComponent implements OnInit {
   @Input() dateToDisplay: string;
@@ -13,14 +13,9 @@ export class DateDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.dateToDisplay) {
-      const easternDate = DateTime.fromFormat(
-        this.dateToDisplay,
-        'MM/dd/yyyy TT ZZ',
-        {
-          zone: 'America/New_York',
-        }
-      );
-      this.formattedDate = easternDate.toLocaleString(DateTime.DATE_HUGE);
+      this.formattedDate = DateTime.fromJSDate(
+        new Date(this.dateToDisplay)
+      ).toLocaleString(DateTime.DATE_HUGE);
     }
   }
 }

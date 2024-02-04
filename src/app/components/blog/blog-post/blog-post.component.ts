@@ -2,25 +2,27 @@ import { Component } from '@angular/core';
 import { BlogPost } from 'src/app/models/blog-post';
 import { BlogService } from '../../../services/blog.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { combineLatest } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { take, switchMap } from 'rxjs/operators';
 import { Meta } from '@angular/platform-browser';
 import { HtmlDirective } from '../../../directives/html.directive';
 import { DateDisplayComponent } from '../../shared/date-display/date-display.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf } from '@angular/common';
+import { MarkdownModule, provideMarkdown } from 'ngx-markdown';
 
 @Component({
-    selector: 'app-blog-post',
-    templateUrl: './blog-post.component.html',
-    styleUrl: './blog-post.component.scss',
-    standalone: true,
-    imports: [
-        NgIf,
-        MatProgressSpinnerModule,
-        DateDisplayComponent,
-        HtmlDirective,
-    ],
+  selector: 'app-blog-post',
+  templateUrl: './blog-post.component.html',
+  styleUrl: './blog-post.component.scss',
+  standalone: true,
+  imports: [
+    NgIf,
+    MatProgressSpinnerModule,
+    DateDisplayComponent,
+    HtmlDirective,
+    MarkdownModule,
+  ],
+  providers: [provideMarkdown()],
 })
 export class BlogPostComponent {
   public post: BlogPost;
@@ -35,47 +37,24 @@ export class BlogPostComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    combineLatest([this.blogService.getBlogPosts(), this.route.paramMap])
+    this.route.paramMap
       .pipe(
         take(1),
-        map(([blogPosts, routeParams]) => {
-          {
-            return {
-              blogPosts: blogPosts,
-              routeParams: routeParams,
-            };
-          }
-        })
+        switchMap((routeParams: ParamMap) =>
+          this.blogService.getBlogPost(routeParams.get('postId')!)
+        )
       )
       .subscribe({
-        next: (result: { blogPosts: BlogPost[]; routeParams: ParamMap }) => {
-          this.findAndSetBlogPost(result.blogPosts, result.routeParams);
+        next: (blogPost: BlogPost) => {
+          if (!blogPost) {
+          }
+          this.post = blogPost;
           this.isLoading = false;
         },
         error: (error) => {
           console.error(error);
+          this.isLoading = false;
         },
       });
-  }
-
-  private findAndSetBlogPost(blogPosts: BlogPost[], routeParams: ParamMap) {
-    const blogPost = blogPosts.find(
-      (p) => p.postId === routeParams.get('postId')
-    );
-    if (!blogPost) {
-      this.router.navigate(['blog']);
-      return;
-    }
-    this.post = blogPost;
-    this.meta.updateTag({ property: 'og:title', content: this.post.title });
-    this.meta.updateTag({
-      property: 'og:image',
-      content: '/assets/rarvatar.png',
-    });
-    this.meta.updateTag({ property: 'og:url', content: window.location.href });
-    this.meta.updateTag({
-      property: 'og:description',
-      content: this.post.summary,
-    });
   }
 }
