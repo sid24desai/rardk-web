@@ -25,26 +25,31 @@ $min-width: 370px;
   }
 
   figcaption {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
     padding-bottom: 10px;
   }
 
   h2 {
     font-size: 32px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    // padding-top: 20px;
+    // padding-bottom: 20px;
   }
 
   h3 {
     font-size: 24px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    // padding-top: 15px;
+    // padding-bottom: 15px;
   }
 
   .publish-date {
     font-size: 12px;
     text-align: center;
+  }
+
+  p {
+    margin-block-start: 8px;
+    margin-block-end: 8px;
   }
 }
 

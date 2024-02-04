@@ -1,17 +1,20 @@
 <div class="page-description-container">
   <div class="page-description-content">
     <app-page-title [titleSize]="1">Links</app-page-title>
-    <p>Just some links that I found interesting and wanted to share.</p>
+    <p>Various links I found interesting enough to share.</p>
   </div>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<ng-container *ngFor="let post of links">
-  <div class="content-container">
-    <div class="content-container-card external-post-box">
-      <div>
-        <p [html]="post.content_html">{{ post.content_html }}</p>
-      </div>
+<ng-container *ngIf="!isLoading">
+  <div class="post" *ngFor="let link of links">
+    <div class="post-summary">
+      <p>
+        {{ link.description }}
+      </p>
+      <p>
+        <a [href]="link.link" target="_blank">{{ link.title }}</a>
+      </p>
+      <app-date-display [dateToDisplay]="link.dateShared"></app-date-display>
     </div>
   </div>
-  <br />
 </ng-container>
