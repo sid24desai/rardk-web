@@ -1,9 +1,11 @@
 <div class="page-description-container">
   <div class="page-description-content">
-    <app-page-title [titleSize]="1">Time Zone Selector for TimeZoneBot</app-page-title>
+    <app-page-title [titleSize]="1"
+      >Time Zone Selector for TimeZoneBot</app-page-title
+    >
     <p>
       Find your time zone below and click "Set" to set it as your time zone.
-      Alternatively, click the copy <mat-icon>file_copy</mat-icon> button to
+      Alternatively, click the copy <i class="fa-solid fa-copy"></i> button to
       copy the time zone ID and use it with TimeZoneBot's
       <code>/set-time-zone</code> command.
     </p>
@@ -79,7 +81,7 @@
               [disableRipple]="true"
               (click)="copyTimeZone(timeZone.id)"
             >
-              <mat-icon>file_copy</mat-icon>
+              <i class="fa-solid fa-copy"></i>
             </button>
           </td>
           <td>

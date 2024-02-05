@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BlogPost } from 'src/app/models/blog-post';
 import { BlogService } from '../../../services/blog.service';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { take, switchMap } from 'rxjs/operators';
 import { Meta } from '@angular/platform-browser';
 import { HtmlDirective } from '../../../directives/html.directive';
@@ -21,6 +21,7 @@ import { MarkdownModule, provideMarkdown } from 'ngx-markdown';
     DateDisplayComponent,
     HtmlDirective,
     MarkdownModule,
+    RouterLink,
   ],
   providers: [provideMarkdown()],
 })
