@@ -121,7 +121,7 @@
             [disabled]="indexOfReplies == 0"
             (click)="movePriority('up', replyDefinition)"
           >
-            <mat-icon>arrow_upward</mat-icon>
+            <i class="fa-solid fa-arrow-up"></i>
           </button>
           <button
             class="priority-button primary action button"
@@ -130,7 +130,7 @@
             [disabled]="indexOfReplies == filteredReplyDefinitions.length - 1"
             (click)="movePriority('down', replyDefinition)"
           >
-            <mat-icon>arrow_downward</mat-icon>
+            <i class="fa-solid fa-arrow-down"></i>
           </button>
         </div>
 

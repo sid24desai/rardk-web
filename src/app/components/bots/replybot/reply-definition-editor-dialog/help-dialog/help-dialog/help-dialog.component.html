@@ -85,11 +85,10 @@
         <div class="keyword-name">
           {{ keyword.keyword }}
           <button
-            class="copy-button"
-            mat-icon-button
+            class="copy-button action-button secondary action button"
             [cdkCopyToClipboard]="keyword.keyword"
           >
-            <mat-icon>file_copy</mat-icon>
+            <i class="fa-solid fa-copy"></i>
           </button>
         </div>
 

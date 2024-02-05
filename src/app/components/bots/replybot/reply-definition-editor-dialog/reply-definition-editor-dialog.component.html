@@ -8,7 +8,7 @@
       matTooltip="Click here for a detailed outline of this editor"
       (click)="openHelpDialog()"
     >
-      <mat-icon>help</mat-icon>
+      <i class="fa-solid fa-circle-info"></i>
     </button>
   </h1>
 
@@ -37,7 +37,7 @@
           matTooltip="Remove this trigger"
           (click)="removeTrigger(i)"
         >
-          <mat-icon>close</mat-icon>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </mat-form-field>
     </div>
@@ -68,7 +68,7 @@
         matTooltip="The IDs of the only channels in your server where you want this trigger to apply. If none
     are specified, this will trigger server-wide."
       >
-        <mat-icon>help</mat-icon>
+        <i class="fa-solid fa-circle-info"></i>
       </button>
     </h2>
     <div class="channel-ids-description"></div>
@@ -89,7 +89,7 @@
           matTooltip="Remove this Channel ID"
           (click)="removeChannelId(i)"
         >
-          <mat-icon>close</mat-icon>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </mat-form-field>
     </div>
@@ -113,7 +113,7 @@
         matTooltip="The IDs of the only users to whom you want this trigger to apply. If none
   are specified, this will trigger for everyone."
       >
-        <mat-icon>help</mat-icon>
+        <i class="fa-solid fa-circle-info"></i>
       </button>
     </h2>
     <div *ngFor="let userId of userIds; let i = index; trackBy: trackByFn">
@@ -131,7 +131,7 @@
           matTooltip="Remove this User ID"
           (click)="removeUserId(i)"
         >
-          <mat-icon>close</mat-icon>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </mat-form-field>
     </div>
@@ -166,7 +166,7 @@
           color="warn"
           (click)="removeReply(i)"
         >
-          <mat-icon>close</mat-icon>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </mat-form-field>
     </div>
@@ -208,7 +208,7 @@
           matTooltip="Remove this Reaction"
           (click)="removeReaction(i)"
         >
-          <mat-icon>close</mat-icon>
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </mat-form-field>
     </div>
