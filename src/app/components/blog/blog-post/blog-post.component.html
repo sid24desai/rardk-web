@@ -3,14 +3,8 @@
   <div class="content-container-card">
     <ng-container *ngIf="post">
       <h1 class="card-title">{{ post.attributes.title }}</h1>
-      <app-date-display
-        [dateToDisplay]="post.attributes.publishedAt"
-      ></app-date-display>
-      <p
-        class="blog-post-content"
-        markdown
-        [data]="post.attributes.content"
-      ></p>
+      <app-date-display [dateToDisplay]="post.attributes.publishedAt"></app-date-display>
+      <p class="blog-post-content" markdown [data]="post.attributes.content"></p>
     </ng-container>
   </div>
 </div>

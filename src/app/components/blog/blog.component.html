@@ -1,6 +1,6 @@
 <div class="page-description-container">
   <div class="page-description-content">
-    <app-page-title [titleSize]="2">{{ pageTitle }}</app-page-title>
+    <app-page-title [titleSize]="1">{{ pageTitle }}</app-page-title>
   </div>
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
@@ -13,9 +13,7 @@
       <p>
         {{ post.attributes.description }}
       </p>
-      <app-date-display
-        [dateToDisplay]="getPublishedDate(post.attributes)"
-      ></app-date-display>
+      <app-date-display [dateToDisplay]="getPublishedDate(post.attributes)"></app-date-display>
     </div>
   </div>
 </ng-container>
