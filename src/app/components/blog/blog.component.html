@@ -13,9 +13,7 @@
       <p>
         {{ post.attributes.description }}
       </p>
-      <app-date-display
-        [dateToDisplay]="getPublishedDate(post.attributes)"
-      ></app-date-display>
+      <app-date-display [dateToDisplay]="getPublishedDate(post.attributes)"></app-date-display>
     </div>
   </div>
 </ng-container>

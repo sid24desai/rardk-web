@@ -2,8 +2,8 @@
   <div class="page-description-content">
     <app-page-title [titleSize]="1">Discord Bots</app-page-title>
     <p>
-      These are my Discord bots. You can configure some of them using the
-      Settings button. You will need to be logged in with your Discord account.
+      These are my Discord bots. You can configure some of them using the Settings button. You will
+      need to be logged in with your Discord account.
     </p>
     <app-login-actions></app-login-actions>
   </div>
@@ -23,8 +23,7 @@
           <a
             (click)="showMessageIfNotLoggedIn()"
             *ngIf="bot.isConfigurable"
-            [routerLink]="bot.controlPanelLink"
-          >
+            [routerLink]="bot.controlPanelLink">
             <div class="button bot-button-link settings">Settings</div>
           </a>
           <a [href]="bot.gitHubLink" target="_blank" *ngIf="bot.gitHubLink">

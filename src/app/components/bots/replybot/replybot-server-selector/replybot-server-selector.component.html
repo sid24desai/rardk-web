@@ -10,8 +10,7 @@
       <a
         class="guild-item-link"
         *ngFor="let guild of discordGuilds"
-        [href]="'/bots/replybot/reply-definitions?guildId=' + guild.id"
-      >
+        [href]="'/bots/replybot/reply-definitions?guildId=' + guild.id">
         <div class="guild-item">
           <img class="icon-img" [src]="guild.iconUrl" [alt]="guild.name" />
           <span class="guild-name">{{ guild.name }}</span>

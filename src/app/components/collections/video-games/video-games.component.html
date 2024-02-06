@@ -12,9 +12,9 @@
         <mat-label>Select a Platform</mat-label>
         <mat-select [(ngModel)]="selectedPlatform">
           @for (platform of availablePlatforms; track platform) {
-          <mat-option [value]="platform.name"
-            >{{ platform.name }} ({{ platform.gameCount }} games)</mat-option
-          >
+          <mat-option [value]="platform.name">
+            {{ platform.name }} ({{ platform.gameCount }} games)
+          </mat-option>
           }
         </mat-select>
       </mat-form-field>
@@ -24,16 +24,10 @@
       *ngFor="
         let platformGrouping of gameCollectionItemsGrouped | keyvalue;
         let platformIndex = index
-      "
-    >
-      <table
-        class="set-table"
-        *ngIf="platformGrouping.key === selectedPlatform"
-      >
+      ">
+      <table class="set-table" *ngIf="platformGrouping.key === selectedPlatform">
         <th>Game</th>
-        <tr
-          *ngFor="let gameCollectionItem of sortGames(platformGrouping.value)"
-        >
+        <tr *ngFor="let gameCollectionItem of sortGames(platformGrouping.value)">
           <td>
             {{ gameCollectionItem.title }}
           </td>
