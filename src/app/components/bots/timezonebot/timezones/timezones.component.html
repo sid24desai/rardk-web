@@ -25,12 +25,10 @@
           <mat-label>Select a Filter</mat-label>
           <mat-select
             [(ngModel)]="selectedFilter"
-            (selectionChange)="filterTimeZones()"
-          >
+            (selectionChange)="filterTimeZones()">
             <mat-option
               *ngFor="let filter of timeZoneFilterOptions"
-              [value]="filter"
-            >
+              [value]="filter">
               {{ filter }}
             </mat-option>
           </mat-select>
@@ -41,8 +39,7 @@
             [(ngModel)]="filterText"
             (input)="filterTimeZones()"
             matInput
-            placeholder="Ex. Toronto"
-          />
+            placeholder="Ex. Toronto" />
         </mat-form-field>
         <div class="clear-filter-button" *ngIf="selectedFilter || filterText">
           <button class="tertiary action button" (click)="clearFilter()">
@@ -76,19 +73,15 @@
           </td>
           <td>
             <button
-              class="copy-button"
-              mat-icon-button
-              [disableRipple]="true"
-              (click)="copyTimeZone(timeZone.id)"
-            >
+              class="icon action button"
+              (click)="copyTimeZone(timeZone.id)">
               <i class="fa-solid fa-copy"></i>
             </button>
           </td>
           <td>
             <button
               class="primary action button set-button"
-              (click)="setTimeZone(timeZone.id)"
-            >
+              (click)="setTimeZone(timeZone.id)">
               Set
             </button>
           </td>

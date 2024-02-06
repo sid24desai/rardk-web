@@ -287,6 +287,24 @@ a:visited {
   color: #ffffff;
 }
 
+.button.icon {
+  background-color: transparent;
+  color: #000000;
+  border: none;
+}
+
+.button.icon:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.button.icon:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.button.icon.red {
+  color: rgb(224, 47, 34);
+}
+
 /* footer */
 .footer {
   margin-top: 40px;

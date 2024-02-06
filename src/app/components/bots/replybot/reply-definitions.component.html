@@ -10,7 +10,7 @@
     <div class="navigation-button-section">
       <a [routerLink]="['/bots/replybot']">
         <div class="back-button secondary action button">
-          ⬅️ Back to Server List
+          <i class="fa-solid fa-arrow-left"></i> Back to Server List
         </div>
       </a>
     </div>
@@ -33,7 +33,7 @@
         class="add-guild-reply-definition-button secondary action button"
         (click)="addFromClipboard()"
       >
-        Create From Clipboard 📋
+        Create From Clipboard <i class="fa-solid fa-paste"></i>
       </button>
     </div>
     <div
@@ -313,7 +313,7 @@
                 class="guild-reply-definition-action-button secondary action button"
                 (click)="copyJsonToClipboard(replyDefinition)"
               >
-                Copy to Clipboard 📋
+                Copy to Clipboard <i class="fa-solid fa-copy"></i>
               </button>
             </div>
             <div class="guild-reply-definition-actions">
@@ -348,7 +348,7 @@
         class="add-guild-reply-definition-button secondary action button"
         (click)="addFromClipboard()"
       >
-        Create From Clipboard 📋
+        Create From Clipboard <i class="fa-solid fa-paste"></i>
       </button>
     </div>
   </div>

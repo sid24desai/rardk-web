@@ -9,6 +9,7 @@ import { DateTime } from 'luxon';
 })
 export class DateDisplayComponent implements OnInit {
   @Input() dateToDisplay: string;
+  @Input() labelText: string;
   public formattedDate: string;
 
   ngOnInit(): void {

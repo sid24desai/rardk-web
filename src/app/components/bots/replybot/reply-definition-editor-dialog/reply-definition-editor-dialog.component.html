@@ -2,13 +2,11 @@
   <h1>
     {{ dialogData.id ? "Editing" : "Creating" }} Reply Definition
     <button
-      class="info-icon-button"
-      mat-icon-button
-      [disableRipple]="true"
+      class="icon action button"
       matTooltip="Click here for a detailed outline of this editor"
       (click)="openHelpDialog()"
     >
-      <i class="fa-solid fa-circle-info"></i>
+      <i class="fa-solid fa-circle-question"></i>
     </button>
   </h1>
 
@@ -30,10 +28,8 @@
         <mat-label>Trigger Text</mat-label>
         <input matInput placeholder="Trigger Text" [(ngModel)]="triggers[i]" />
         <button
-          mat-icon-button
-          [disableRipple]="true"
+          class="icon red action button"
           matSuffix
-          color="warn"
           matTooltip="Remove this trigger"
           (click)="removeTrigger(i)"
         >
@@ -46,7 +42,7 @@
         class="action-button secondary action button"
         (click)="addTrigger()"
       >
-        + Add Trigger
+        <i class="fa-solid fa-plus"></i> Add Trigger
       </button>
     </div>
     <div class="input-section">
@@ -62,9 +58,7 @@
     <h2>
       Specific Channels
       <button
-        class="info-icon-button"
-        mat-icon-button
-        [disableRipple]="true"
+        class="icon action button"
         matTooltip="The IDs of the only channels in your server where you want this trigger to apply. If none
     are specified, this will trigger server-wide."
       >
@@ -82,10 +76,8 @@
         <mat-label>Channel ID</mat-label>
         <input matInput placeholder="Channel ID" [(ngModel)]="channelIds[i]" />
         <button
-          mat-icon-button
-          [disableRipple]="true"
+          class="icon red action button"
           matSuffix
-          color="warn"
           matTooltip="Remove this Channel ID"
           (click)="removeChannelId(i)"
         >
@@ -98,7 +90,7 @@
         class="action-button secondary action button"
         (click)="addChannelId()"
       >
-        + Add Channel ID
+        <i class="fa-solid fa-plus"></i> Add Channel ID
       </button>
     </div>
   </div>
@@ -107,9 +99,7 @@
     <h2>
       Specific Users
       <button
-        class="info-icon-button"
-        mat-icon-button
-        [disableRipple]="true"
+        class="icon action button"
         matTooltip="The IDs of the only users to whom you want this trigger to apply. If none
   are specified, this will trigger for everyone."
       >
@@ -124,10 +114,8 @@
         <mat-label>User ID</mat-label>
         <input matInput placeholder="User ID" [(ngModel)]="userIds[i]" />
         <button
-          mat-icon-button
-          [disableRipple]="true"
+          class="icon red action button"
           matSuffix
-          color="warn"
           matTooltip="Remove this User ID"
           (click)="removeUserId(i)"
         >
@@ -140,7 +128,7 @@
         class="action-button secondary action button"
         (click)="addUserId()"
       >
-        + Add User ID
+        <i class="fa-solid fa-plus"></i> Add User ID
       </button>
     </div>
   </div>
@@ -160,10 +148,8 @@
           [maxlength]="maxReplyLength"
         ></textarea>
         <button
-          mat-icon-button
-          [disableRipple]="true"
+          class="icon red action button"
           matSuffix
-          color="warn"
           (click)="removeReply(i)"
         >
           <i class="fa-solid fa-xmark"></i>
@@ -201,10 +187,8 @@
           [(ngModel)]="reactions[i]"
         />
         <button
-          mat-icon-button
-          [disableRipple]="true"
+          class="icon red action button"
           matSuffix
-          color="warn"
           matTooltip="Remove this Reaction"
           (click)="removeReaction(i)"
         >
@@ -217,7 +201,7 @@
         class="action-button secondary action button"
         (click)="addReaction()"
       >
-        + Add Reaction
+        <i class="fa-solid fa-plus"></i> Add Reaction
       </button>
     </div>
   </div>
