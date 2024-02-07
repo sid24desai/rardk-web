@@ -51,6 +51,10 @@ export class BlogPostComponent {
       return `<a href="${href}" target="_blank">${text}</a>`;
     };
 
+    this.markdownService.renderer.image = (href: string, title: string, text: string) => {
+      return `<a href="${href}" target="_blank" title="${text}"><img src="${href}" alt="${text}" /></a>`;
+    };
+
     this.isLoading = true;
     this.route.paramMap
       .pipe(
