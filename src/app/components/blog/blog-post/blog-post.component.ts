@@ -8,7 +8,7 @@ import { HtmlDirective } from '../../../directives/html.directive';
 import { DateDisplayComponent } from '../../shared/date-display/date-display.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf } from '@angular/common';
-import { MarkdownModule, provideMarkdown } from 'ngx-markdown';
+import { MarkdownModule, provideMarkdown, MarkdownService } from 'ngx-markdown';
 
 @Component({
   selector: 'app-blog-post',
@@ -33,10 +33,24 @@ export class BlogPostComponent {
     private blogService: BlogService,
     private route: ActivatedRoute,
     private router: Router,
-    private meta: Meta
+    private meta: Meta,
+    private markdownService: MarkdownService
   ) {}
 
   ngOnInit() {
+    this.markdownService.renderer.heading = (text: string, level: number) => {
+      const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+      return `<h${level}><a name="${escapedText}" class="anchor" href="#${escapedText}"><span class="header-link"></span></a>${text}</h${level}>`;
+    };
+
+    this.markdownService.renderer.link = (
+      href: string,
+      title: string | null | undefined,
+      text: string
+    ): string => {
+      return `<a href="${href}" target="_blank">${text}</a>`;
+    };
+
     this.isLoading = true;
     this.route.paramMap
       .pipe(
