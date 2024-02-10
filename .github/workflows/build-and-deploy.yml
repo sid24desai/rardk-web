@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: angular-build
-          path: "./dist/"
+          path: "./dist/browser"
       - name: ⬆️ Upload Files
         uses: maverage/FTP-Deploy-Action@v4.3.5
         with:
