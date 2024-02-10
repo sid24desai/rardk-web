@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: angular-build
-          path: "./dist/rardk-web/browser/"
+          path: "./dist/rardk-web/browser"
   deploy:
     name: 🚀 Deploy via FTP
     needs: [build]
@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: angular-build
-          path: "./dist/rardk-web/browser/"
+          path: "./dist/rardk-web/browser"
       - name: ⬆️ Upload Files
         uses: maverage/FTP-Deploy-Action@v4.3.5
         with:
