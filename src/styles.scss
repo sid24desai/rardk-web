@@ -75,6 +75,16 @@ h1 {
   margin-block-start: 0px;
 }
 
+h2 {
+  margin-block-start: 0px;
+  margin-block-end: 4px;
+}
+
+h3 {
+  margin-block-start: 0px;
+  margin-block-end: 4px;
+}
+
 ::selection {
   background-color: $font-color;
   text-shadow: none;
