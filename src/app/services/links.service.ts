@@ -8,7 +8,7 @@ import { Link } from '../models/link';
 })
 export class LinksService {
   private linksUrl: string =
-    'https://raw.githubusercontent.com/rarDevelopment/rardk-web-json-files/main/links.json';
+    'https://rardk.com/json/links.json';
 
   constructor(private http: HttpClient) {}
 
