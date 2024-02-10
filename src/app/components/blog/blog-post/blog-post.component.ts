@@ -69,6 +69,7 @@ export class BlogPostComponent {
             this.router.navigate(['home']);
           }
           this.post = blogPost;
+          this.setMeta(blogPost);
           this.isLoading = false;
         },
         error: (error) => {
@@ -76,5 +77,18 @@ export class BlogPostComponent {
           this.isLoading = false;
         },
       });
+  }
+
+  setMeta(blogPost: BlogPost) {
+    this.meta.updateTag({ property: 'og:title', content: blogPost.attributes.title });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: '/assets/rarvatar.png',
+    });
+    this.meta.updateTag({ property: 'og:url', content: this.router.url });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: blogPost.attributes.description,
+    });
   }
 }

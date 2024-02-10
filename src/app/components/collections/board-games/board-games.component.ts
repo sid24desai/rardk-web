@@ -6,6 +6,7 @@ import { micromark } from 'micromark';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgIf, NgFor } from '@angular/common';
 import { PageTitleComponent } from '../../shared/page-title/page-title.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-board-games',
@@ -15,7 +16,7 @@ import { PageTitleComponent } from '../../shared/page-title/page-title.component
   imports: [PageTitleComponent, NgIf, MatProgressSpinnerModule, NgFor],
 })
 export class BoardGamesComponent implements OnInit {
-  constructor(private boardGamesService: BoardGamesService) {}
+  constructor(private boardGamesService: BoardGamesService, private router: Router) {}
 
   public wishlistGames: BoardGame[];
   public ownedGames: BoardGame[];
@@ -47,7 +48,7 @@ export class BoardGamesComponent implements OnInit {
         error: (error) => {
           console.error('Error loading wishlist', error);
           setTimeout(() => {
-            window.location.reload();
+            this.router.navigate([this.router.url]);
           }, 2000);
         },
       });
@@ -59,15 +60,13 @@ export class BoardGamesComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (boardGames: BoardGame[]) => {
-          this.ownedGames = boardGames.map((g) =>
-            this.formatGameProperties(g, false)
-          );
+          this.ownedGames = boardGames.map((g) => this.formatGameProperties(g, false));
           this.isLoadingOwnedList = false;
         },
         error: (error) => {
           console.error('Error loading owned list', error);
           setTimeout(() => {
-            window.location.reload();
+            this.router.navigate([this.router.url]);
           }, 2000);
         },
       });
@@ -76,9 +75,9 @@ export class BoardGamesComponent implements OnInit {
   private formatGameProperties(g: BoardGame, showPriority: boolean) {
     let formattedGame = g;
     if (showPriority) {
-      formattedGame.comment = `Priority: ${
-        formattedGame.priority
-      }\n\n${this.formatComment(formattedGame.comment)}`;
+      formattedGame.comment = `Priority: ${formattedGame.priority}\n\n${this.formatComment(
+        formattedGame.comment
+      )}`;
     } else {
       if (formattedGame.comment && formattedGame.comment.length > 0) {
         formattedGame.comment = this.formatComment(formattedGame.comment);
