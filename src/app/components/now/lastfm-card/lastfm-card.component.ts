@@ -7,11 +7,11 @@ import { LastfmService } from './lastfm.service';
 import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-    selector: 'app-lastfm-card',
-    templateUrl: './lastfm-card.component.html',
-    styleUrls: ['./lastfm-card.component.scss'],
-    standalone: true,
-    imports: [FeedPostersComponent],
+  selector: 'app-lastfm-card',
+  templateUrl: './lastfm-card.component.html',
+  styleUrls: ['./lastfm-card.component.scss'],
+  standalone: true,
+  imports: [FeedPostersComponent],
 })
 export class LastfmCardComponent {
   public isTopAlbumsLoading: boolean;
@@ -28,13 +28,13 @@ export class LastfmCardComponent {
   ngOnInit() {
     this.isTopAlbumsLoading = true;
     this.isTopArtistsLoading = true;
-    this.populateTopAlbums();
-    this.populateTopArtists();
+    this.populateTopAlbums('1month');
+    this.populateTopArtists('1month');
   }
 
-  public async populateTopAlbums() {
+  public async populateTopAlbums(period: string) {
     this.lastfmService
-      .getTopAlbums(this.numberOfAlbumsToShow)
+      .getTopAlbums(this.numberOfAlbumsToShow, period)
       .pipe(take(1))
       .subscribe({
         next: (result: LastfmAlbum[]) => {
@@ -55,9 +55,9 @@ export class LastfmCardComponent {
       });
   }
 
-  public async populateTopArtists() {
+  public async populateTopArtists(period: string) {
     this.lastfmService
-      .getTopArtists(this.numberOfArtistsToShow)
+      .getTopArtists(this.numberOfArtistsToShow, period)
       .pipe(take(1))
       .subscribe({
         next: (result: LastfmArtist[]) => {

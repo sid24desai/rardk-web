@@ -11,15 +11,15 @@ import { LastfmArtist } from '../../../models/lastfm/lastfm-artist';
 export class LastfmService {
   constructor(private http: HttpClient) {}
 
-  getTopAlbums(limit: number): Observable<LastfmAlbum[]> {
+  getTopAlbums(limit: number, period: string): Observable<LastfmAlbum[]> {
     return this.http.get<LastfmAlbum[]>(
-      `${environment.apiUrl}now/lastfm/topalbums?limit=${limit}`
+      `${environment.apiUrl}now/lastfm/topalbums?limit=${limit}&period=${period}`
     );
   }
 
-  getTopArtists(limit: number): Observable<LastfmArtist[]> {
+  getTopArtists(limit: number, period: string): Observable<LastfmArtist[]> {
     return this.http.get<LastfmArtist[]>(
-      `${environment.apiUrl}now/lastfm/topartists?limit=${limit}`
+      `${environment.apiUrl}now/lastfm/topartists?limit=${limit}&period=${period}`
     );
   }
 }
