@@ -15,6 +15,7 @@ import { VideoGamesComponent } from './components/collections/video-games/video-
 import { LinksComponent } from './components/links/links.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { FeedsComponent } from './components/feeds/feeds.component';
 
 const routes: Routes = [
   { path: 'blog/:postId', component: BlogPostComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'collections/lego', component: LegoSetsComponent },
   { path: 'now', component: NowComponent },
   { path: 'links', component: LinksComponent },
+  { path: 'feeds', component: FeedsComponent },
   { path: 'collections', component: CollectionsComponent },
   {
     path: 'bots/timezonebot',
