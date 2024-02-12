@@ -1,54 +1,54 @@
-name: 🛠️ Build and Deploy Website
-on:
-  push:
-    branches:
-      - main
+# name: 🛠️ Build and Deploy Website
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    name: "🛠️ Build Angular Application"
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     name: "🛠️ Build Angular Application"
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+#     steps:
+#       - uses: actions/checkout@v4
 
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+#       - name: Cache node modules
+#         uses: actions/cache@v4
+#         with:
+#           path: ~/.npm
+#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-node-
 
-      - name: Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.13.x
+#       - name: Node
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 18.13.x
 
-      - name: npm ci and npm run build
-        run: |
-          npm ci
-          npm run build:ssr
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: angular-build
-          path: "./dist/rardk-web/browser"
-  deploy:
-    name: 🚀 Deploy via FTP
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: angular-build
-          path: "./dist/rardk-web/browser"
-      - name: ⬆️ Upload Files
-        uses: maverage/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.ftp_host }}
-          username: ${{ secrets.ftp_user }}
-          password: ${{ secrets.ftp_password }}
-          local-dir: "./dist/rardk-web/browser/"
-          server-dir: "public_html/"
+#       - name: npm ci and npm run build
+#         run: |
+#           npm ci
+#           npm run build:ssr
+#       - name: upload artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: angular-build
+#           path: "./dist/rardk-web/browser"
+#   deploy:
+#     name: 🚀 Deploy via FTP
+#     needs: [build]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: download artifact
+#         uses: actions/download-artifact@v4
+#         with:
+#           name: angular-build
+#           path: "./dist/rardk-web/browser"
+#       - name: ⬆️ Upload Files
+#         uses: maverage/FTP-Deploy-Action@v4.3.5
+#         with:
+#           server: ${{ secrets.ftp_host }}
+#           username: ${{ secrets.ftp_user }}
+#           password: ${{ secrets.ftp_password }}
+#           local-dir: "./dist/rardk-web/browser/"
+#           server-dir: "public_html/"
