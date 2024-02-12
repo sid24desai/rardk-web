@@ -16,7 +16,7 @@
   "private": true,
   "engines":{
     "node": ">=18.0.0"
-    }
+    },
   "dependencies": {
     "@angular/animations": "^17.1.0",
     "@angular/cdk": "^17.0.3",
