@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LegoSetsService {
   private setsUrl: string =
-    'https://rardk.com/json/lego-sets.json';
+    'https://raw.githubusercontent.com/rarDevelopment/rardk-web-json-files/main/lego-sets.json';
 
   constructor(private http: HttpClient) {}
 
