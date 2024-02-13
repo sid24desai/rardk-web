@@ -41,7 +41,6 @@ export class LinkPostComponent implements OnInit {
       .subscribe({
         next: (result: { links: Link[]; routeParams: ParamMap }) => {
           this.findAndSetLink(result.links, result.routeParams);
-          this.isLoading = false;
         },
         error: (error) => {
           console.error(error);
@@ -55,5 +54,6 @@ export class LinkPostComponent implements OnInit {
       this.router.navigate(['links']);
     }
     this.link = foundLink!;
+    this.isLoading = false;
   }
 }
