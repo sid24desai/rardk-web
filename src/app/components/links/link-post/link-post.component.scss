@@ -1,0 +1,21 @@
+.post {
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.post:nth-child(even) {
+  border-top: 2px dotted rgb(41, 41, 41);
+  border-bottom: 2px dotted rgb(41, 41, 41);
+}
+
+.post:last-child {
+  border-bottom: 2px dotted rgb(41, 41, 41);
+}
+
+.post-summary {
+  max-width: 700px;
+  text-align: center;
+}

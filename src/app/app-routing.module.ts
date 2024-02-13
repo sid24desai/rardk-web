@@ -16,10 +16,13 @@ import { LinksComponent } from './components/links/links.component';
 import { BlogPostComponent } from './components/blog/blog-post/blog-post.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
+import { LinkPostComponent } from './components/links/link-post/link-post.component';
 
 const routes: Routes = [
   { path: 'blog/:postId', component: BlogPostComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'links/:slug', component: LinkPostComponent },
+  { path: 'links', component: LinksComponent },
   {
     path: 'board-games',
     redirectTo: 'collections/board-games',
@@ -35,7 +38,6 @@ const routes: Routes = [
   { path: 'collections/video-games', component: VideoGamesComponent },
   { path: 'collections/lego', component: LegoSetsComponent },
   { path: 'now', component: NowComponent },
-  { path: 'links', component: LinksComponent },
   { path: 'feeds', component: FeedsComponent },
   { path: 'collections', component: CollectionsComponent },
   {
