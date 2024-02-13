@@ -1,7 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HtmlDirective } from 'src/app/directives/html.directive';
-import { SafeHtmlPipe } from 'src/app/pipes/safe-html.pipe';
 import { PageTitleComponent } from '../shared/page-title/page-title.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LinksService } from 'src/app/services/links.service';
@@ -14,7 +13,6 @@ import { DateDisplayComponent } from '../shared/date-display/date-display.compon
   standalone: true,
   imports: [
     NgFor,
-    SafeHtmlPipe,
     HtmlDirective,
     PageTitleComponent,
     NgIf,
@@ -40,9 +38,7 @@ export class LinksComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (linksResponse) => {
-          this.links = linksResponse.sort((l1, l2) =>
-            l1.dateShared > l2.dateShared ? -1 : 1
-          );
+          this.links = linksResponse.sort((l1, l2) => (l1.dateShared > l2.dateShared ? -1 : 1));
           this.isLoading = false;
         },
         error: (error) => {

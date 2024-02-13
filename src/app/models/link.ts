@@ -3,4 +3,5 @@ export class Link {
   public description: string;
   public link: string;
   public dateShared: string;
+  public slug: string;
 }
