@@ -335,14 +335,23 @@ a:visited {
   margin-bottom: 10px;
 }
 
-.external-post-box {
-  // font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000000;
-  max-width: 500px;
-  background-color: rgba(164, 39, 214, 0.506);
-  color: white;
+.mastodon-color {
+  color: #6364ff;
+  fill: #6364ff;
+}
+
+.mastodon-icon,
+.bluesky-icon {
+  margin-right: 4px;
+}
+
+.bluesky-icon {
+  width: 16px;
+}
+
+.bluesky-color {
+  color: #0285ff;
+  fill: #0285ff;
 }
 
 @media screen and (min-width: 0px) and (max-width: 767px) {
