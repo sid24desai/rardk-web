@@ -9,6 +9,6 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule)
   .catch((err) => console.error(err));
 
-bootstrapApplication(AppComponent, {
-  providers: [provideHttpClient(withFetch())],
-});
+// bootstrapApplication(AppComponent, {
+//   providers: [provideHttpClient(withFetch())],
+// });

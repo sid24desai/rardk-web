@@ -2,21 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DiscussionPostsResponse } from '../models/discussion-posts-response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DiscussionPostsService {
-  private discussionBlogPostsUrl: string = `${environment.jsonFileUrl}social-finder/discussion-blog-posts.json`;
-  private discussionLinksPostsUrl: string = `${environment.jsonFileUrl}social-finder/discussion-links-posts.json`;
+  private discussionBlogPostsUrl: string = `${environment.apiUrl}now/json/discussion-blog-posts`;
+  private discussionLinksPostsUrl: string = `${environment.apiUrl}now/json/discussion-links`;
 
   constructor(private http: HttpClient) {}
 
-  public getDiscussionPostsForBlog(): Observable<any> {
-    return this.http.get<any>(this.discussionBlogPostsUrl);
+  public getDiscussionPostsForBlog(): Observable<DiscussionPostsResponse> {
+    return this.http.get<DiscussionPostsResponse>(this.discussionBlogPostsUrl);
   }
 
-  public getDiscussionPostsForLinks(): Observable<any> {
-    return this.http.get<any>(this.discussionLinksPostsUrl);
+  public getDiscussionPostsForLinks(): Observable<DiscussionPostsResponse> {
+    return this.http.get<DiscussionPostsResponse>(this.discussionLinksPostsUrl);
   }
 }
