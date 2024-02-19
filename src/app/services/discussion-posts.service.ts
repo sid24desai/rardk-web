@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class DiscussionPostsService {
-  private discussionBlogPostsUrl: string = `${environment.jsonFileUrl}social-finder/discussion-blog-posts.json`;
-  private discussionLinksPostsUrl: string = `${environment.jsonFileUrl}social-finder/discussion-links-posts.json`;
+  private discussionBlogPostsUrl: string = `${environment.apiUrl}now/json/discussion-blog-posts`;
+  private discussionLinksPostsUrl: string = `${environment.apiUrl}now/json/discussion-links`;
 
   constructor(private http: HttpClient) {}
 

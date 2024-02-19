@@ -6,5 +6,4 @@ export const environment = {
   apiUrl: 'https://rardk64-bot-api.com/api/',
   githubUsername: 'rarDevelopment',
   isSocialEnabled: true,
-  jsonFileUrl: 'https://rardk64.com/json/'
 };

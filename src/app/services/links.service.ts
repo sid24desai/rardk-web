@@ -8,8 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class LinksService {
-  private linksUrl: string =
-    `${environment.jsonFileUrl}links.json`;
+  private linksUrl: string = `${environment.apiUrl}now/json/links`;
 
   constructor(private http: HttpClient) {}
 
