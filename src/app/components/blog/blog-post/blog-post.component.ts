@@ -7,13 +7,10 @@ import { Meta } from '@angular/platform-browser';
 import { HtmlDirective } from '../../../directives/html.directive';
 import { DateDisplayComponent } from '../../shared/date-display/date-display.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { MarkdownModule, provideMarkdown, MarkdownService } from 'ngx-markdown';
+import { SocialMediaDiscussionComponent } from '../../shared/social-media-discussion/social-media-discussion.component';
 import { DiscussionPostsService } from 'src/app/services/discussion-posts.service';
-import { MastodonStatusFull } from 'src/app/models/mastodon/mastodon-status-full';
-import { BlueskyPostFull } from 'src/app/models/bluesky-post-full';
-import { SafeHtmlPipe } from 'src/app/pipes/safe-html.pipe';
-import { PostToDisplay } from 'src/app/models/post-to-display';
 
 @Component({
   selector: 'app-blog-post',
@@ -27,18 +24,16 @@ import { PostToDisplay } from 'src/app/models/post-to-display';
     HtmlDirective,
     MarkdownModule,
     RouterLink,
-    NgFor,
-    SafeHtmlPipe,
-    HtmlDirective,
+    SocialMediaDiscussionComponent,
   ],
   providers: [provideMarkdown()],
 })
 export class BlogPostComponent {
   public post: BlogPost;
   public isLoading: boolean;
-  mastodonPosts: PostToDisplay[] = [];
-  blueskyPosts: PostToDisplay[] = [];
-  bskyUrl: string = 'rardk64.com';
+  public discussionMethod = this.discussionPostsService.getDiscussionPostsForBlog.bind(
+    this.discussionPostsService
+  );
 
   constructor(
     private blogService: BlogService,
@@ -89,52 +84,6 @@ export class BlogPostComponent {
           this.isLoading = false;
         },
       });
-
-    this.getDiscussionForPost();
-  }
-
-  getDiscussionForPost() {
-    this.discussionPostsService.getDiscussionPostsForBlog().subscribe({
-      next: (discussion) => {
-        const blogPostDiscussion = discussion[this.router.url];
-        if (blogPostDiscussion.mastodon) {
-          blogPostDiscussion.mastodon.forEach((post: MastodonStatusFull) => {
-            const postToDisplay = {
-              likes: post.favourites_count,
-              shares: post.reblogs_count,
-              comments: post.replies_count,
-              content: post.content,
-              url: post.url,
-              commentsUrl: post.url,
-              likesUrl: `${post.url}/favourites`,
-              sharesUrl: `${post.url}/reblogs`,
-            } as PostToDisplay;
-            this.mastodonPosts.push(postToDisplay);
-          });
-        }
-        if (blogPostDiscussion.bluesky) {
-          blogPostDiscussion.bluesky.forEach((post: BlueskyPostFull) => {
-            const splitUri = post.uri.split('/');
-            const postId = splitUri[splitUri.length - 1];
-            const bskyUrl = `https://bsky.app/profile/${this.bskyUrl}/post/${postId}`;
-            const postToDisplay = {
-              likes: -1,
-              shares: -1,
-              comments: -1,
-              content: post.value.text,
-              url: bskyUrl,
-              commentsUrl: bskyUrl,
-              likesUrl: `${bskyUrl}/liked-by`,
-              sharesUrl: `${bskyUrl}/reposted-by`,
-            } as PostToDisplay;
-            this.blueskyPosts.push(postToDisplay);
-          });
-        }
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
   }
 
   setMeta(blogPost: BlogPost) {
