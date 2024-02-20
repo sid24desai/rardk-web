@@ -6,8 +6,8 @@
 </div>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
 <ng-container *ngIf="!isLoading">
-  <div class="post" *ngFor="let link of links">
-    <div class="post-summary">
+  <div class="repeating-post" *ngFor="let link of links">
+    <div class="repeating-post-summary">
       <p>
         {{ link.description }}
       </p>
