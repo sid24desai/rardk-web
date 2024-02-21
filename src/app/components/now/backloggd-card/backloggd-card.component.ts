@@ -18,7 +18,7 @@ export class BackloggdCardComponent {
   public reviewsFeedItems: FeedItem[];
   public currentGamesFeedItems: FeedItem[];
   private numberOfCurrentGamesToList = 5;
-  private numberOfFinishedGamesToList = 10;
+  private numberOfFinishedGamesToList = 5;
   isRecentlyFinishedGamesError: boolean;
   isCurrentGamesError: boolean;
 
