@@ -210,13 +210,13 @@ a:visited {
   }
 
   h2 {
-    font-size: 32px;
+    font-size: 28px;
     margin-block-start: 15px;
     margin-block-end: 4px;
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 22px;
     margin-block-start: 15px;
     margin-block-end: 4px;
   }
@@ -387,11 +387,30 @@ a:visited {
     display: none;
   }
   .content-container-card {
-    padding-left: 10px;
-    padding-right: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
     font-size: 15px;
-    width: 90%;
+    // width: 90%;
     margin: 0 auto;
+    max-width: 370px;
+
+    border: none;
+
+    background-color: transparent;
+    color: $font-color;
+    box-shadow: none;
+  }
+  .content-container-card:nth-child(odd) {
+    border-top: 2px dotted rgb(51, 51, 51);
+    border-bottom: 2px dotted rgb(51, 51, 51);
+  }
+
+  .content-container-card:last-child {
+    border-bottom: 2px dotted rgb(51, 51, 51);
+  }
+  .content-container-card a,
+  .content-container-card a:visited {
+    color: $link-blue;
   }
 }
 
