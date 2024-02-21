@@ -19,8 +19,8 @@ import { FeedsComponent } from './components/feeds/feeds.component';
 import { LinkPostComponent } from './components/links/link-post/link-post.component';
 
 const routes: Routes = [
-  { path: 'blog/:postId', component: BlogPostComponent },
-  { path: 'blog', component: BlogComponent },
+  { path: 'blog/:postId', pathMatch: 'full', component: BlogPostComponent },
+  { path: 'blog', pathMatch: 'full', component: BlogComponent },
   { path: 'links/:slug', component: LinkPostComponent },
   { path: 'links', component: LinksComponent },
   {
