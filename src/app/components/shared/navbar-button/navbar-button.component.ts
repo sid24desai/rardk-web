@@ -15,6 +15,9 @@ export class NavbarButtonComponent {
   constructor(private router: Router) {}
 
   public isCurrentPage() {
-    return this.router.url === this.urlPath;
+    if (this.urlPath === '/') {
+      return this.router.url === this.urlPath;
+    }
+    return this.router.url.startsWith(this.urlPath);
   }
 }

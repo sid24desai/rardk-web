@@ -15,7 +15,7 @@ $accent-color: #f28834;
 
 $link-blue: #0285ff;
 
-$max-width: 800px;
+$max-width: 750px;
 $min-width: 370px;
 
 html,
@@ -68,7 +68,7 @@ h3 {
 .page-description-content {
   text-align: center;
   width: 70%;
-  max-width: $max-width - 150px;
+  max-width: $max-width - 50px;
   min-width: $min-width;
 }
 
@@ -199,6 +199,11 @@ a:visited {
     padding-bottom: 10px;
   }
 
+  blockquote {
+    border: 1px dashed #6d6d6d;
+    padding: 10px;
+  }
+
   h1 {
     margin-block-start: 18px;
     margin-block-end: 4px;
@@ -243,7 +248,8 @@ a:visited {
   background-color: #ffffff;
 }
 
-.button:hover {
+.button:hover,
+.button.selected {
   background-color: #f28834;
 }
 
