@@ -10,11 +10,9 @@ import { environment } from 'src/environments/environment';
 export class SerializdService {
   constructor(private http: HttpClient) {}
 
-  getSerializdCurrentlyWatchingItems(
-    limit: number
-  ): Observable<SerializdCurrentlyWatchingItem[]> {
+  getSerializdCurrentlyWatchingItems(): Observable<SerializdCurrentlyWatchingItem[]> {
     return this.http.get<SerializdCurrentlyWatchingItem[]>(
-      `${environment.apiUrl}now/serializd/currentlywatching?limit=${limit}`
+      `${environment.apiUrl}now/json/now-current-tv`
     );
   }
 }
