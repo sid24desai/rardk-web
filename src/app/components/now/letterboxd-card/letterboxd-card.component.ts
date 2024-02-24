@@ -6,11 +6,11 @@ import { LetterboxdService } from './letterboxd.service';
 import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-    selector: 'app-letterboxd-card',
-    templateUrl: './letterboxd-card.component.html',
-    styleUrls: ['./letterboxd-card.component.scss'],
-    standalone: true,
-    imports: [FeedPostersComponent],
+  selector: 'app-letterboxd-card',
+  templateUrl: './letterboxd-card.component.html',
+  styleUrls: ['./letterboxd-card.component.scss'],
+  standalone: true,
+  imports: [FeedPostersComponent],
 })
 export class LetterboxdCardComponent {
   public isLoading: boolean;
@@ -27,11 +27,11 @@ export class LetterboxdCardComponent {
 
   public async populateLetterboxdItems() {
     this.letterboxdService
-      .getLetterboxdFeed(this.numberOfMoviesToList)
+      .getLetterboxdFeed()
       .pipe(take(1))
       .subscribe({
         next: (result: LetterboxdItem[]) => {
-          this.feedItems = result.map((m) => {
+          let items = result.map((m) => {
             return {
               title: m.title,
               summary: m.summary,
@@ -42,6 +42,10 @@ export class LetterboxdCardComponent {
               url: m.url,
             } as FeedItem;
           });
+          if (this.numberOfMoviesToList > 0) {
+            items = items.slice(0, this.numberOfMoviesToList);
+          }
+          this.feedItems = items;
           this.isLoading = false;
         },
         error: (error) => {

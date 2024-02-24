@@ -6,11 +6,11 @@ import { take } from 'rxjs';
 import { FeedPostersComponent } from '../../shared/feed-posters/feed-posters.component';
 
 @Component({
-    selector: 'app-goodreads-card',
-    templateUrl: './goodreads-card.component.html',
-    styleUrls: ['./goodreads-card.component.scss'],
-    standalone: true,
-    imports: [FeedPostersComponent],
+  selector: 'app-goodreads-card',
+  templateUrl: './goodreads-card.component.html',
+  styleUrls: ['./goodreads-card.component.scss'],
+  standalone: true,
+  imports: [FeedPostersComponent],
 })
 export class GoodreadsCardComponent {
   public isFinishedBooksLoading: boolean;
@@ -30,10 +30,10 @@ export class GoodreadsCardComponent {
 
   public async populateFinishedBooksItems() {
     this.goodreadsService
-      .getGoodreadsFinishedBooksFeed(this.numberOfBooksToList)
+      .getGoodreadsFinishedBooksFeed()
       .pipe(take(1))
       .subscribe((result: GoodreadsItem[]) => {
-        this.finishedBooksFeedItems = result.map((m) => {
+        let items = result.map((m) => {
           return {
             title: m.title,
             summary: m.summary,
@@ -42,16 +42,20 @@ export class GoodreadsCardComponent {
             url: m.url,
           } as FeedItem;
         });
+        if (this.numberOfBooksToList > 0) {
+          items = items.slice(0, this.numberOfBooksToList);
+        }
+        this.finishedBooksFeedItems = items;
         this.isFinishedBooksLoading = false;
       });
   }
 
   public async populateCurrentlyReadingBooksItems() {
     this.goodreadsService
-      .getGoodreadsCurrentlyReadingBooksFeed(this.numberOfBooksToList)
+      .getGoodreadsCurrentlyReadingBooksFeed()
       .pipe(take(1))
       .subscribe((result: GoodreadsItem[]) => {
-        this.currentlyReadingBooksFeedItems = result.map((m) => {
+        let items = result.map((m) => {
           return {
             title: m.title,
             summary: m.summary,
@@ -59,6 +63,10 @@ export class GoodreadsCardComponent {
             url: m.url,
           } as FeedItem;
         });
+        if (this.numberOfBooksToList > 0) {
+          items = items.slice(0, this.numberOfBooksToList);
+        }
+        this.currentlyReadingBooksFeedItems = items;
         this.isCurrentlyReadingLoading = false;
       });
   }
