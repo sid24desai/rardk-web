@@ -28,17 +28,17 @@ export class LastfmCardComponent {
   ngOnInit() {
     this.isTopAlbumsLoading = true;
     this.isTopArtistsLoading = true;
-    this.populateTopAlbums('1month');
-    this.populateTopArtists('1month');
+    this.populateTopAlbums();
+    this.populateTopArtists();
   }
 
-  public async populateTopAlbums(period: string) {
+  public async populateTopAlbums() {
     this.lastfmService
-      .getTopAlbums(this.numberOfAlbumsToShow, period)
+      .getTopAlbums()
       .pipe(take(1))
       .subscribe({
         next: (result: LastfmAlbum[]) => {
-          this.topAlbumFeedItems = result.map((album) => {
+          let items = result.map((album) => {
             const imageUrl = (album as any).image.pop()['#text'];
             return {
               title: album.name,
@@ -46,6 +46,10 @@ export class LastfmCardComponent {
               url: album.url,
             } as FeedItem;
           });
+          if (this.numberOfAlbumsToShow > 0) {
+            items = items.slice(0, this.numberOfAlbumsToShow);
+          }
+          this.topAlbumFeedItems = items;
           this.isTopAlbumsLoading = false;
         },
         error: (error) => {
@@ -55,18 +59,22 @@ export class LastfmCardComponent {
       });
   }
 
-  public async populateTopArtists(period: string) {
+  public async populateTopArtists() {
     this.lastfmService
-      .getTopArtists(this.numberOfArtistsToShow, period)
+      .getTopArtists()
       .pipe(take(1))
       .subscribe({
         next: (result: LastfmArtist[]) => {
-          this.topArtistFeedItems = result.map((artist) => {
+          let items = result.map((artist) => {
             return {
               title: artist.name,
               url: artist.url,
             } as FeedItem;
           });
+          if (this.numberOfArtistsToShow > 0) {
+            items = items.slice(0, this.numberOfArtistsToShow);
+          }
+          this.topArtistFeedItems = items;
           this.isTopArtistsLoading = false;
         },
         error: (error) => {
