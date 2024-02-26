@@ -10,9 +10,8 @@
     "test": "ng test",
     "dev:ssr": "ng run rardk-web:serve-ssr",
     "serve:ssr": "node dist/rardk-web/server/main.js",
-    "prerender": "ng run rardk-web:prerender",
-    "build:ssr": "ng build --prod && ng run your-app-name:server",
-    "build:server": "ng run your-app-name:server:production"
+    "build:ssr": "ng build && ng run rardk-web:server",
+    "prerender": "ng run rardk-web:prerender"  
   },
   "private": true,
   "engines": {
